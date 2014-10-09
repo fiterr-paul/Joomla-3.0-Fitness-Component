@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_fitness</name>
+    <creationDate>2014-10-07</creationDate>
+    <copyright>LIVE FIT LIVE LEAN PTY LTY © 2014. All rights reserved</copyright>
+    <license>GNU General Public License</license>
+    <author>Nikolay Korban</author>
+    <authorEmail>npkorban@mail.ru</authorEmail>
+    <authorUrl>http://</authorUrl>
+    <version>1.0.0</version>
+    <description></description>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>fitness.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>assets</folder>
+    </files>
+    <languages folder="site">
+        
+			<language tag="en-GB">language/en-GB/en-GB.com_fitness.ini</language>
+    </languages>
+    <administration>
+        <menu img="components/com_fitness/assets/images/s_com_fitness.png" >COM_FITNESS</menu>
+        <submenu>
+            <menu link="option=com_fitness&amp;view=dashboard" view="dashboard"  img="" >COM_FITNESS_TITLE_DASHBOARD</menu>
+            
+            <menu link="option=com_fitness&amp;view=clients" view="clients" img="" >COM_FITNESS_TITLE_PROFILES</menu>
+            
+            <menu link="option=com_fitness&amp;view=client_summary" view="client_summary" img="" >COM_FITNESS_TITLE_CLIENT_OVERVIEW</menu>
+            
+            <menu link="option=com_fitness&amp;view=goals" view="goals" img="" >COM_FITNESS_TITLE_CLIENT_PLANNING</menu>
+            
+            <menu link="option=com_fitness&amp;view=assessments" view="assessments" img="" >COM_FITNESS_TITLE_ASSESSMENTS</menu>
+            
+            <menu link="option=com_fitness&amp;view=client_progress" view="client_progress" img="" >COM_FITNESS_TITLE_CLIENT_PROGRESS</menu>
+            
+            <menu link="option=com_multicalendar&amp;view=admin&amp;task=admin" view="calendar" img="" >COM_FITNESS_TITLE_CALENDAR</menu>
+            
+            <menu link="option=com_fitness&amp;view=programs" view="programs" img="" >COM_FITNESS_TITLE_PROGRAMS</menu>
+            
+            <menu link="option=com_fitness&amp;view=programs_templates" view="programs_templates" img="" >COM_FITNESS_TITLE_PROGRAM_TEMPLATES</menu>
+            
+            <menu link="option=com_fitness&amp;view=exercise_library" view="exercise_library" img="" >COM_FITNESS_TITLE_EXERCISE_LIBRARY </menu>
+            
+            <menu link="option=com_fitness&amp;view=nutrition_plans" view="nutrition_plans" img="" >COM_FITNESS_TITLE_NUTRITION_PLANS</menu>
+
+            <menu link="option=com_fitness&amp;view=nutrition_diaries" view="nutrition_diaries" img="" >COM_FITNESS_TITLE_NUTRITION_DIARY</menu>
+            
+            <menu link="option=com_fitness&amp;view=nutrition_recipes" view="nutrition_recipes" img="" >COM_FITNESS_TITLE_RECIPE_DATABASE</menu>
+            
+            <menu link="option=com_fitness&amp;view=nutritiondatabases" view="nutritiondatabases" img="" >COM_FITNESS_TITLE_NUTRITION_DATABASE</menu>
+            
+            <menu link="option=com_fitness&amp;view=settings" view="settings" img="" >COM_FITNESS_TITLE_SETTINGS</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>fitness.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+            <folder>language</folder>
+        </files>
+        <languages folder="administrator">
+            
+			<language tag="en-GB">language/en-GB/en-GB.com_fitness.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_fitness.sys.ini</language>
+        </languages>
+    </administration>
+    <plugins>
+        <plugin group="search" plugin="fitness"/>
+    </plugins>
+    
+</extension>
