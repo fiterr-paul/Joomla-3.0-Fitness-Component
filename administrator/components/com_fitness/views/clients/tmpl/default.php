@@ -11,6 +11,8 @@
 // no direct access
 defined('_JEXEC') or die;
 
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS .'tmpl' . DS . 'main_menu.php'; 
+
 JHtml::_('behavior.tooltip');
 JHTML::_('script','system/multiselect.js',false,true);
 // Import CSS
@@ -28,6 +30,8 @@ require_once  JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_fitness' . DS 
 
 $helper = new FitnessHelper();
 ?>
+
+
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&view=clients'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">

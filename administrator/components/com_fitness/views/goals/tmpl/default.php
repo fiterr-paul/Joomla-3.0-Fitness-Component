@@ -8,7 +8,7 @@
  */
 // no direct access
 defined('_JEXEC') or die;
-
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS .'tmpl' . DS . 'main_menu.php'; 
 require_once  JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_fitness' . DS .'helpers' . DS . 'fitness.php';
 
 $user_id = JFactory::getUser()->id;

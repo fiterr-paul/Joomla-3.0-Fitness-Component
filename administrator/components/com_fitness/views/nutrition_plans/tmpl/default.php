@@ -1,4 +1,5 @@
 <?php
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS .'tmpl' . DS . 'main_menu.php'; 
 $user = &JFactory::getUser();
 
 require_once  JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_fitness' . DS .'helpers' . DS . 'fitness.php';

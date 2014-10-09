@@ -10,7 +10,7 @@
 
 // no direct access
 defined('_JEXEC') or die;
-
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS .'tmpl' . DS . 'main_menu.php'; 
 JHtml::_('behavior.tooltip');
 JHTML::_('script','system/multiselect.js',false,true);
 // Import CSS

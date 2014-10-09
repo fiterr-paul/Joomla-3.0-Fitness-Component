@@ -8,6 +8,8 @@
  */
 // no direct access
 defined('_JEXEC') or die;
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS .'tmpl' . DS . 'main_menu.php'; 
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS .'tmpl' . DS . 'main_menu.php'; 
 ?>
 <div id="header_wrapper"></div>
 <div class="clr"></div>
