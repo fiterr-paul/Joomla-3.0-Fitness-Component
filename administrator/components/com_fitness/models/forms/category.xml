@@ -15,7 +15,7 @@
          required="true" 
         filter="safehtml" /> 
 
-       <field name="color" type="text" size="40" class="inputbox"
+       <field name="color" type="color" size="40" class="inputbox"
         
             label="COM_FITNESS_FORM_LBL_CATEGORY_COLOR"
             description="COM_FITNESS_FORM_DESC_CATEGORY_COLOR" 

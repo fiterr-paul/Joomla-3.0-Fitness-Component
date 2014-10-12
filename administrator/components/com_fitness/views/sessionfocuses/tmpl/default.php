@@ -26,61 +26,67 @@ $saveOrder	= $listOrder == 'a.ordering';
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&view=sessionfocuses'); ?>" method="post" name="adminForm" id="adminForm">
-	<fieldset id="filter-bar">
-		<div class="filter-search fltlft">
-			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
-			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('Search'); ?>" />
-			<button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
-		</div>
-		
-        
-		<div class='filter-select fltrt'>
-			<select name="filter_published" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
-				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), "value", "text", $this->state->get('filter.state'), true);?>
-			</select>
-		</div>
-            
-                <?php
-                $db = JFactory::getDbo();
-                $sql = "SELECT id, name FROM #__fitness_categories WHERE state='1'";
-                $db->setQuery($sql);
-                if(!$db->query()) {
-                    JError::raiseError($db->getErrorMsg());
-                }
-                $categories = $db->loadObjectList();
-                ?>
+    <div  class="container-fluid well">
 
-                <div class='filter-select fltrt'>
-			<select name="filter_category" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('-Category-');?></option>
-				<?php echo JHtml::_('select.options', $categories, "id", "name", $this->state->get('filter.category'), true);?>
-			</select>
-		</div>
-            
-                <?php
-                $db = JFactory::getDbo();
-                $sql = "SELECT  id,  name FROM #__fitness_session_type WHERE state='1' GROUP BY name";
-                $db->setQuery($sql);
-                if(!$db->query()) {
-                    JError::raiseError($db->getErrorMsg());
-                }
-                $session_type= $db->loadObjectList();
-                ?>
+        <div class="row-fluid">
 
-                <div class='filter-select fltrt'>
-			<select name="filter_session_type" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('-Session type-');?></option>
-				<?php echo JHtml::_('select.options', $session_type, "id", "name", $this->state->get('filter.session_type'), true);?>
-			</select>
-		</div>
+            <div class="span12">
+                <input placeholder="Name" class="search-query" type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('Search'); ?>" />
+                <button class="btn btn-primary" type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
+                <button class="btn btn-default" type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+            </div>
+        </div>
+        <br/>
+        <div class="row-fluid">
 
+            <?php
+            $db = JFactory::getDbo();
+            $sql = "SELECT id, name FROM #__fitness_categories WHERE state='1'";
+            $db->setQuery($sql);
+            if (!$db->query()) {
+                JError::raiseError($db->getErrorMsg());
+            }
+            $categories = $db->loadObjectList();
+            ?>
 
-	</fieldset>
+            <div class="span3">
+                <select name="filter_category" class="selectpicker" onchange="this.form.submit()">
+                    <option value=""><?php echo JText::_('-Category-'); ?></option>
+                    <?php echo JHtml::_('select.options', $categories, "id", "name", $this->state->get('filter.category'), true); ?>
+                </select>
+            </div>
+
+            <?php
+            $db = JFactory::getDbo();
+            $sql = "SELECT  id,  name FROM #__fitness_session_type WHERE state='1' GROUP BY name";
+            $db->setQuery($sql);
+            if (!$db->query()) {
+                JError::raiseError($db->getErrorMsg());
+            }
+            $session_type = $db->loadObjectList();
+            ?>
+
+            <div class="span3">
+                <select name="filter_session_type" class="selectpicker" onchange="this.form.submit()">
+                    <option value=""><?php echo JText::_('-Appointment type-'); ?></option>
+                    <?php echo JHtml::_('select.options', $session_type, "id", "name", $this->state->get('filter.session_type'), true); ?>
+                </select>
+            </div>
+
+            <div class="span3">
+                <select name="filter_published" class="form-control" onchange="this.form.submit()">
+                    <option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?></option>
+                    <?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), "value", "text", $this->state->get('filter.state'), true); ?>
+                </select>
+            </div>
+        </div>
+    </div>
+    
 	<div class="clr"> </div>
+        
+        <div id="j-main-container" class="well">
 
-	<table class="adminlist">
+	<table class="table table-striped" id="sessionfocusList">
 		<thead>
 			<tr>
 				<th width="1%">
@@ -198,6 +204,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+        </div>
 
 	<div>
 		<input type="hidden" name="task" value="" />

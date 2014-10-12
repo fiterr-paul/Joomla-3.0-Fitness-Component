@@ -133,8 +133,7 @@ class FitnessModelsessiontypes extends JModelList {
             } else {
                 $search = $db->Quote('%' . $db->escape($search, true) . '%');
                 $query->where('( a.name LIKE '.$search.' 
-                    OR  a.category_id LIKE '.$search. '
-                    OR  c.name LIKE '.$search.' )');
+                )');
             }
         }
 

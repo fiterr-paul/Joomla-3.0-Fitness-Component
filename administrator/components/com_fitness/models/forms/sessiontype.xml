@@ -8,7 +8,7 @@
 
        <field name="name" type="text" size="40" class="inputbox"
         
-            label="COM_FITNESS_FORM_LBL_SESSIONTYPE_NAME"
+            label="Name"
             description="COM_FITNESS_FORM_DESC_SESSIONTYPE_NAME" 
          default="" 
         

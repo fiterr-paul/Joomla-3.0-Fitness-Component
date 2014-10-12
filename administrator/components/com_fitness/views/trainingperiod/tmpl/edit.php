@@ -20,27 +20,28 @@ $helper = new FitnessHelper();
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="trainingperiod-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_TRAININGPERIOD'); ?></legend>
-            <ul class="adminformlist">
-                <li>
-                    <?php
-                    echo $this->form->getLabel('business_profile_id');
-       
-                    echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id, '', true, "required");
-                    ?>
-                </li>
-                <li><?php echo $this->form->getLabel('name'); ?>
-                    <?php echo $this->form->getInput('name'); ?></li>
-                <li><?php echo $this->form->getLabel('color'); ?>
-                    <?php echo $this->form->getInput('color'); ?></li>
-                <li><?php echo $this->form->getLabel('state'); ?>
-                    <?php echo $this->form->getInput('state'); ?></li>
+    <div class="form-horizontal">
+         <div class="row-fluid">
+            <div class="span10 form-horizontal">
+            <fieldset class="adminform">
+                <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('business_profile_id'); ?></div>
+                        <div class="controls"><?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id, '', true, "required");?></div>
+                </div>
+                <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('name'); ?></div>
+                </div>
+                <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('color'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('color'); ?></div>
+                </div>
+                <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                </div>
 
-
-            </ul>
-        </fieldset>
+            </fieldset>
     </div>
 
 

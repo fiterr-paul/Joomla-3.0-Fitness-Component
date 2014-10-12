@@ -59,7 +59,7 @@ class FitnessViewCategories extends JViewLegacy
 		$state	= $this->get('State');
 		$canDo	= FitnessHelper::getActions($state->get('filter.category_id'));
 
-		JToolBarHelper::title(JText::_('COM_FITNESS_TITLE_CATEGORIES'), 'categories.png');
+		JToolBarHelper::title(JText::_('Appointment Categories'), 'categories.png');
                 
                 if(!FitnessHelper::is_superuser(JFactory::getUser()->id)){
                     return;

@@ -12,25 +12,32 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
-
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="category-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_CATEGORY'); ?></legend>
-            <ul class="adminformlist">
-                <li><?php echo $this->form->getLabel('name'); ?>
-                <?php echo $this->form->getInput('name'); ?></li>
-                <li><?php echo $this->form->getLabel('color'); ?>
-                <?php echo $this->form->getInput('color'); ?></li>
-                <li><?php echo $this->form->getLabel('state'); ?>
-                <?php echo $this->form->getInput('state'); ?></li>
-            </ul>
-        </fieldset>
+    <div class="form-horizontal">
+        <div class="row-fluid">
+            <div class="span10 form-horizontal">
+                <fieldset class="adminform">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('name'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('color'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('color'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                    </div>
+
+
+                </fieldset>
+            </div>
+        </div>
     </div>
 
-    
 
     <input type="hidden" name="task" value="" />
     <?php echo JHtml::_('form.token'); ?>
@@ -45,18 +52,17 @@ JHtml::_('behavior.keepalive');
 </form>
 
 <script type="text/javascript">
-    
-    (function($) {
+
+    (function ($) {
 
 
-        $("#calendarcolor").colorselect({ title: i18n.dcmvcal.color, index: cv, hiddenid: "colorvalue",colors:<?php echo json_encode($palette);?>,paletteDefault:"<?php echo $_GET["paletteDefault"];?>" });
-
-        Joomla.submitbutton = function(task)
+        
+        Joomla.submitbutton = function (task)
         {
             if (task == 'category.cancel') {
                 Joomla.submitform(task, document.getElementById('category-form'));
             }
-            else{
+            else {
 
                 if (task != 'category.cancel' && document.formvalidator.isValid(document.id('category-form'))) {
 
@@ -69,7 +75,7 @@ JHtml::_('behavior.keepalive');
         }
 
     })($js);
-    
 
-        
+
+
 </script>

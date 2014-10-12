@@ -144,9 +144,7 @@ class FitnessModelsessionfocuses extends JModelList {
             } else {
                 $search = $db->Quote('%' . $db->escape($search, true) . '%');
                 $query->where('( a.name LIKE '.$search.'  OR  a.category_id LIKE '.$search.' 
-                    OR  a.session_type_id LIKE '.$search. '
-                    OR  c.name LIKE '.$search.' 
-                    OR  t.name LIKE '.$search.' )');
+                 )');
             }
         }
 

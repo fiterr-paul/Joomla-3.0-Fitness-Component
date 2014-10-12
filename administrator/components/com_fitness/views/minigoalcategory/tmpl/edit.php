@@ -13,35 +13,36 @@ JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
 
-require_once  JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_fitness' . DS .'helpers' . DS . 'fitness.php';
+require_once JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_fitness' . DS . 'helpers' . DS . 'fitness.php';
 
 $helper = new FitnessHelper();
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="minigoalcategory-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_MINIGOALCATEGORY'); ?></legend>
-            <ul class="adminformlist">
-                <li>
-                    <?php
-                    echo $this->form->getLabel('business_profile_id');
-       
-                    echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id, '', true, "required");
-                    ?>
-                </li>
-
-                <li><?php echo $this->form->getLabel('name'); ?>
-                <?php echo $this->form->getInput('name'); ?></li>
-                <li><?php echo $this->form->getLabel('state'); ?>
-                <?php echo $this->form->getInput('state'); ?></li>
-
-
-            </ul>
-        </fieldset>
+    <div class="form-horizontal">
+        <div class="row-fluid">
+            <div class="span10 form-horizontal">
+                <fieldset class="adminform">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('business_profile_id'); ?></div>
+                        <div class="controls"><?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id, '', true, "required"); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('name'); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                    </div>
+                    
+                </fieldset>
+            </div>
+        </div>
     </div>
 
-    
 
     <input type="hidden" name="task" value="" />
     <?php echo JHtml::_('form.token'); ?>
@@ -56,29 +57,29 @@ $helper = new FitnessHelper();
 </form>
 
 <script type="text/javascript">
-    
-    (function($) {
+
+    (function ($) {
 
 
-         Joomla.submitbutton = function(task)
-            {
-                if (task == 'minigoalcategory.cancel') {
+        Joomla.submitbutton = function (task)
+        {
+            if (task == 'minigoalcategory.cancel') {
+                Joomla.submitform(task, document.getElementById('minigoalcategory-form'));
+            }
+            else {
+
+                if (task != 'minigoalcategory.cancel' && document.formvalidator.isValid(document.id('minigoalcategory-form'))) {
+
                     Joomla.submitform(task, document.getElementById('minigoalcategory-form'));
                 }
-                else{
-                    
-                    if (task != 'minigoalcategory.cancel' && document.formvalidator.isValid(document.id('minigoalcategory-form'))) {
-                        
-                        Joomla.submitform(task, document.getElementById('minigoalcategory-form'));
-                    }
-                    else {
-                        alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED')); ?>');
-                    }
+                else {
+                    alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED')); ?>');
                 }
             }
+        }
 
     })($js);
-    
 
-        
+
+
 </script>
