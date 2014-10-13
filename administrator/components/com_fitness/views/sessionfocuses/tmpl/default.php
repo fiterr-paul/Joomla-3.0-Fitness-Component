@@ -84,7 +84,9 @@ $saveOrder	= $listOrder == 'a.ordering';
     
 	<div class="clr"> </div>
         
-        <div id="j-main-container" class="well">
+        <?php include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . 'tmpl' . DS . 'left_menu.php'; ?>
+
+<div id="j-main-container" class="well span10">
 
 	<table class="table table-striped" id="sessionfocusList">
 		<thead>

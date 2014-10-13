@@ -20,42 +20,46 @@ $helper = new FitnessHelper();
 
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="client-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_CLIENT'); ?></legend>
-            <ul class="adminformlist">
-                <?php
-                $business_profile = $helper->JErrorFromAjaxDecorator($helper->getBusinessProfile($this->item->business_profile_id));
-                
-                $id = $this->item->id;
-                ?>
+    
+    <div class="form-horizontal">
+        <div class="row-fluid">
+            <div class="span10 form-horizontal">
+                <fieldset class="adminform">
+                    <?php
+                    $business_profile = $helper->JErrorFromAjaxDecorator($helper->getBusinessProfile($this->item->business_profile_id));
 
-                <li>
-                    <label id="" class="" for="jform_business_profile_id">Business Name</label>
-                   <?php if(!$id) { ?>
-                    <?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id , '', true, "required"); ?>
-                    
-                    <?php } else {
-                        echo $business_profile->name;
-                    }
-                    ?>
-                </li>
-                <?php
                     $id = $this->item->id;
-                ?>
-                <li>
-                    <label id="jform_user_id-lbl" class="" for="jform_user_id">Username</label>
-                    <?php if(!$id) { ?>
-                        <select id="jform_user_id" class="inputbox required" name="jform[user_id]"><option value="">-Select-</option></select>
-                    <?php } else {
-                        echo JFactory::getUser($this->item->user_id)->username;
-                    }
                     ?>
-                </li>
+                    
+                    <div class="control-group">
+                        <div class="control-label">Business Name</div>
+                        <div class="controls">
+                            <?php if(!$id) { ?>
+                            <?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id , '', true, "required"); ?>
 
+                            <?php } else {
+                                echo $business_profile->name;
+                            }
+                            ?>
+                        </div>
+                    </div>
 
-                <li><?php echo $this->form->getLabel('primary_trainer'); ?>
-                <?php
+                    <div class="control-group">
+                        <div class="control-label">Username</div>
+                        <div class="controls">
+                            <?php if(!$id) { ?>
+                                <select id="jform_user_id" class="inputbox required" name="jform[user_id]"><option value="">-Select-</option></select>
+                            <?php } else {
+                                echo JFactory::getUser($this->item->user_id)->username;
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('primary_trainer'); ?></div>
+                        <div class="controls">
+                            <?php
                       $business_profile_id = $this->item->business_profile_id;
                       
                       $business_profile = $helper->JErrorFromAjaxDecorator($helper->getBusinessProfile($business_profile_id));
@@ -65,12 +69,13 @@ $helper = new FitnessHelper();
                           $primary_trainers = $helper->getTrainersByUsergroup($group_id);
                       } 
                       echo $helper->generateSelect($primary_trainers, 'jform[primary_trainer]', 'jform_primary_trainer', $this->item->primary_trainer, '', true, 'required'); ?>
-                </li>
+                        </div>
+                    </div>
 
-
-
-                <li><?php echo $this->form->getLabel('other_trainers'); ?>
-                    <?php
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('other_trainers'); ?></div>
+                        <div class="controls">
+                            <?php
                     $item_id = $this->item->id;
                     if($item_id) {
                         echo $helper->getOtherTrainersSelect($this->item->id, '#__fitness_clients', $group_id);
@@ -78,13 +83,18 @@ $helper = new FitnessHelper();
                         echo $helper->generateMultipleSelect(array(), 'jform[other_trainers]', 'jform_other_trainers', '', '', false, 'inputbox');
                     }
                     ?>
-                </li>
-
-            </ul>
-        </fieldset>
+                        </div>
+                    </div>
+                    
+                     <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
     </div>
-
-    
+        
 
     <input type="hidden" name="task" value="" />
     <?php echo JHtml::_('form.token'); ?>

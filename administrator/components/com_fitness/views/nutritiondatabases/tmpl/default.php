@@ -26,31 +26,30 @@ $saveOrder	= $listOrder == 'a.ordering';
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&view=nutritiondatabases'); ?>" method="post" name="adminForm" id="adminForm">
-	<fieldset id="filter-bar">
-                <div class='filter-select fltrt'>
-                    <a class="active menu_link" href="index.php?option=com_fitness&view=nutrition_recipes">Nutrition Recipes</a>
-                </div>
-                <div class="filter-search fltlft">
-			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
-			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('Search'); ?>" />
-			<button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
-		</div>
-		
-        </fieldset> 
-        <fieldset id="filter-bar"> 
-		<div class='filter-select fltrt'>
-			<select name="filter_published" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
-				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), "value", "text", $this->state->get('filter.state'), true);?>
-			</select>
-		</div>
+    
+    <div  class="container-fluid well">
+        <div class="row-fluid">
+            <div class="span6">
+                <input placeholder="Name" class="search-query" type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('Search'); ?>" />
+                <button class="btn btn-primary" type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
+                <button class="btn btn-default" type="button" onclick="document.id('filter_search').value = '';
+                        this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+            </div>
 
+            <div class="span3">
+                <select name="filter_published" class="form-control" onchange="this.form.submit()">
+                    <option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?></option>
+<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), "value", "text", $this->state->get('filter.state'), true); ?>
+                </select>
+            </div>
+        </div>
+    </div>
 
-	</fieldset>
-	<div class="clr"> </div>
+    <?php include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . 'tmpl' . DS . 'left_menu.php'; ?>
 
-	<table class="adminlist">
+<div id="j-main-container" class="well span10">
+        <div class="clearfix"> </div>
+        <table class="table table-striped">
 		<thead>
 			<tr>
 				<th width="1%">
@@ -218,7 +217,8 @@ $saveOrder	= $listOrder == 'a.ordering';
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-
+    </div>
+</div>
 	<div>
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="boxchecked" value="0" />

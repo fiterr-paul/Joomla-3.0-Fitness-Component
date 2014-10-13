@@ -36,18 +36,24 @@ $document->addStyleSheet('components/com_fitness/assets/css/fitness.css');
 </script>
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="settings_force_type-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_SETTINGS_FORCE_TYPE'); ?></legend>
-            <ul class="adminformlist">
+    <div class="form-horizontal">
+        <div class="row-fluid">
+            <div class="span10 form-horizontal">
+                <fieldset class="adminform">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('name'); ?></div>
+                    </div>
 
-				<li><?php echo $this->form->getLabel('name'); ?>
-				<?php echo $this->form->getInput('name'); ?></li>
-				<input type="hidden" name="jform[state]" value="<?php echo $this->item->state; ?>" />
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                    </div>
 
-
-            </ul>
-        </fieldset>
+                    </ul>
+                </fieldset>
+            </div>
+        </div>
     </div>
 
     

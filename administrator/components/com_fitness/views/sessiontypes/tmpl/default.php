@@ -8,7 +8,7 @@
  */
 // no direct access
 defined('_JEXEC') or die;
-
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . 'tmpl' . DS . 'main_menu.php';
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
@@ -82,7 +82,9 @@ $sortFields = $this->getSortFields();
         </div>
     </div>
     
-    <div id="j-main-container" class="well">
+    <?php include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . 'tmpl' . DS . 'left_menu.php'; ?>
+
+<div id="j-main-container" class="well span10">
         <div class="clearfix"> </div>
             <table class="table table-striped">
                 <thead>

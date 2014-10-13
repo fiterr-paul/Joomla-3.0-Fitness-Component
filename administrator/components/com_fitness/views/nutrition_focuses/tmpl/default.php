@@ -49,9 +49,9 @@ $helper = new FitnessHelper();
         </div>
     </div>
 
-    <div class="clr"> </div>
+    <?php include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . 'tmpl' . DS . 'left_menu.php'; ?>
 
-    <div id="j-main-container" class="well">
+<div id="j-main-container" class="well span10">
         <div class="clearfix"> </div>
         <table class="table table-striped">
             <thead>

@@ -8,7 +8,7 @@
  */
 // no direct access
 defined('_JEXEC') or die;
-
+include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . 'tmpl' . DS . 'main_menu.php';
 JHtml::_('behavior.tooltip');
 JHTML::_('script', 'system/multiselect.js', false, true);
 require_once JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_fitness' . DS . 'helpers' . DS . 'fitness.php';
@@ -48,9 +48,9 @@ $saveOrder = $listOrder == 'a.ordering';
             </div>
         </div>
     </div>
-    <div class="clr"> </div>
+    <?php include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . 'tmpl' . DS . 'left_menu.php'; ?>
 
-    <div id="j-main-container" class="well">
+<div id="j-main-container" class="well span10">
         <div class="clearfix"> </div>
         <table class="table table-striped">
             <thead>

@@ -48,7 +48,7 @@ defined('_JEXEC') or die;
             </li>
             <li class="dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Nutrition Plans</a>
                 <ul class="dropdown-menu">
-                    <li><a class="menu-contact" href="index.php?option=com_fitness&view=nutrition_focuses">Nutrition Focuses</a></li>
+                    <li><a  href="index.php?option=com_fitness&view=nutrition_focuses">Nutrition Focuses</a></li>
                 </ul>
             </li>
             <li class="dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Nutrition Database</a>
@@ -58,8 +58,8 @@ defined('_JEXEC') or die;
             </li>
             <li class="dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recipe Database</a>
                 <ul class="dropdown-menu">
-                    <li><a class="menu-icon-16-article" href="index.php?option=com_fitness&view=recipe_types">Recipe Types</a></li>
-                    <li><a class="menu-icon-16-category" href="index.php?option=com_fitness&view=recipe_variations">Recipe Variations</a></li>
+                    <li><a href="index.php?option=com_fitness&view=recipe_types">Recipe Types</a></li>
+                    <li><a href="index.php?option=com_fitness&view=recipe_variations">Recipe Variations</a></li>
                 </ul>
             </li>
             <li class="dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Exercise Library</a>

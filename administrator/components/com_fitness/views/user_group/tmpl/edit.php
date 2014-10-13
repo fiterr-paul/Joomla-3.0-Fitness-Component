@@ -22,60 +22,65 @@ $helper = new FitnessHelper();
 
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="user_group-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_USER_GROUP'); ?></legend>
-            <ul class="adminformlist">
-                <li>
-                    <label id="" class="" for="jform_business_profile_id">Business Name</label>
-                    <?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id , '', true, "required"); ?>
-                </li>
-
-                <li>
-                    <label id="jform_user_id-lbl" class="" for="jform_group_id">User Group</label>
+    <div class="row-fluid">
+        <div class="span6 well">
+            <div class="span10 form-horizontal">
+                <fieldset class="adminform">
+                    <div class="control-group">
+                        <div class="control-label">Business Name</div>
+                        <div class="controls"><?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id , '', true, "required"); ?></div>
+                    </div>
                     
-                    <?php
-                    echo $helper->generateSelect($helper->getGroupList(), 'jform[group_id]', 'group_id', $this->item->group_id, '', true, "required");
-                    ?>
-                </li>
+                    <div class="control-group">
+                        <div class="control-label">User Group</div>
+                        <div class="controls">
+                            <?php
+                                echo $helper->generateSelect($helper->getGroupList(), 'jform[group_id]', 'group_id', $this->item->group_id, '', true, "required");
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('primary_trainer'); ?></div>
+                        <div class="controls">
+                            <?php
+                              $business_profile_id = $this->item->business_profile_id;
 
-                <li><?php echo $this->form->getLabel('primary_trainer'); ?>
-                <?php
-                      $business_profile_id = $this->item->business_profile_id;
-                      
-                      $business_profile = $helper->getBusinessProfile($business_profile_id);
-                      if(!$business_profile['success']) {
-                          JError::raiseError($business_profile['message']);
-                      }
-                      $business_profile = $business_profile['data'];
-                      $group_id = $business_profile->group_id;
-                      $primary_trainers = array();
-                      if($group_id) {
-                          $primary_trainers = $helper->getTrainersByUsergroup($group_id);
-                      } 
-                      echo $helper->generateSelect($primary_trainers, 'jform[primary_trainer]', 'jform_primary_trainer', $this->item->primary_trainer, ''); ?>
-                </li>
-
-
-
-                <li><?php echo $this->form->getLabel('other_trainers'); ?>
-                    <?php
-                    $item_id = $this->item->id;
-                    if($item_id) {
-                        echo $helper->getOtherTrainersSelect($this->item->id, '#__fitness_user_groups', $group_id);
-                    } else {
-                        echo $helper->generateSelect(array(), 'jform[other_trainers]', 'jform_other_trainers', $this->item->other_trainers, ''); 
-                    }
-                    ?>
-                </li>
-                
-                <input type="hidden" name="jform[state]" value="<?php echo $this->item->state; ?>" />
-
-
-            </ul>
-        </fieldset>
+                              $business_profile = $helper->getBusinessProfile($business_profile_id);
+                              if(!$business_profile['success']) {
+                                  JError::raiseError($business_profile['message']);
+                              }
+                              $business_profile = $business_profile['data'];
+                              $group_id = $business_profile->group_id;
+                              $primary_trainers = array();
+                              if($group_id) {
+                                  $primary_trainers = $helper->getTrainersByUsergroup($group_id);
+                              } 
+                              echo $helper->generateSelect($primary_trainers, 'jform[primary_trainer]', 'jform_primary_trainer', $this->item->primary_trainer, ''); ?>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('other_trainers'); ?></div>
+                        <div class="controls"><?php
+                            $item_id = $this->item->id;
+                            if($item_id) {
+                                echo $helper->getOtherTrainersSelect($this->item->id, '#__fitness_user_groups', $group_id);
+                            } else {
+                                echo $helper->generateSelect(array(), 'jform[other_trainers]', 'jform_other_trainers', $this->item->other_trainers, ''); 
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
     </div>
-
     
 
     <input type="hidden" name="task" value="" />

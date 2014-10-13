@@ -34,23 +34,32 @@ $document->addStyleSheet('components/com_fitness/assets/css/fitness.css');
 
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="nutritiondatabase-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_NUTRITIONDATABASE'); ?></legend>
-            <ul class="adminformlist">
+    <div class="form-horizontal">
+        <div class="row-fluid">
+            <div class="span10 form-horizontal well">
+                <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('ingredient_name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('ingredient_name'); ?></div>
+                    </div>
 
-                <li><?php echo $this->form->getLabel('ingredient_name'); ?>
-                <?php echo $this->form->getInput('ingredient_name'); ?></li>
-                <li><?php echo $this->form->getLabel('category'); ?>
-                <?php echo $this->form->getInput('category'); ?></li>
-                <li><?php echo $this->form->getLabel('description'); ?>
-                <?php echo $this->form->getInput('description'); ?></li>
-                <br/><br/><br/>
-                <p><b>NOTE: Enter ALL nutrient values based on 100g Edible Portion (EP)</b></p>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('category'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('category'); ?></div>
+                    </div>
+                
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('description'); ?></div>
+                    </div>
+                
+                    <br/><br/><br/>
+                    <p><b>NOTE: Enter ALL nutrient values based on 100g Edible Portion (EP)</b></p>
 
-
-                <li><?php echo $this->form->getLabel('measurement_unit'); ?>
-                <?php echo $this->form->getInput('measurement_unit'); ?></li>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('measurement_unit'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('measurement_unit'); ?></div>
+                    </div>
+                    
                     <div class="main_fields_wrapper" style="display: none;">
                         <li id="measurement_unit_wrapper" style="display:none;">
                             <p style="font-style:italic;">
@@ -81,8 +90,8 @@ $document->addStyleSheet('components/com_fitness/assets/css/fitness.css');
                         </li>
                         <div class="clr"></div>
                     </div>
-                </ul>
-                <div class="main_fields_wrapper" style="display: none;"> 
+                    
+                    <div class="main_fields_wrapper" style="display: none;"> 
                     <div class="clr"></div>
                     <table id="ingradient_fields" width="100%">
                         <tr>
@@ -203,8 +212,10 @@ $document->addStyleSheet('components/com_fitness/assets/css/fitness.css');
                     <?php echo $this->form->getLabel('state'); ?>
                     <?php echo $this->form->getInput('state'); ?>
                 </div>
-        </fieldset>
+            </div>
+        </div>
     </div>
+  
 
     
 
@@ -235,7 +246,6 @@ $document->addStyleSheet('components/com_fitness/assets/css/fitness.css');
                 Joomla.submitform(task, document.getElementById('nutritiondatabase-form'));
             }
             else{
-
                 if (task != 'nutritiondatabase.cancel' && document.formvalidator.isValid(document.id('nutritiondatabase-form'))) {
                     if(recipe_database.validate_form() != true) return;
                     Joomla.submitform(task, document.getElementById('nutritiondatabase-form'));
