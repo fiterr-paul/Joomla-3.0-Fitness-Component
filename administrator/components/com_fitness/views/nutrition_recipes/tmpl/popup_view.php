@@ -45,7 +45,7 @@ $parent_view  = JRequest::getVar('parent_view');
                     LEFT JOIN #__users AS u ON u.id=r.created_by
                     WHERE r.state='1'";
                 $db->setQuery($sql);
-                if(!$db->query()) {
+                if(!$db->execute()) {
                     JError::raiseError($db->getErrorMsg());
                 }
                 $clients = $db->loadAssocList();
@@ -63,7 +63,7 @@ $parent_view  = JRequest::getVar('parent_view');
                     LEFT JOIN #__fitness_recipe_types AS t ON t.id=r.recipe_type
                     WHERE r.state='1'";
                 $db->setQuery($sql);
-                if(!$db->query()) {
+                if(!$db->execute()) {
                     JError::raiseError($db->getErrorMsg());
                 }
                 $recipe_type = $db->loadAssocList();

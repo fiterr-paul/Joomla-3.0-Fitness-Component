@@ -20,6 +20,9 @@ if (!JFactory::getUser()->authorise('core.manage', 'com_fitness'))
 // Include dependancies
 jimport('joomla.application.component.controller');
 
+$document = JFactory::getDocument();
+$document -> addStyleSheet(JURI::base() . 'components' . DS. 'com_fitness' . DS .'assets' . DS . 'bootstrap' . DS . 'css' . DS . 'bootstrap.min.css');
+
 $controller	= JControllerLegacy::getInstance('Fitness');
 $controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();

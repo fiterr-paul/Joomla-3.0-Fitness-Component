@@ -142,7 +142,7 @@ $helper = new FitnessHelper();
 
         $sql = "SELECT DISTINCT d.assessed_by AS value, u.name AS text FROM #__fitness_nutrition_diary  AS d LEFT JOIN #__users AS u ON d.assessed_by=u.id WHERE d.assessed_by !='0'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $assessed_by = $db->loadObjectList();

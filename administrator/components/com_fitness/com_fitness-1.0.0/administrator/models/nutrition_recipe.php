@@ -140,7 +140,7 @@ class FitnessModelnutrition_recipe extends JModelAdmin
             $query .= " state='1'";
             
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -163,7 +163,7 @@ class FitnessModelnutrition_recipe extends JModelAdmin
             $db = JFactory::getDbo();
             $query = "SELECT * FROM #__fitness_nutrition_database WHERE id='$id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -278,7 +278,7 @@ class FitnessModelnutrition_recipe extends JModelAdmin
             $db = JFactory::getDbo();
             $query = "DELETE FROM #__fitness_nutrition_recipes_meals WHERE id='$id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -292,7 +292,7 @@ class FitnessModelnutrition_recipe extends JModelAdmin
             $db = JFactory::getDbo();
             $query = "SELECT * FROM #__fitness_nutrition_recipes_meals WHERE recipe_id='$recipe_id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }

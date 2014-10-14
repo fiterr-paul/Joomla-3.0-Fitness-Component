@@ -213,7 +213,7 @@ class FitnessFactory {
 	$db = JFactory::getDBO();
         $db->setQuery($query);
 
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->getErrorMsg());
             JError::raiseError($db->getErrorMsg());
         }
@@ -229,13 +229,13 @@ class FitnessFactory {
                 $result = $db->loadObject();
                 break;
             case 3:
-                $result = $db->loadResultArray();
+                $result = $db->loadColumn();
                 break;
             case 4:
                 $result = $db->loadRow();
                 break;
             case 5:
-                $result = $db->query();
+                $result = $db->execute();
                 break;
             case 6:
                 $result = $db->loadAssocList();
@@ -423,14 +423,14 @@ class FitnessHelper extends FitnessFactory
         $query = "SELECT primary_trainer, other_trainers FROM #__fitness_clients WHERE user_id='$client_id' AND state='1'";
         $db->setQuery($query);
         
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
             $status['success'] = 0;
             $status['message'] = $db->stderr();
             return $status;
         }
-        $primary_trainer= $db->loadResultArray(0);
-        $other_trainers = $db->loadResultArray(1);
+        $primary_trainer= $db->loadColumn(0);
+        $other_trainers = $db->loadColumn(1);
         $other_trainers = explode(',', $other_trainers[0]);
         $all_trainers_id = array_unique(array_merge($primary_trainer, $other_trainers));
 
@@ -463,12 +463,12 @@ class FitnessHelper extends FitnessFactory
         $query = "SELECT primary_trainer, other_trainers FROM #__fitness_clients WHERE user_id='$client_id' AND state='1'";
         $db->setQuery($query);
         
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
         }
         
-        $primary_trainer= $db->loadResultArray(0);
-        $other_trainers = $db->loadResultArray(1);
+        $primary_trainer= $db->loadColumn(0);
+        $other_trainers = $db->loadColumn(1);
         $other_trainers = explode(',', $other_trainers[0]);
         $all_trainers_id = array_unique(array_merge($primary_trainer, $other_trainers));
 
@@ -514,14 +514,14 @@ class FitnessHelper extends FitnessFactory
             ";
         }
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
             $result['success'] = false;
             $result['message'] = $db->stderr();
             return $result;
         }
-        $client_id = $db->loadResultArray(0);
-        $trainer_id = $db->loadResultArray(1);
+        $client_id = $db->loadColumn(0);
+        $trainer_id = $db->loadColumn(1);
 
         $result['data'] = array('client_id' => $client_id[0], 'trainer_id' => $trainer_id[0]);
         
@@ -539,7 +539,7 @@ class FitnessHelper extends FitnessFactory
         $query .=  " WHERE a.id='$id'";
         
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
             $ret['success'] = false;
             $ret['message'] = $db->stderr();
@@ -558,7 +558,7 @@ class FitnessHelper extends FitnessFactory
         $query = "SELECT title FROM #__usergroups WHERE id IN 
             (SELECT group_id FROM #__user_usergroup_map WHERE user_id='$user_id')";
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
             $ret['success'] = false;
             $ret['message'] = $db->stderr();
@@ -653,7 +653,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDBO();
         $query = "SELECT * FROM $table WHERE $column='$value'";
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
         }
@@ -663,22 +663,25 @@ class FitnessHelper extends FitnessFactory
     
     
     public function getUsersByGroup($group_id) {
+        
 
         $db = &JFactory::getDBo();
         $query = "SELECT u.id FROM #__users AS u 
             INNER JOIN #__user_usergroup_map AS g ON g.user_id=u.id WHERE g.group_id='$group_id' AND u.block='0'"
                 . " ORDER BY u.name ASC";
         
+        
+        
         $db->setQuery($query);
         $ret['success'] = 1;
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
             return $ret;
         }
 
-        $clients= $db->loadResultArray(0);
-
+        $clients= $db->loadColumn(0);
+        
         if(!$clients) {
             $ret['success'] = 0;
             $ret['message'] = 'No users assigned to this usergroup.';
@@ -693,7 +696,7 @@ class FitnessHelper extends FitnessFactory
             }
         }
         
-        $data = array_combine($clients_name, $clients);
+        $data = array_combine($clients, $clients_name);
         
         $ret['data'] = $data;
         
@@ -719,13 +722,13 @@ class FitnessHelper extends FitnessFactory
         
         $db->setQuery($query);
         $ret['success'] = 1;
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
             return $ret;
         }
 
-        $clients = $db->loadResultArray(0);
+        $clients = $db->loadColumn(0);
         
         
 
@@ -750,7 +753,7 @@ class FitnessHelper extends FitnessFactory
     }
     
     
-    public function getTrainersByUsergroup() {
+    public function getTrainersByUsergroup($trainers_group_id) {
         
         if(!$trainers_group_id) {
             $trainers_group_id = self::getTrainersGroupId();
@@ -848,7 +851,7 @@ class FitnessHelper extends FitnessFactory
         $result = $db->loadObjectList();
         $query = "SELECT other_trainers FROM $table WHERE id='$item_id'";
         $db->setQuery($query);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $other_trainers = explode(',', $db->loadResult());
@@ -874,7 +877,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDbo();
         $sql = 'SELECT id AS value, title AS text'. ' FROM #__usergroups' . ' ORDER BY id';
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $grouplist = $db->loadObjectList();
@@ -893,7 +896,7 @@ class FitnessHelper extends FitnessFactory
         $sql .= "  ORDER BY id";
         
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $result = $db->loadObjectList();
@@ -914,7 +917,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDbo();
         $sql = "SELECT * FROM #__fitness_business_profiles WHERE id='$id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             throw new Exception($db->getErrorMsg());
             $ret['success'] = 0;
             $ret['message'] = $db->getErrorMsg();
@@ -929,7 +932,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDbo();
         $sql = "SELECT * FROM #__fitness_user_groups WHERE business_profile_id='$business_profile_id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->getErrorMsg();
         }
@@ -944,7 +947,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDbo();
         $sql = "SELECT * FROM #__fitness_user_groups WHERE group_id='$group_id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             throw new Exception($db->getErrorMsg());
             $ret['success'] = 0;
             $ret['message'] = $db->getErrorMsg();
@@ -959,7 +962,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDbo();
         $sql = "SELECT id, name, id AS value, name AS text FROM #__fitness_recipe_types WHERE state='1' ORDER BY name ASC";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             throw new Exception($db->getErrorMsg());
             $ret['success'] = 0;
             $ret['message'] = $db->getErrorMsg();
@@ -1078,7 +1081,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDbo();
         $sql = "SELECT * FROM #__fitness_clients WHERE user_id='$client_id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->getErrorMsg();
         }
@@ -1161,7 +1164,7 @@ class FitnessHelper extends FitnessFactory
         $db = JFactory::getDbo();
         $sql = "SELECT * FROM #__fitness_business_profiles WHERE group_id='$group_id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             throw new Exception($db->getErrorMsg());
             $ret['success'] = 0;
             $ret['message'] = $db->getErrorMsg();
@@ -1177,10 +1180,10 @@ class FitnessHelper extends FitnessFactory
         //get all existing table fields
         $query = "DESCRIBE $table";
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
         } 
-        $fields = $db->loadResultArray();
+        $fields = $db->loadColumn();
         //
         
         // filter incomming data
@@ -1217,7 +1220,7 @@ class FitnessHelper extends FitnessFactory
         $query = "DELETE FROM $table WHERE id='$id'";
         
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
         }
 
@@ -1229,13 +1232,13 @@ class FitnessHelper extends FitnessFactory
         $query = "SELECT DISTINCT client_id FROM #__fitness_appointment_clients WHERE item_id='$item_id' AND client_id !='0'";
 
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             throw new Exception($db->stderr());
             $ret['success'] = false;
             $ret['message'] = $db->stderr();
             return $ret;
         }
-        $client_ids = $db->loadResultArray(0);
+        $client_ids = $db->loadColumn(0);
         $client_ids = array_unique($client_ids);
         return $client_ids;
     }
@@ -1936,7 +1939,7 @@ class FitnessHelper extends FitnessFactory
                     $id = JRequest::getVar('id', 0, '', 'INT');
                     $query = "DELETE FROM $table WHERE client_id='$data->client_id' AND item_id='$id'";
                     $db->setQuery($query);
-                    if (!$db->query()) {
+                    if (!$db->execute()) {
                         throw new Exception($e->getMessage());
                     }
                     break;
@@ -1977,7 +1980,7 @@ class FitnessHelper extends FitnessFactory
 
             $db->setQuery($query);
 
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 throw new Exception($db->getErrorMsg());
                 JError::raiseError($db->getErrorMsg());
             }
@@ -2028,8 +2031,8 @@ class FitnessHelper extends FitnessFactory
                 $db = JFactory::getDbo();
                 //get all existing table fields
                 $db->setQuery("DESCRIBE $table");
-                $db->query();
-                $fields = $db->loadResultArray();
+                $db->execute();
+                $fields = $db->loadColumn();
                 //
 
                 // filter incomming data

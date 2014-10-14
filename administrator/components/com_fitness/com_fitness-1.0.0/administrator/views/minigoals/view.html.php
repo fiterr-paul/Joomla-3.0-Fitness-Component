@@ -127,7 +127,7 @@ class FitnessViewMinigoals extends JViewLegacy
             $db = JFactory::getDbo();
             $sql = "SELECT goal_category_id FROM #__fitness_goals WHERE id='$id'";
             $db->setQuery($sql);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             $id = $db->loadResult();
@@ -135,7 +135,7 @@ class FitnessViewMinigoals extends JViewLegacy
             
             $sql = "SELECT name FROM #__fitness_goal_categories WHERE id='$id'";
             $db->setQuery($sql);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             $result = $db->loadResult();
@@ -146,7 +146,7 @@ class FitnessViewMinigoals extends JViewLegacy
             $db = JFactory::getDbo();
             $sql = "SELECT name FROM #__fitness_mini_goal_categories WHERE id='$mini_goal_category_id' AND state='1'";
             $db->setQuery($sql);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             $result = $db->loadResult();

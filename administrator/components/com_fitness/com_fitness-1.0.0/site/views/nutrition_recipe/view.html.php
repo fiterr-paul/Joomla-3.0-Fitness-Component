@@ -50,7 +50,7 @@ class FitnessViewNutrition_recipe extends JViewLegacy
             $db = JFactory::getDbo();
             $sql = "SELECT name FROM #__fitness_recipe_types WHERE id='$id' AND state='1'";
             $db->setQuery($sql);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             return $db->loadResult();

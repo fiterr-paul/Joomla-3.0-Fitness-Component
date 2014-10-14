@@ -43,7 +43,7 @@ $saveOrder	= $listOrder == 'a.ordering';
             $db = JFactory::getDbo();
             $sql = "SELECT id, name FROM #__fitness_categories WHERE state='1'";
             $db->setQuery($sql);
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             $categories = $db->loadObjectList();
@@ -60,7 +60,7 @@ $saveOrder	= $listOrder == 'a.ordering';
             $db = JFactory::getDbo();
             $sql = "SELECT  id,  name FROM #__fitness_session_type WHERE state='1' GROUP BY name";
             $db->setQuery($sql);
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             $session_type = $db->loadObjectList();

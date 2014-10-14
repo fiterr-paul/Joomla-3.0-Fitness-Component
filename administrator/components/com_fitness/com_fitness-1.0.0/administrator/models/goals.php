@@ -186,7 +186,7 @@ class FitnessModelgoals extends JModelList {
         $query = "UPDATE #__dc_mv_events SET frontend_published='$status' WHERE id='$event_id'";
         $db->setQuery($query);
         $ret['success'] = 1;
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
         }
@@ -319,7 +319,7 @@ class FitnessModelgoals extends JModelList {
                 
         $db->setQuery($query);
         $ret['success'] = 1;
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
         }
@@ -363,7 +363,7 @@ class FitnessModelgoals extends JModelList {
         
         $db->setQuery($query);
         $ret['success'] = 1;
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
         }
@@ -386,7 +386,7 @@ class FitnessModelgoals extends JModelList {
                 AND e.title='$title' AND e.published='1'";
         $db->setQuery($query);
         $ret['success'] = 1;
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
         }
@@ -438,7 +438,7 @@ class FitnessModelgoals extends JModelList {
             $db = JFactory::getDbo();
             $sql = "SELECT name FROM #__fitness_mini_goal_categories WHERE id='$mini_goal_category_id'";
             $db->setQuery($sql);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             $result = $db->loadResult();
@@ -449,7 +449,7 @@ class FitnessModelgoals extends JModelList {
             $db = JFactory::getDbo();
             $sql = "SELECT name FROM #__fitness_training_period WHERE id='$id'";
             $db->setQuery($sql);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
             $result = $db->loadResult();
@@ -461,15 +461,15 @@ class FitnessModelgoals extends JModelList {
         $db = JFactory::getDbo();
         $sql = "SELECT DISTINCT id, mini_goal_category_id, training_period_id, start_date, deadline, status FROM #__fitness_mini_goals WHERE primary_goal_id='$primary_goal_id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
-        $ids = $db->loadResultArray(0);
-        $mini_goal_category_ids = $db->loadResultArray(1);
-        $training_period_id = $db->loadResultArray(2);
-        $start_date = $db->loadResultArray(3);
-        $deadlines = $db->loadResultArray(4);
-        $status = $db->loadResultArray(5);
+        $ids = $db->loadColumn(0);
+        $mini_goal_category_ids = $db->loadColumn(1);
+        $training_period_id = $db->loadColumn(2);
+        $start_date = $db->loadColumn(3);
+        $deadlines = $db->loadColumn(4);
+        $status = $db->loadColumn(5);
         
         if($type == 'status')  return $status;
         
@@ -559,7 +559,7 @@ class FitnessModelgoals extends JModelList {
        
         $db->setQuery($query);
         $ret['success'] = 1;
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $ret['success'] = 0;
             $ret['message'] = $db->stderr();
         }

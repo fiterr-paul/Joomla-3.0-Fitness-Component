@@ -122,7 +122,7 @@ class FitnessViewSessiontypes extends JViewLegacy {
         $db = JFactory::getDbo();
         $sql = "SELECT id, name FROM #__fitness_categories WHERE state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $categories = $db->loadObjectList();

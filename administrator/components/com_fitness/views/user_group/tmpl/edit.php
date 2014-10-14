@@ -56,6 +56,8 @@ $helper = new FitnessHelper();
                               if($group_id) {
                                   $primary_trainers = $helper->getTrainersByUsergroup($group_id);
                               } 
+                              
+                              
                               echo $helper->generateSelect($primary_trainers, 'jform[primary_trainer]', 'jform_primary_trainer', $this->item->primary_trainer, ''); ?>
                         </div>
                     </div>

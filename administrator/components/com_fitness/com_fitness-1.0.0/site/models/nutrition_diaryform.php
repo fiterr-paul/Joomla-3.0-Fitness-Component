@@ -328,7 +328,7 @@ class FitnessModelNutrition_diaryForm extends JModelForm
         $db = JFactory::getDbo();
         $sql = "SELECT name FROM #__fitness_goal_categories WHERE id='$id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $result = $db->loadResult();
@@ -339,7 +339,7 @@ class FitnessModelNutrition_diaryForm extends JModelForm
         $db = JFactory::getDbo();
         $sql = "SELECT name FROM #__fitness_training_period WHERE id='$id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $result = $db->loadResult();
@@ -350,7 +350,7 @@ class FitnessModelNutrition_diaryForm extends JModelForm
         $db = JFactory::getDbo();
         $sql = "SELECT name FROM #__fitness_nutrition_focus WHERE id='$id' AND state='1'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $result = $db->loadResult();
@@ -363,7 +363,7 @@ class FitnessModelNutrition_diaryForm extends JModelForm
             nutrition_plan_id='$nutrition_plan_id'
             AND type='$type'";
         $db->setQuery($sql);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         $result = $db->loadObject();

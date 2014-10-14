@@ -130,12 +130,12 @@ class FitnessModelnutrition_plan extends JModelAdmin
                 WHERE g.user_id='$client_id' AND g.state='1'";
             $db->setQuery($query);
             $status['success'] = 1;
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 $status['success'] = 0;
                 $status['message'] = $db->stderr();
             }
-            $ids = $db->loadResultArray(0);
-            $names = $db->loadResultArray(1);
+            $ids = $db->loadColumn(0);
+            $names = $db->loadColumn(1);
             $result = array('status' => $status, 'data' => array_combine($ids, $names));
             return json_encode($result);
         }
@@ -147,7 +147,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
                 WHERE g.id='$id' AND g.state='1'";
             $db->setQuery($query);
             $status['success'] = 1;
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 $status['success'] = 0;
                 $status['message'] = $db->stderr();
             }
@@ -182,7 +182,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
              */
 
             $db->setQuery($query);
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 throw new Exception($db->stderr());
             }
             return $db->loadObjectList();
@@ -193,7 +193,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             $query = "UPDATE #__fitness_nutrition_plan SET force_active='0'";
             $db->setQuery($query);
             $status['success'] = 1;
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 $status['success'] = 0;
                 $status['message'] = $db->stderr();
             }
@@ -210,7 +210,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
 
             $query = "SELECT id FROM #__fitness_nutrition_plan_targets WHERE nutrition_plan_id='$data->nutrition_plan_id' AND type='$data->type'";
             $db->setQuery($query);
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] = $db->stderr();
                 $result = array('status' => $ret);
@@ -242,7 +242,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
 
             $query = "SELECT * FROM #__fitness_nutrition_plan_targets WHERE nutrition_plan_id='$data->nutrition_plan_id' AND type='$data->type'";
             $db->setQuery($query);
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] = $db->stderr();
             }
@@ -288,7 +288,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             $db = JFactory::getDbo();
             $query = "DELETE FROM $table WHERE id='$id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -324,7 +324,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             
             
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -385,7 +385,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             $db = JFactory::getDbo();
             $query = "DELETE FROM $table WHERE id='$id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -424,7 +424,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             $query .= "  ORDER BY CASE WHEN a.parent_id = '0' THEN  a.id ELSE  a.parent_id  END";
 
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -446,7 +446,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             
             $query = "SELECT * FROM #__fitness_nutrition_recipes_meals WHERE recipe_id='$obj->recipe_id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 throw new Exception($db->getErrorMsg());
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
@@ -552,7 +552,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             $db = JFactory::getDbo();
             $query = "DELETE FROM #__fitness_nutrition_plan_shopping_list WHERE id='$id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }
@@ -567,7 +567,7 @@ class FitnessModelnutrition_plan extends JModelAdmin
             $db = JFactory::getDbo();
             $query = "SELECT * FROM #__fitness_nutrition_plan_shopping_list WHERE nutrition_plan_id='$nutrition_plan_id'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 $ret['success'] = 0;
                 $ret['message'] =  $db->getErrorMsg();
             }

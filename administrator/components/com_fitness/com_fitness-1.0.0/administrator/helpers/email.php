@@ -112,7 +112,7 @@ class FitnessEmail extends FitnessHelper
         if(!$id) {
             $query = "INSERT INTO #__fitness_email_reminder SET event_id='$event_id', client_id='$client_id', sent='1', confirmed='0'";
             $db->setQuery($query);
-            if (!$db->query()) {
+            if (!$db->execute()) {
                 throw new Exception($db->stderr());
             }
         }

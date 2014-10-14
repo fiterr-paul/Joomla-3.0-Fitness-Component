@@ -126,10 +126,10 @@ class FitnessModelnutrition_diary extends JModelAdmin
             $db = & JFactory::getDBO();
             $query = "SELECT  other_trainers FROM #__fitness_clients WHERE user_id='$user_id' AND state='1'";
             $db->setQuery($query);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
-            $other_trainers = $db->loadResultArray(0);
+            $other_trainers = $db->loadColumn(0);
             
             $all_trainers_id = explode(',', $other_trainers[0]);
             if(!$all_trainers_id[0]) return;

@@ -48,7 +48,7 @@ $saveOrder	= $listOrder == 'a.ordering';
                 $db = JFactory::getDbo();
                 $sql = 'SELECT id AS value, title AS text'. ' FROM #__usergroups' . ' ORDER BY id';
                 $db->setQuery($sql);
-                if(!$db->query()) {
+                if(!$db->execute()) {
                     JError::raiseError($db->getErrorMsg());
                 }
                 $grouplist = $db->loadObjectList();

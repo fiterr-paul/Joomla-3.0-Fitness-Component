@@ -72,7 +72,7 @@ $helper = new FitnessHelper();
                     LEFT JOIN #__users AS u ON u.id=r.created_by
                     WHERE r.state='1' ORDER BY u.name  ASC";
                 $db->setQuery($sql);
-                if(!$db->query()) {
+                if(!$db->execute()) {
                     JError::raiseError($db->getErrorMsg());
                 }
                 $clients = array_filter($db->loadAssocList());

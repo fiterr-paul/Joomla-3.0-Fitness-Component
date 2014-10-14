@@ -319,7 +319,7 @@ class FitnessModelnutrition_diaries extends JModelList {
         $query = "SELECT title FROM #__usergroups WHERE id IN 
             (SELECT group_id FROM #__user_usergroup_map WHERE user_id='$user_id')";
         $db->setQuery($query);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         return $db->loadResult();

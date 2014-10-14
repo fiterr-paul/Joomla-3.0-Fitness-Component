@@ -196,7 +196,7 @@ class FitnessModelNutrition_diaries extends JModelList {
         $query = "DELETE FROM $table WHERE id IN ($id_list)";
         
         $db->setQuery($query);
-        if (!$db->query()) {
+        if (!$db->execute()) {
             $status['success'] = false;
             $status['message'] = $db->stderr();
             return $ret;

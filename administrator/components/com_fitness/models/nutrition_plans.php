@@ -277,10 +277,10 @@ class FitnessModelnutrition_plans extends JModelList {
             $db = JFactory::getDBO();
             $sql1 = "SELECT DISTINCT client_id FROM #__fitness_nutrition_plan";
             $db->setQuery($sql1);
-            if(!$db->query()) {
+            if(!$db->execute()) {
                 JError::raiseError($db->getErrorMsg());
             }
-            $clients =  $db->loadResultArray();
+            $clients =  $db->loadColumn();
             foreach ($clients as $client) {
                 $ids[] =  $this->getUserActivePlanId($client);
             }
@@ -322,7 +322,7 @@ class FitnessModelnutrition_plans extends JModelList {
         $query = "SELECT title FROM #__usergroups WHERE id IN 
             (SELECT group_id FROM #__user_usergroup_map WHERE user_id='$user_id')";
         $db->setQuery($query);
-        if(!$db->query()) {
+        if(!$db->execute()) {
             JError::raiseError($db->getErrorMsg());
         }
         return $db->loadResult();

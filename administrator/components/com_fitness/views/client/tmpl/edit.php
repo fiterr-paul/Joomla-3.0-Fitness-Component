@@ -47,12 +47,7 @@ $helper = new FitnessHelper();
                     <div class="control-group">
                         <div class="control-label">Username</div>
                         <div class="controls">
-                            <?php if(!$id) { ?>
-                                <select id="jform_user_id" class="inputbox required" name="jform[user_id]"><option value="">-Select-</option></select>
-                            <?php } else {
-                                echo JFactory::getUser($this->item->user_id)->username;
-                            }
-                            ?>
+                            <?php echo $this->form->getInput('user_id'); ?>
                         </div>
                     </div>
                     
@@ -129,8 +124,9 @@ $helper = new FitnessHelper();
         });
         
         function setFields(business_profile_id) {
+            console.log(business_profile_id);
             fitness_helper.populateTrainersSelectOnBusiness('user_group', business_profile_id, '#jform_primary_trainer', '<?php echo $this->item->primary_trainer; ?>');
-            
+            fitness_helper.populateTrainersSelectOnBusiness('user_group', business_profile_id, '#jform_other_trainers', '<?php echo $this->item->primary_trainer; ?>');
             // populate other trainers select
             fitness_helper.on('change:trainers', function(model, items) {
                 fitness_helper.excludeSelectOption('#jform_primary_trainer', '#jform_other_trainers');
@@ -138,7 +134,7 @@ $helper = new FitnessHelper();
             
             
             // populate clients select
-            fitness_helper.populateClientsSelectOnBusiness('getUsersByBusiness', 'goals', business_profile_id, '#jform_user_id', '<?php echo $this->item->user_id; ?>');
+            //fitness_helper.populateClientsSelectOnBusiness('getUsersByBusiness', 'goals', business_profile_id, '#jform_user_id', '<?php echo $this->item->user_id; ?>');
             
             // exclude options logic
             
