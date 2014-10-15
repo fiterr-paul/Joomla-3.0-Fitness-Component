@@ -610,7 +610,7 @@
 
 .recipe_status_button, .status_button, .status_button_not_active, .status_button_dialog, .status_button_mini, .status_button_dialog_mini, .status_button_passive {
     font-size: 10px !important;
-    height: 11px;
+    height: 25px;
     margin: 0;
     padding: 2px 0 7px;
     text-align: center;
@@ -1367,4 +1367,8 @@ td.center, th.center, .center {
 
 input[type=text], input[type=password], input[type=email], input[type=tel]{
     height: 28px !important;
+}
+
+a {
+    cursor: pointer;
 }

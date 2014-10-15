@@ -1,28 +1,31 @@
 <div class="row-fluid">
     <% if(current_page == 'list') { %>
-    <div id="toolbar" class="toolbar-list right">
+    <div class=" pull-right">
         <% if(app.options.exercise_id) { %>
-        <a id="back_program" tilte="Go Back" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-back"> </span>
-        </a>
-        <a id="add_selected_exercises" title="Add Selected Videos to Exercises" style="cursor: pointer;"  onclick="javascript:void(0)">
-            <span class="video_link_icon_32"></span>
-        </a>
+        <button  id="back_program" tilte="Go Back" type="button" class="btn btn-info">
+            <span  class="glyphicon glyphicon-circle-arrow-left"> </span>
+        </button>
+
+        <button  id="add_selected_exercises" title="Add Selected Videos to Exercises"  type="button" class="btn btn-info">
+            <span  class="glyphicon glyphicon-list"> </span>
+        </button>
         <% } %>
-        <a title="Add Video Item" id="add_item" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-new"> </span>
-        </a>
-        <a title="Trash Selected Items" id="trash_selected" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-trash"> </span>
-        </a>
+        
+        <button  title="Add Video Item" id="add_item"  type="button" class="btn btn-success">
+            <span  class="glyphicon glyphicon-plus"> </span>
+        </button>
+        
+        <button  title="Trash Selected Items" id="trash_selected"  type="button" class="btn btn-warning">
+            <span  class="glyphicon glyphicon-trash"> </span>
+        </button>
     </div>
     <% } %>
 
     <% if(current_page == 'trash_list') { %>
-    <div id="toolbar" class="toolbar-list right">
-        <a title="Delete Selected Items" id="delete_selected" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-delete"> </span>
-        </a>
+    <div  class=" pull-right">
+        <button  title="Delete Selected Items" id="delete_selected"   type="button" class="btn btn-danger">
+            <span  class="glyphicon glyphicon-trash"> </span>
+        </button>
     </div>
     <% } %>
 </div>
