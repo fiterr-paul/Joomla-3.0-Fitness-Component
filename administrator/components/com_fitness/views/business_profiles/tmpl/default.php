@@ -23,14 +23,12 @@ $saveOrder = $listOrder == 'a.ordering';
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&view=business_profiles'); ?>" method="post" name="adminForm" id="adminForm">
 
     <div  class="container-fluid well">
-        <div class="row-fluid">
-            <div class="span12">
+        <div  class="row-fluid form-inline" role="form">
                 <input placeholder="Name" class="search-query" type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('Search'); ?>" />
                 <button class="btn btn-primary" type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
                 <button class="btn btn-default" type="button" onclick="document.id('filter_search').value = '';
                         this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
-            </div>
-        </div>
+
         <?php
         $db = JFactory::getDbo();
         $sql = 'SELECT id AS value, title AS text' . ' FROM #__usergroups' . ' ORDER BY id';
@@ -43,20 +41,18 @@ $saveOrder = $listOrder == 'a.ordering';
             $group[] = JHTML::_('select.option', $option->value, $option->text);
         }
         ?>
-        </br>
-        <div class="row-fluid">
-            <div class="span3">
-                <select name="filter_group" class="inputbox" onchange="this.form.submit()">
+ 
+
+                <select name="filter_group" class="input-medium" onchange="this.form.submit()">
                     <option value=""><?php echo JText::_('-User Group-'); ?></option>
                     <?php echo JHtml::_('select.options', $group, "value", "text", $this->state->get('filter.group'), true); ?>
                 </select>
-            </div>
-            <div class="span3">
-                <select name="filter_published" class="form-control" onchange="this.form.submit()">
+
+                <select name="filter_published" class="input-medium" onchange="this.form.submit()">
                     <option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?></option>
                     <?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), "value", "text", $this->state->get('filter.state'), true); ?>
                 </select>
-            </div>
+  
         </div>  
     </div>
 </div>
@@ -191,7 +187,7 @@ $saveOrder = $listOrder == 'a.ordering';
         </tbody>
     </table>
 </div>
-</div>
+
 <div>
     <input type="hidden" name="task" value="" />
     <input type="hidden" name="boxchecked" value="0" />

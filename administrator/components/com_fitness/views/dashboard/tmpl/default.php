@@ -13,7 +13,7 @@ include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS . '
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="span6">
+        <div class="span6" style="max-width: 550px;">
             <div class="well">
                 <div class="row">
                     <div class="col-md-3">

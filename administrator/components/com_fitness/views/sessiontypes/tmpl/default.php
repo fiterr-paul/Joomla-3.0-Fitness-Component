@@ -46,15 +46,10 @@ $sortFields = $this->getSortFields();
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&view=sessiontypes'); ?>" method="post" name="adminForm" id="adminForm">
     <div  class="container-fluid well">
-        <div class="row-fluid">
-            <div class="span12">
+        <div  class="row-fluid form-inline" role="form">
                 <input placeholder="Name" class="search-query" type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('Search'); ?>" />
                 <button class="btn btn-primary" type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
                 <button class="btn btn-default" type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
-            </div>
-        </div>
-        <br/>
-        <div class="row-fluid">
 
             <?php
             $db = JFactory::getDbo();
@@ -66,19 +61,18 @@ $sortFields = $this->getSortFields();
             $categories = $db->loadObjectList();
             ?>
 
-            <div class="span3">
-                <select name="filter_category" class="selectpicker" onchange="this.form.submit()">
+
+                <select name="filter_category" class="input-large" onchange="this.form.submit()">
                     <option value=""><?php echo JText::_('-Category-'); ?></option>
                     <?php echo JHtml::_('select.options', $categories, "id", "name", $this->state->get('filter.category'), true); ?>
                 </select>
-            </div>
 
-            <div class="span3">
-                <select name="filter_published" class="form-control" onchange="this.form.submit()">
+
+                <select name="filter_published" class="input-medium" onchange="this.form.submit()">
                     <option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?></option>
                     <?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), "value", "text", $this->state->get('filter.state'), true); ?>
                 </select>
-            </div>
+   
         </div>
     </div>
     

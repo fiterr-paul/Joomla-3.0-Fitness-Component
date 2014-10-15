@@ -9,7 +9,7 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<div class="nav nav-hover">
+<div class="nav nav-hover" style="margin-top:10px;">
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness">Dashboard</a>
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=clients">Profiles</a>
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=client_summary">Overview</a>

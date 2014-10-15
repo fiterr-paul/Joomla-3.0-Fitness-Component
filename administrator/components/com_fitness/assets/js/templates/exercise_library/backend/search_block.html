@@ -1,12 +1,13 @@
-<% if(current_page == 'list') { %>
+<div class="row-fluid">
+    <% if(current_page == 'list') { %>
     <div id="toolbar" class="toolbar-list right">
         <% if(app.options.exercise_id) { %>
-            <a id="back_program" tilte="Go Back" class="toolbar" onclick="javascript:void(0)">
-                <span  class="icon-32-back"> </span>
-            </a>
-            <a id="add_selected_exercises" title="Add Selected Videos to Exercises" style="cursor: pointer;"  onclick="javascript:void(0)">
-                <span class="video_link_icon_32"></span>
-            </a>
+        <a id="back_program" tilte="Go Back" class="toolbar" onclick="javascript:void(0)">
+            <span  class="icon-32-back"> </span>
+        </a>
+        <a id="add_selected_exercises" title="Add Selected Videos to Exercises" style="cursor: pointer;"  onclick="javascript:void(0)">
+            <span class="video_link_icon_32"></span>
+        </a>
         <% } %>
         <a title="Add Video Item" id="add_item" class="toolbar" onclick="javascript:void(0)">
             <span  class="icon-32-new"> </span>
@@ -15,49 +16,47 @@
             <span  class="icon-32-trash"> </span>
         </a>
     </div>
-<% } %>
+    <% } %>
 
-<% if(current_page == 'trash_list') { %>
+    <% if(current_page == 'trash_list') { %>
     <div id="toolbar" class="toolbar-list right">
         <a title="Delete Selected Items" id="delete_selected" class="toolbar" onclick="javascript:void(0)">
             <span  class="icon-32-delete"> </span>
         </a>
     </div>
-<% } %>
+    <% } %>
+</div>
 
-<div class="clr"></div>
+<br/>
 
-<div style="width:100%">
-    <label>Exercise Name</label>
-    <input id="exercise_name" size="30" type="text" >
+<div  class="row-fluid form-inline" role="form">
+    <input placeholder="Exercise Name" id="exercise_name" size="20" type="text" class="form-control" >
+
+    <input placeholder="Client Name(My Exercises List)" id="client_name" size="27" type="text" class="form-control" >
+
+    <input placeholder="Author Name" id="created_by_name" size="20" type="text" class="form-control" >
     
-    <label>Client Name(My Exercises List)</label>
-    <input id="client_name" size="30" type="text" >
-    
-    <label>Author Name:</label>
-    <input id="created_by_name" size="20" type="text" >
-    
-    <input id="search_by_name" type="button" value="Search">
-    <input id="clear_all" type="button" value="Clear All">
-    
+    <div class="btn-group">
+        <button id="search_by_name" type="button" class="btn" title="Search"><i class="icon-search"></i></button>
+        <button id="clear_all" type="button" class="btn" title="Clear All"><i class="icon-remove"></i></button>
+    </div>
+
     <div style="width:200px;display: inline-block;" id="business_profile_filter"></div>
-    
-    <select id="state_filter" class="inputbox" size="1" name="state">
+
+    <select id="state_filter" class="input-medium" size="1" name="state">
         <%
         var selected_published = '';
         var selected_unpublished = 'selected="selected"';
         if(current_page == 'list') {
-            selected_published = 'selected="selected"';
-            selected_unpublished = '';
+        selected_published = 'selected="selected"';
+        selected_unpublished = '';
         }
 
         %>
         <option <%= selected_published %> value="1">Published</option>
         <option <%= selected_unpublished %>   value="0">Unpublished</option>
     </select>
-   
+
+
 </div>
-
-
-
 

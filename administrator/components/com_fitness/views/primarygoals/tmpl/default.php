@@ -25,28 +25,20 @@ $saveOrder = $listOrder == 'a.ordering';
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&view=primarygoals'); ?>" method="post" name="adminForm" id="adminForm">
-
-    <div  class="container-fluid well">
-        <div class="row-fluid">
-            <div class="span12">
+<div  class="container-fluid well">
+    <div  class="row-fluid form-inline" role="form">
                 <input placeholder="Name" class="search-query" type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('Search'); ?>" />
                 <button class="btn btn-primary" type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
                 <button class="btn btn-default" type="button" onclick="document.id('filter_search').value = '';
                         this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
-            </div>
-        </div>
-        <br/>
-        <div class="row-fluid">
-            <div class="span3">
-                <?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'filter_business_profile_id', 'business_profile_id', $this->state->get('filter.business_profile_id'), 'Business Name', false, "inputbox"); ?>
-            </div>
 
-            <div class="span3">
-                <select name="filter_published" class="form-control" onchange="this.form.submit()">
+                <?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'filter_business_profile_id', 'business_profile_id input-large', $this->state->get('filter.business_profile_id'), 'Business Name', false, "inputbox"); ?>
+
+                <select name="filter_published" class="input-medium" onchange="this.form.submit()">
                     <option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?></option>
                     <?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), "value", "text", $this->state->get('filter.state'), true); ?>
                 </select>
-            </div>
+
         </div>
     </div>
 
@@ -171,9 +163,10 @@ foreach ($this->items as $i => $item) :
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <?php include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'settings' . DS . 'tmpl' . DS . 'default_batch.php'; ?>
     </div>
-</div>
-<?php include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'settings' . DS . 'tmpl' . DS . 'default_batch.php'; ?>
+
+
 
 <div>
     <input type="hidden" name="task" value="" />
