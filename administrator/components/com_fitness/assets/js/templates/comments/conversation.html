@@ -1,17 +1,10 @@
-<table width="100%" class="table_header conversation_wrapper" style="font-size: 13px;margin-top:10px;">
-    <tr>
-        <td style="text-align: left;">
-            COACHING & CONVERSATION
-        </td>
-        <td>
-            <a class="delete_conversation" style="cursor: pointer;margin-left:10px;float:right;display:none;" onclick="javascript:void(0)">[DELETE]</a>
-        </td>
-    </tr>
-</table>
-
-<div class="conversation_wrapper orange_border">
-    
-    <table>
+<div class="panel panel-info">
+    <div class="panel-heading form-inline" style="height:20px;padding:2px;">
+        <label>Coaching & Conversation</label>
+        <a title="Delete" class="delete_conversation glyphicon glyphicon-trash" style="float:right;cursor: pointer;display:none;" onclick="javascript:void(0)"></a>
+  </div>
+  <div class="panel-body" style="padding:0;">
+      <table>
         <tr>
             <td width="300">
                 Conversation Started By:
@@ -39,12 +32,18 @@
                 </td>
                 <% } %>
                 <td width="200">
-                    <a class="save_conversation" style="cursor: pointer;margin-left:10px;display:none;" onclick="javascript:void(0)">[SAVE]</a>
-
-                    <a class="edit_conversation" style="cursor: pointer;margin-left:10px;display:none;" onclick="javascript:void(0)">[EDIT]</a>
-
+                    <a title="Save Conversation" class="save_conversation btn btn-default btn-small" role="button"  style="cursor: pointer;margin-left:10px;display:none;" onclick="javascript:void(0)">
+                        <span  class="glyphicon glyphicon-ok"> </span>
+                    </a>
+                    
+                    <a title="Edit Conversation" class="edit_conversation btn btn-default btn-small" role="button"  style="cursor: pointer;margin-left:10px;display:none;" onclick="javascript:void(0)">
+                        <span  class="glyphicon glyphicon-pencil"> </span>
+                    </a>
+           
                     <% if(item.id) { %>
-                    <a class="close_conversation" style="cursor: pointer;margin-left:10px;display:none;" onclick="javascript:void(0)">[CLOSE]</a>
+                    <a title="Close Conversation" class="close_conversation btn btn-default btn-small" role="button"  style="cursor: pointer;margin-left:10px;display:none;" onclick="javascript:void(0)">
+                        <span  class="glyphicon glyphicon-remove"> </span>
+                    </a>
                     <% } %>
                     
                     
@@ -88,6 +87,11 @@
         <div class="clr"></div>
         <div class="child_comments_wrapper"></div>
         <div class="clr"></div>
-        <a style="margin-top:5px;" href="javascript:void(0)" class="reply_parent_comment">[REPLY]</a>
+        
+        <a title="Repply to a Comment" class="reply_parent_comment btn btn-default btn-small" role="button"  style="cursor: pointer;margin-top:5px;" onclick="javascript:void(0)">
+            <span  class="glyphicon glyphicon-comment"> </span>
+        </a>
     <% } %>
+  </div>
 </div>
+

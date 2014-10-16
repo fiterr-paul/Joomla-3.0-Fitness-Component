@@ -15,14 +15,24 @@
 
             <td>
                 <% if(edit_mode) { %>
-                <a href="javascript:void(0)" class="save_parent_comment">[SAVE]</a>
+                <a title="Save Comment" class="save_parent_comment btn btn-default btn-small" role="button"  style="cursor: pointer;" onclick="javascript:void(0)">
+                    <span  class="glyphicon glyphicon-ok"> </span>
+                </a>
+                
                 <% } else { %>
-                <a style="display:none;"  href="javascript:void(0)" class="edit_parent_comment">[EDIT]</a>
+            
+                <a title="Edit Comment" class="edit_parent_comment btn btn-default btn-small" role="button"  style="cursor: pointer;display:none;" onclick="javascript:void(0)">
+                        <span  class="glyphicon glyphicon-pencil"> </span>
+                    </a>
                 <% } %>
             </td>
             
             <% if(options.show_delete) { %>
-            <td align="center"><a style="display:none;" href="javascript:void(0)" class="delete_child_comment">[DELETE]</a></td>
+            <td align="center">
+                <a title="Delete Comment" class="delete_child_comment btn btn-default btn-small" role="button"  style="cursor: pointer;display:none;" onclick="javascript:void(0)">
+                    <span  class="glyphicon glyphicon-trash"> </span>
+                </a>
+            </td>
             <% } %>
         </tr>
         <tr>

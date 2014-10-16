@@ -110,7 +110,7 @@ define([
                 el : $(this.el).find("#status_wrapper"),
                 collection : collection,
                 first_option_title : '-Select Status-',
-                class_name : 'filter_select',
+                class_name : 'filter_select input-medium',
                 id_name : 'status_select',
                 model_field : 'status'
             }).render();
@@ -130,7 +130,7 @@ define([
                 el : $(this.el).find("#state_wrapper"),
                 collection : collection,
                 first_option_title : '-Published-',
-                class_name : 'filter_select',
+                class_name : 'filter_select input-medium',
                 id_name : 'state_select',
                 model_field : 'state'
             }).render();
@@ -163,6 +163,7 @@ define([
                 el : $(this.el).find("#business_profile_select"),
                 collection : collection,
                 first_option_title : '- Business profile-',
+                class_name : 'input-large',
                 id_name : 'business_profile_id',
                 model_field : 'business_profile_id',
 
@@ -193,7 +194,7 @@ define([
                 collection : collection,
                 title : 'RECIPE TYPE',
                 first_option_title : 'ALL TYPES',
-                class_name : '',
+                class_name : 'input-medium',
                 id_name : 'recipe_type',
                 select_size : 15,
                 model_field : 'filter_options'
