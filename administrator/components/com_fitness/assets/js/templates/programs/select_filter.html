@@ -1,11 +1,7 @@
-<div class="fitness_block_wrapper recipe_filter">
-    <div style="padding: 3px;">
-        <b style="font-size: 14px;"><%= title %></b>
-    </div>
-    <div class="clr"></div>
-    <hr class="orange_line">
-    <div class="internal_wrapper" style="padding: 0;">
-        <select 
+<div class="panel panel-info">
+  <div class="panel-heading"><%= title %></div>
+  <div class="panel-body" style="padding:0;">
+      <select 
             class="<%= class_name %> filter_select" 
             multiple size="<%= select_size %>"
             id="<%= id_name %>" 
@@ -15,6 +11,5 @@
         >
             <option  value="0"><%= first_option_title %></option>
         </select>
-    </div>
-    <div class="clr"></div>
+  </div>
 </div>

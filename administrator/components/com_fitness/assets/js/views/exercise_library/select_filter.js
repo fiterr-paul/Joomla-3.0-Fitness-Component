@@ -3,7 +3,7 @@ define([
 	'underscore',
 	'backbone',
         'app',
-	'text!templates/exercise_library/select_filter.html',
+	'text!templates/programs/select_filter.html',
 ], function ( $, _, Backbone, app, template ) {
 
     var view = Backbone.View.extend({
