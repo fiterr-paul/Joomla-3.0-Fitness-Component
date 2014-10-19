@@ -24,10 +24,8 @@ define([
             var template = _.template(this.template(data));
         
             this.$el.html(template);
-            
-            if(this.model.get('edit_allowed')) {
-                this.connectVideoUpload();
-            }
+
+            this.connectVideoUpload();
 
             return this;
         },
@@ -53,9 +51,15 @@ define([
                 'el' : this.$el.find("#video_upload_content"),
                 'video_path' : app.options.video_path,
                 'base_url' : app.options.base_url,
-                'video_name' : this.model.get('id')
+                'video_name' : this.model.get('id'),
+                'readonly' : true
 
             };
+            
+            if(this.model.get('edit_allowed')) {
+                video_upload_options.readonly = false;
+            }
+            
             var video_upload = $.backbone_video_upload(video_upload_options); 
          
         }

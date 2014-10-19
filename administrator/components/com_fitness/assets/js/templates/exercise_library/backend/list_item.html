@@ -60,7 +60,7 @@
             <% })
         } %>
     </td>
-    <td><%= moment(new Date(Date.parse(created))).format("ddd, D MMM  YY")  %></td>
+    <td><%= moment(created,"YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YY")  %></td>
     <td><%= created_by_name %></td>
     <td id="status_button_place_<%= id %>" >
      

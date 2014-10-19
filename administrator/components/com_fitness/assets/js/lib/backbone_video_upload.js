@@ -24,10 +24,13 @@
             template: _.template($('#video_upload_template').html()),
 
             initialize: function() {
+                //console.log(this.model.toJSON());
                 _.bindAll(this, 'render', 'drop_video', 'change_video', 'file_validation', 'save_video', 'clear_video', 'connectPlayer');
                 this.video_name  = this.model.get('video_name');
+
                 this.readonly  = this.model.get('readonly') || false;
                 this.model.set({readonly : this.readonly}); 
+
                 this.render();
             },
             

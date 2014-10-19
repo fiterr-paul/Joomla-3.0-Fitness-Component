@@ -82,7 +82,6 @@ define([
         },
 
         form_view : function(id) {
-            $("#main_container").html(new Form_container_view().render().el);
             if(!parseInt(id)) {
                 this.load_form_view(new Exercise_library_item_model({edit_allowed : true}));
                 return;
@@ -103,6 +102,8 @@ define([
         
         load_form_view : function(model) {
             $("#header_wrapper").html(new Main_menu_view({model : model}).render().el);
+            
+            $("#main_container").html(new Form_container_view({model : model}).render().el);
 
             $("#exercise_details_wrapper").html(new Exercise_details_view({model : model}).render().el);
             

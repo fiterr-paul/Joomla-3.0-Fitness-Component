@@ -53,7 +53,7 @@ define([
                 $(this.el).find(".show_public_database").val('0');
                 return;
             }
-            
+ 
             var user_view_permission = this.options.item_model.get('user_view_permission');
             
             if(!user_view_permission) {
@@ -116,6 +116,12 @@ define([
                 $(this.el).find(".show_public_database").attr('disabled', true);
             }
             
+            var is_superuser = app.options.is_superuser;
+            var is_trainer_administrator = app.options.is_trainer_administrator;
+            
+            if(is_superuser ||  is_trainer_administrator) {
+                $(this.el).find(".show_public_database").attr('disabled', false);
+            }
         }
         
     });

@@ -10,8 +10,8 @@
             </td>
 
             <td width="33%"><b>Comment by: </b><span class="comment_by"><%= item.created_by_name %></span></td>
-            <td width="33%"><b>Date: </b> <span class="comment_date"></span><%= moment(new Date(Date.parse(item.created))).format("ddd, D MMM  YYYY") %></td>
-            <td><b>Time: </b> <span class="comment_time"><%= moment(new Date(Date.parse(item.created))).format("HH:mm")  %></span></td>
+            <td width="33%"><b>Date: </b> <span class="comment_date"></span><%= moment(item.created, "YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YYYY") %></td>
+            <td><b>Time: </b> <span class="comment_time"><%= moment(item.created, "YYYY-MM-DD HH:mm:ss").format("HH:mm")  %></span></td>
 
             <td>
                 <% if(edit_mode) { %>

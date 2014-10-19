@@ -6,7 +6,6 @@ define([
         'collections/exercise_library/business_profiles',
         'collections/exercise_library/clients',
         'views/exercise_library/backend/business_profile_block',
-        'views/comments/index',
 	'text!templates/exercise_library/backend/business_permissions.html'
 ], function (
         $,
@@ -16,7 +15,6 @@ define([
         Business_profiles_collection, 
         Clients_collection,
         Business_profile_block_view,
-        Comments_view,
         template 
     ) {
 
@@ -73,11 +71,7 @@ define([
             if(app.options.is_superuser) {
                 this.setGlobalViewAccess(value);
             }
-            
-            if(this.model.get('id')) {
-                this.connectComments();
-            }
-            
+
             return this;
         },
         
@@ -118,20 +112,7 @@ define([
             }
         },
         
-        connectComments :function() {
-            var comment_options = {
-                'item_id' :  this.model.get('id'),
-                'item_model' :  this.model,
-                'sub_item_id' :  '0',
-                'db_table' : 'fitness_exercise_library_comments',
-                'read_only' : false,
-                'anable_comment_email' : true,
-                'comment_method' : 'ExerciseLibraryComment'
-            }
-
-            var comments_html = new Comments_view(comment_options).render().el;
-            $(this.el).find("#comments_wrapper").html(comments_html);
-        },
+        
     });
             
     return view;
