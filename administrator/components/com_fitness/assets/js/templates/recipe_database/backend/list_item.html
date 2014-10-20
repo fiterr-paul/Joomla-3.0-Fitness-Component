@@ -48,11 +48,7 @@ var background_image = 'url(' + "'" + image  + "')" ;
     </td>
     
     <td >
-        <%
-        var d1 = new Date(Date.parse(item.created));            
-        var created = moment(d1).format("ddd, D MMM  YYYY");      
-        %>
-        <%= created %>
+        <%= moment(item.created,"YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YY")  %>
     </td>
     
     <td>
@@ -84,7 +80,7 @@ var background_image = 'url(' + "'" + image  + "')" ;
     
     <td>
         <% if(item.state != '-2') { %>
-            <a title="View/Edit" style="cursor: pointer;" class="view " onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="preview"></span></a>
+            <a title="View/Edit" style="cursor: pointer;" class="view " onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="glyphicon glyphicon-file"></span></a>
         <% } else {
             if(item.edit_allowed) {
                 %>
@@ -95,15 +91,15 @@ var background_image = 'url(' + "'" + image  + "')" ;
     </td>
     
     <td>
-         <a title="Copy" style="cursor: pointer;" class="copy_item" onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="copy_icon"></span></a>
+        <a title="Copy" style="cursor: pointer;" class="copy_item " onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="glyphicon glyphicon-floppy-disk"></span></a>
     </td>
     
     <td>
         <% if(item.edit_allowed) { %>
             <% if(item.state != '-2') { %>
-                <a class="trash" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Trash" data-id="<%= item.id %>" class="trash_icon"></span></a>
+                <a class="trash" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Trash" data-id="<%= item.id %>" class="glyphicon glyphicon-trash"></span></a>
             <% } else { %>
-                <a class="delete" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Delete" data-id="<%= item.id %>" class="delete_icon"></span></a>
+                <a class="delete" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Delete" data-id="<%= item.id %>" class="glyphicon glyphicon-trash"></span></a>
             <% } %>
         <% } %>
     </td>

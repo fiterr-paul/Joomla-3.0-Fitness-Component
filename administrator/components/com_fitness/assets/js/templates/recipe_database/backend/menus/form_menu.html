@@ -1,63 +1,41 @@
-<div id="toolbar" class="toolbar-list">
-    <ul>
+<div class="row-fluid">
+    <div class=" pull-right">
         <% if(parseInt(id)) { %>
             <% if(edit_allowed) { %>
-                <li id="toolbar-apply" class="button">
-                    <a id="save" class="toolbar" onclick="javascript:void(0)">
-                        <span  class="icon-32-apply"> </span>
-                        Save
-                    </a>
-                </li>
+                <button  title="Save" id="save"  type="button" class="btn btn-success">
+                    <span  class="glyphicon glyphicon-saved"> </span>
+                </button>
             <% } %>
          <% } else { %>
-            <li id="toolbar-apply" class="button">
-                <a id="save" class="toolbar" onclick="javascript:void(0)">
-                    <span  class="icon-32-forward"> </span>
-                    Next
-                </a>
-            </li>
+            <button  title="Next" id="save"  type="button" class="btn btn-success">
+                <span  class="glyphicon glyphicon-circle-arrow-right"> </span>
+            </button>
          <% } %>
             
             
         <% if(parseInt(id)) { %>
             <% if(edit_allowed) { %>
-                <li id="toolbar-save" class="button">
-                    <a id="save_close" class="toolbar" onclick="javascript:void(0)">
-                        <span  class="icon-32-save"> </span>
-                        Save & Close
-                    </a>
-                </li>
+                <button  title="Save & Close" id="save_close"  type="button" class="btn btn-success">
+                    <span  class="glyphicon glyphicon-ok"> </span>
+                </button>
             <% } %>
-            <li id="toolbar-save-new" class="button">
-                <a  id="save_copy"  class="toolbar" onclick="javascript:void(0)">
-                    <span class="icon-32-save-new"> </span>
-                    Save As Copy
-                </a>
-            </li>
+            <button  title="Save As Copy" id="save_copy"  type="button" class="btn btn-default">
+                <span  class="glyphicon glyphicon-floppy-disk"> </span>
+            </button>
             <% if(edit_allowed) { %>
-                <li id="toolbar-save-new" class="button">
-                    <a  id="save_new"  class="toolbar" onclick="javascript:void(0)">
-                        <span class="icon-32-save-new"> </span>
-                        Save & New
-                    </a>
-                </li>
+                <button  title="Save & New" id="save_new"  type="button" class="btn btn-success">
+                    <span  class="glyphicon glyphicon-plus"> </span>
+                </button>
             <% } %>
-            <li id="toolbar-cancel" class="button">
-                <a id="cancel"  class="toolbar" onclick="javascript:void(0)">
-                    <span class="icon-32-cancel"> </span>
-                    Close
-                </a>
-            </li>
+            <button  title="Close" id="cancel"  type="button" class="btn btn-warning">
+                <span  class="glyphicon glyphicon-remove"> </span>
+            </button>
             
          <% } else { %>
-            <li id="toolbar-cancel" class="button">
-                <a id="cancel"  class="toolbar" onclick="javascript:void(0)">
-                    <span class="icon-32-cancel"> </span>
-                    Cancel
-                </a>
-            </li>
+            <button  title="Cancel" id="cancel"  type="button" class="btn btn-warning">
+                <span  class="glyphicon glyphicon-remove"> </span>
+            </button>
          <% } %>
             
-    </ul>
-    <div class="clr"></div>
+    </div>
 </div>

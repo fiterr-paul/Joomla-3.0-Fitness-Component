@@ -1,6 +1,6 @@
 <td  >
     <% if(item.edit_mode) { %>
-        <input style="float:none;"   size="40" type="text"  class="ingredient_name_input dark_input_style" value="<%= item.meal_name %>">
+        <input style="float:none;"   size="40" type="text"  class="ingredient_name_input input-large" value="<%= item.meal_name %>">
     <% } else { %>
         <%= item.meal_name %>
     <% } %>
@@ -8,7 +8,7 @@
 
 <td style="width:200px;">
     <% if(item.edit_mode) { %>
-    <input data-id="<%= item.id %>" data-ingredient_id="<%= item.ingredient_id %>"   size="5" type="text"  class="ingredient_quantity_input number_input dark_input_style"  value="<%= item.quantity %>">
+    <input data-id="<%= item.id %>" data-ingredient_id="<%= item.ingredient_id %>"   size="5" type="text"  class="ingredient_quantity_input number_input input-mini"  value="<%= item.quantity %>">
     <% } else { %>
         <%= item.quantity %>
     <% } %>
@@ -17,7 +17,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_protein number_input dark_input_style" value="<%= item.protein %>">
+        <input readonly size="5" type="text"  class="ingredient_protein number_input input-mini" value="<%= item.protein %>">
     <% } else { %>
         <%= item.protein %>
     <% } %>
@@ -25,7 +25,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_fats number_input dark_input_style" value="<%= item.fats %>">
+        <input readonly size="5" type="text"  class="ingredient_fats number_input input-mini" value="<%= item.fats %>">
     <% } else { %>
         <%= item.fats %>
     <% } %>
@@ -33,7 +33,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_carbs number_input dark_input_style" value="<%= item.carbs %>">
+        <input readonly size="5" type="text"  class="ingredient_carbs number_input input-mini" value="<%= item.carbs %>">
     <% } else { %>
         <%= item.carbs %>
     <% } %>
@@ -41,7 +41,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_calories number_input dark_input_style" value="<%= item.calories %>">
+        <input readonly size="5" type="text"  class="ingredient_calories number_input input-mini" value="<%= item.calories %>">
     <% } else { %>
         <%= item.calories %>
     <% } %>
@@ -49,7 +49,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_energy number_input dark_input_style" value="<%= item.energy %>">
+        <input readonly size="5" type="text"  class="ingredient_energy number_input input-mini" value="<%= item.energy %>">
     <% } else { %>
         <%= item.energy %>
     <% } %>
@@ -57,7 +57,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_saturated_fat number_input dark_input_style" value="<%= item.saturated_fat %>">
+        <input readonly size="5" type="text"  class="ingredient_saturated_fat number_input input-mini" value="<%= item.saturated_fat %>">
     <% } else { %>
         <%= item.saturated_fat %>
     <% } %>
@@ -65,7 +65,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_total_sugars number_input dark_input_style" value="<%= item.total_sugars %>">
+        <input readonly size="5" type="text"  class="ingredient_total_sugars number_input input-mini" value="<%= item.total_sugars %>">
     <% } else { %>
         <%= item.total_sugars %>
     <% } %>
@@ -73,7 +73,7 @@
 
 <td>
     <% if(item.edit_mode) { %>
-        <input readonly size="5" type="text"  class="ingredient_sodium number_input dark_input_style" value="<%= item.sodium %>">
+        <input readonly size="5" type="text"  class="ingredient_sodium number_input input-mini" value="<%= item.sodium %>">
     <% } else { %>
         <%= item.sodium %>
     <% } %>
@@ -81,6 +81,6 @@
 
 <td class="ingredient_cell_delete">
     <% if(item.edit_mode) { %>
-        <a href="javascript:void(0)" class="delete_meal delete_meal_ingredient" title="delete"></a>
+        <a title="Delete" class="delete_meal delete_meal_ingredient glyphicon glyphicon-trash" onclick="javascript:void(0)"></a>
     <% } %>
 </td>

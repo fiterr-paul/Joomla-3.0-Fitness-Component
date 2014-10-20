@@ -398,7 +398,7 @@
     padding: 0 15px;
 }
 
-.delete_meal, .delete_comment , .delete_plan_meal, .delete_shopping_item, .delete_icon{
+ .delete_plan_meal, .delete_shopping_item, .delete_icon{
     background-image: url("../images/cross.png");
     background-size: 15px auto;
     display: inline-block;
@@ -729,7 +729,7 @@
     width: 25px;
     height: 25px;
     background-repeat: no-repeat;
-    background-size: 25px;
+    background-size: 25px;delete_meal
 }
 
 

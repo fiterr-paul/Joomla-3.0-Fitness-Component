@@ -1,4 +1,5 @@
-<table class="meal_table" width="100%">
+<div class="well">
+    <table class="table table-striped" width="100%">
         <thead>
             <tr>
                 <th class="ingredient_title">MEAL ITEMS</th>
@@ -23,9 +24,13 @@
             <tr>
                 <td>
                     <%  if(item.edit_mode) { %>
-                        <a onclick="javascript:void(0)" class="add_meal_ingredient" style="cursor: pointer;">[ADD ITEM]</a>
+                        <a title="Add Item" class="add_meal_ingredient btn btn-success btn-small" role="button">
+                            <span class="glyphicon glyphicon-plus"> </span>
+                        </a>
                         <%  if(item.show_save_as_recipe) { %>
-                            <a onclick="javascript:void(0)" class="save_as_recipe" style="cursor: pointer;margin-left:10px;">[SAVE AS RECIPE]</a>
+                            <a title="Save as Recipe" class="save_as_recipe btn btn-deafault btn-small" role="button" style="margin-left:10px;">
+                                <span class="glyphicon glyphicon-floppy-disk"> </span>
+                            </a>
                         <% } %>
                     <% } %>
                 </td>
@@ -61,3 +66,4 @@
         </tfoot>
 
     </table>
+</div>
