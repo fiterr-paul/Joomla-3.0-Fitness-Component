@@ -287,12 +287,21 @@ class FitnessModelgoals extends JModelList {
      * @return type
      */
     function getPrimaryGoalsGraphData($client_id, $data) {
-        $list_type = $data->list_type;
-        $config = JFactory::getConfig();
-        $date = new DateTime($time_created);
-        $date->setTimezone(new DateTimeZone($config->getValue('config.offset')));
-        $current_date = $date->format('Y-m-d');
         
+        $list_type = $data->list_type;
+        
+        $config = Jfactory::getConfig();
+        
+        $date = JFactory::getDate();
+        
+        $tz = $config->get('offset');
+
+        $date->setTimezone($tz);
+
+        $current_date = $date->format( "Y-m-d" );
+
+        //
+         
         $db = &JFactory::getDBo();
         $query = "SELECT pg.*, u.name AS client_name, pname.name AS primary_goal_name
             FROM  #__fitness_goals AS pg
@@ -335,10 +344,16 @@ class FitnessModelgoals extends JModelList {
      */
      function getMiniGoalsGraphData($client_id, $data) {
         $list_type = $data->list_type;
-        $config = JFactory::getConfig();
-        $date = new DateTime($time_created);
-        $date->setTimezone(new DateTimeZone($config->getValue('config.offset')));
-        $current_date = $date->format('Y-m-d');
+        
+        $config = Jfactory::getConfig();
+        
+        $date = JFactory::getDate();
+        
+        $tz = $config->get('offset');
+
+        $date->setTimezone($tz);
+
+        $current_date = $date->format( "Y-m-d" );
         $db = &JFactory::getDBo();
         $query = "SELECT mg.*, u.name AS client_name, mname.name AS mini_goal_name, mg.start_date AS start_date, tp.color AS training_period_color, tp.name AS training_period_name, tp.name AS training_period_name
             FROM  #__fitness_mini_goals AS mg

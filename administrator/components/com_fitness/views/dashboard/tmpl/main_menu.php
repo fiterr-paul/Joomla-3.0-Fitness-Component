@@ -21,7 +21,7 @@ defined('_JEXEC') or die;
 
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=programs_templates">Templates</a>
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=exercise_library">Exercise Library</a>
-    <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=goals">Nutrition Plans</a>
+    <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=nutrition_plans">Nutrition Plans</a>
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=nutrition_diaries">Nutrition Diaries</a>
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=nutrition_recipes">Recipes</a>
     <a class="btn btn-primary btn-xs" role="button" href="index.php?option=com_fitness&view=nutritiondatabases">Nutrition Database</a>

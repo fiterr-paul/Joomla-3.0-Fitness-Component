@@ -36,9 +36,13 @@ class JFormFieldTimecreated extends JFormField
 
             $time_created = $this->value;
 
-            $config = JFactory::getConfig();
-            $date = new DateTime($time_created);
-            $date->setTimezone(new DateTimeZone($config->getValue('config.offset')));
+            $date = JFactory::getDate($time_created);
+        
+            $tz = $config->get('offset');
+
+            $date->setTimezone($tz);
+
+            $date = $date->format( "Y-m-d" );
 
             if (!strtotime($time_created)) {
                 $time_created = $date->format('Y-m-d H:i:s');
