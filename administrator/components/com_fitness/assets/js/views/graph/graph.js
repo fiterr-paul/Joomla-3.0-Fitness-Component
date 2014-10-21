@@ -615,9 +615,9 @@ define([
             $(this.el).find("#choices").die().empty();
             $.each(data, function(key, val) {
                 $(self.el).find("#choices").die().append(
-                    "<br/><input type='checkbox' name='" + key +
+                    "<br/><input style='display: inline-block;margin-top: 0;' type='checkbox' name='" + key +
                     "' checked='checked' id='id" + key + "'></input>" +
-                    "<label for='id" + key + "'>"
+                    "<label style='display: inline-block;margin-left: 5px;' for='id" + key + "'>"
                     + val.label + "</label>"
                 );
             });

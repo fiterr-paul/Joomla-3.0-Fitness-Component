@@ -14,12 +14,11 @@ $business_profile_id = $business_profile_id['data'];
 
 ?>
 <div id="graph_container"></div>
-<div class="clr"></div>
-<br/>
+
 <div id="header_wrapper" ></div>
-<div class="clr"></div>
+
 <div id="nutrition_guide_header"></div>
-<div class="clr"></div>
+
 <div id="main_container"></div>
 
 

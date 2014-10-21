@@ -6,7 +6,7 @@
     <% } %>
 </td>
 
-<td style="width:200px;">
+<td style="width:220px;">
     <% if(item.edit_mode) { %>
     <input data-id="<%= item.id %>" data-ingredient_id="<%= item.ingredient_id %>"   size="5" type="text"  class="ingredient_quantity_input number_input input-mini"  value="<%= item.quantity %>">
     <% } else { %>
@@ -79,7 +79,7 @@
     <% } %>
 </td>
 
-<td class="ingredient_cell_delete">
+<td>
     <% if(item.edit_mode) { %>
         <a title="Delete" class="delete_meal delete_meal_ingredient glyphicon glyphicon-trash" onclick="javascript:void(0)"></a>
     <% } %>

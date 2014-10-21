@@ -119,7 +119,7 @@ define([
                 el : $(this.el).find("#state_wrapper"),
                 collection : collection,
                 first_option_title : '-Published-',
-                class_name : 'filter_select',
+                class_name : 'input-medium',
                 id_name : 'state_select',
                 model_field : 'state'
             }).render();
@@ -138,7 +138,7 @@ define([
                 el : $(this.el).find("#active_plan_wrapper"),
                 collection : collection,
                 first_option_title : '-Active Plan-',
-                class_name : 'filter_select',
+                class_name : 'input-medium',
                 id_name : 'active_plan_select',
                 model_field : 'active_plan'
             }).render();
@@ -157,7 +157,7 @@ define([
                 el : $(this.el).find("#force_active_wrapper"),
                 collection : collection,
                 first_option_title : '-Force Active-',
-                class_name : 'filter_select',
+                class_name : 'input-medium',
                 id_name : 'force_active_select',
                 model_field : 'force_active'
             }).render();

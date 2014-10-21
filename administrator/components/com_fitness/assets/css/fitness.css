@@ -365,7 +365,7 @@
     width: 600x;
     height: 250px;
     padding: 20px 15px 15px 15px;
-    margin: 15px auto 30px auto;
+    margin: 0;
     border: 1px solid #ddd;
     background: #fff;
     background: linear-gradient(#f6f6f6 0, #fff 50px);
@@ -1383,6 +1383,16 @@ a {
 .nopaddingright {
    padding-right: 0 !important;
    margin-right: 0 !important;
+}
+
+.nopaddingbottom {
+   padding-bottom: 0 !important;
+   margin-bottom: 0 !important;
+}
+
+.nopaddingtop {
+   padding-top: 0 !important;
+   margin-top: 0 !important;
 }
 
 .nopaddingall {

@@ -1,69 +1,70 @@
 <div class="row">&nbsp;</div>
 
-<div class="row-fluid ">
-    <form id="recipe_edit_form">
-        <div class="col-md-6 nopaddingleft">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Recipe Details</div>
-                <div class="panel-body" id="exercise_details_wrapper">
-                    <div class="form-horizontal">
-                        <div class="form-group">
-                            <label for="exercise_name" class="col-xs-4">Recipe Name</label>
-                            <div class="col-xs-8">
-                                <input value="<%= recipe_name || '' %>" style="width:250px;" maxlength="100"  type="text" name="recipe_name" id="recipe_name">
+<div class="container pull-left">
+    <div class="row-fluid ">
+        <form id="recipe_edit_form">
+            <div class="col-md-6 nopaddingleft">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Recipe Details</div>
+                    <div class="panel-body" id="exercise_details_wrapper">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="exercise_name" class="col-xs-4">Recipe Name</label>
+                                <div class="col-xs-8">
+                                    <input value="<%= recipe_name || '' %>" style="width:250px;" maxlength="100"  type="text" name="recipe_name" id="recipe_name">
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <div style="width:200px;float:left;" id="recipe_type_wrapper"></div>
+
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <div style="width:200px;float:left;" id="recipe_type_wrapper"></div>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <div style="width:200px;float:left;margin-left: 10px;"  id="recipe_variation_wrapper"></div>
+                                </div>
                             </div>
-                            
-                            <div class="col-xs-6">
-                                <div style="width:200px;float:left;margin-left: 10px;"  id="recipe_variation_wrapper"></div>
+
+                            <div class="form-group">
+                                <label for="exercise_name" class="col-xs-4">Serves</label>
+                                <div class="col-xs-8">
+                                    <input value="<%= number_serves %>" style="width:30px;" type="text" maxlength="3"  name="number_serves" id="number_serves">
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exercise_name" class="col-xs-4">Serves</label>
-                            <div class="col-xs-8">
-                                <input value="<%= number_serves %>" style="width:30px;" type="text" maxlength="3"  name="number_serves" id="number_serves">
+
+                            <div class="form-group">
+                                <label for="exercise_name" class="col-xs-4">Status</label>
+                                <div class="col-xs-8">
+                                    <div id="status_button_place_<%= id %>"  ></div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exercise_name" class="col-xs-4">Status</label>
-                            <div class="col-xs-8">
-                                <div id="status_button_place_<%= id %>"  ></div>
+
+                            <div class="form-group">
+                                <label for="exercise_name" class="col-xs-4">Assessed By</label>
+                                <div class="col-xs-8">
+                                    <%= trainer || '-' %>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exercise_name" class="col-xs-4">Assessed By</label>
-                            <div class="col-xs-8">
-                                <%= trainer || '-' %>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exercise_name" class="col-xs-4">Published</label>
-                            <div class="col-xs-8">
-                                <%
-                                var published_checked = '';
-                                if(state == 1) {
+
+                            <div class="form-group">
+                                <label for="exercise_name" class="col-xs-4">Published</label>
+                                <div class="col-xs-8">
+                                    <%
+                                    var published_checked = '';
+                                    if(state == 1) {
                                     published_checked = 'checked';
-                                }
-                                %>
-                                <input type="checkbox" name="published" id="published"  value="1" <%= published_checked %>  />
+                                    }
+                                    %>
+                                    <input type="checkbox" name="published" id="published"  value="1" <%= published_checked %>  />
+                                </div>
                             </div>
+
                         </div>
-                         
-                   </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <% if(id) { %>
+
+            <% if(id) { %>
             <div class="col-md-6 nopaddingleft nopaddingright">
                 <div class="row-fluid ">
                     <div class="col-md-6 nopaddingleft">
@@ -84,9 +85,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">&nbsp;</div>
-                
+
                 <div class="row-fluid ">
                     <div class="panel panel-primary">
                         <div class="panel-heading"> Recipe Instructions / Method</div>
@@ -96,11 +97,11 @@
                     </div>
                 </div>
             </div>
-        <% } %>
-        
-        <div class="row">&nbsp;</div>
-        
-        <% if(id) { %>
+            <% } %>
+
+            <div class="row">&nbsp;</div>
+
+            <% if(id) { %>
             <div class="row-fluid ">
                 <div class="panel panel-primary">
                     <div class="panel-heading"> Recipe Ingredients</div>
@@ -109,10 +110,12 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="row">&nbsp;</div>
-            
+
             <div id="comments_wrapper" style="width:99%"></div>
-        <% } %>
-    </form>
+            <% } %>
+        </form>
+    </div>
 </div>
+
