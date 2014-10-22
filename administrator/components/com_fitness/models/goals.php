@@ -24,10 +24,12 @@ class FitnessModelgoals extends JModelList {
      * @since    1.6
      */
     public function __construct($config = array()) {
-
+        
         $this->helper = new FitnessHelper();
-
+        
         parent::__construct($config);
+        
+        
     }
 
     /**
@@ -48,6 +50,7 @@ class FitnessModelgoals extends JModelList {
     }
 
     public function getItems() {
+
     }
 
     

@@ -15,7 +15,6 @@ define([
     ) {
 
     var view = Backbone.View.extend({
-        
         initialize : function() {
 
         },
@@ -94,7 +93,7 @@ define([
                 model : this.model,
                 el : $(this.el).find("#status_wrapper"),
                 collection : collection,
-                first_option_title : '-Select-',
+                first_option_title : '-Status-',
                 class_name : 'filter_select',
                 id_name : 'status_select',
                 model_field : 'status'

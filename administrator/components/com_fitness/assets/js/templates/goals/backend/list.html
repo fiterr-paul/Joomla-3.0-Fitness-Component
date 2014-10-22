@@ -1,29 +1,30 @@
-<div style="width:100%;text-align: right;margin-top: 5px;">
-    <select name="list_type" id="list_type">
+<div class="row">&nbsp;</div>
+
+<div class="row-fluid">
+    <select name="list_type" id="list_type" class="input-large pull-right">
         <option value="current">Current/Future Goals</option>
         <option value="previous">Previous Goals</option>
         <option value="current_primary_goal">Currrent Primary Goal</option>
         <option value="0">All Goals</option>
     </select> 
 </div>
-<div class="fitness_block_wrapper" style="margin-top: 20px; background-color:#fff;">
-    <div class="internal_wrapper">
 
-        <h3  style="float:left;">PRIMARY GOALS</h3>
-        <h3 style="float:right;">MINI GOALS</h3>
-        <div class="clr"></div>
-        <hr class="orange_line">
+<div class="row-fluid ">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span>Primary Goals</span>
+            <span class="pull-right">Mini Goals</span>
+        </div>
+        <div class="panel-body" id="items_container">
+
+        </div>
         
-        <div style="width:100%;" id="items_container"></div>
-        
-        <div class="clr"></div>
-        <div class="internal_wrapper">
-            <div style="width:100%;text-align: center;">
-                <a style="cursor: pointer;" id="new_primary_goal" onclick="javascript:void(0)">[NEW PRIMARY GOAL]</a>
-            </div>
+        <div class="panel-footer">
+            <a title="New Primary Goal" id="new_primary_goal" class="btn btn-success btn-small" role="button">
+                <span class="glyphicon glyphicon-plus"> </span>
+            </a>
         </div>
     </div>
-    <div class="clr"></div>
-    <br/>
-    <div style="text-align:center;" id="pagination_container"></div>
 </div>
+<br/>
+<div style="text-align:center;" id="pagination_container"></div>

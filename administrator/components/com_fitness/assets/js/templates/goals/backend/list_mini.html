@@ -1,8 +1,10 @@
 <div class="minigoals_container"></div>
 <% if(primary_goal.status == app.options.statuses.EVELUATING_GOAL_STATUS.id) { %>
-<div style="text-align: right;">
+<div class="pull-left">
     <% if(!parseInt(primary_goal.minigoals_status)) { %>
-    <a data-id="" style="cursor: pointer;" class="new_mini_goal" onclick="javascript:void(0)">[NEW MINI GOAL]</a>
+    <a title="New Mini Goal" class="btn btn-success btn-small new_mini_goal" role="button">
+        <span class="glyphicon glyphicon-plus"> </span>
+    </a>
     <% } %>
 </div>
 <% } %>

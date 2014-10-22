@@ -3,17 +3,12 @@ define([
 	'underscore',
 	'backbone',
         'app',
-        'views/goals/backend/form_mini',
 	'text!templates/goals/backend/list_item_mini.html'
-], function ( $, _, Backbone, app, Form_mini_view, template ) {
+], function ( $, _, Backbone, app, template ) {
 
     var view = Backbone.View.extend({
         
         template : _.template(template),
-        
-        tagName : "table",
-        
-        className : "width_100",
         
         render : function(){
             var data = {item : this.model.toJSON()};

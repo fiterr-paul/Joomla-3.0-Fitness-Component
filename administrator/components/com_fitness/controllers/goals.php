@@ -24,6 +24,7 @@ class FitnessControllerGoals extends JControllerAdmin
 	public function getModel($name = 'goal', $prefix = 'FitnessModel')
 	{
            
+            
 		$model = parent::getModel($name, $prefix, array('ignore_request' => true));
                 
 		return $model;

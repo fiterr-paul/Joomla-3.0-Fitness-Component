@@ -103,8 +103,6 @@ define([
             model.set({readonly_allowed : readonly_allowed});
             this.container_el.append(new List_item_view({model : model}).render().el);
             this.container_el.append('<hr>');
-            this.$el.find( "#items_container tr:odd" ).addClass('row1');
-            this.$el.find( "#items_container tr:even" ).addClass('row0');
         },
         
         clearItems : function() {

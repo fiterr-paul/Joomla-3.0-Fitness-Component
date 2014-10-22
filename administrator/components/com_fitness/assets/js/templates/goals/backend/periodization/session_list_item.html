@@ -6,7 +6,7 @@
             start_date = item.starttime.substring(0,10);
         }
         %>
-        <input style="width:75px;"  type="text" name="start_date" class="start_date required" size="6"  value="<%= start_date %>">
+        <input  type="text" name="start_date" class="start_date required input-medium" size="6"  value="<%= start_date %>">
     <% } else { %>
         <%
         var d1 = new Date(Date.parse(item.starttime));            
@@ -24,7 +24,7 @@
             start_time = item.starttime.substring(10,16);
         }
         %>  
-        <input style="width:55px;"  size="5" type="text" name="start_time"  class="start_time required"  value="<%= start_time %>">
+        <input size="5" type="text" name="start_time"  class="start_time required input-mini"  value="<%= start_time %>">
     <% } else { %>
         <%
         var d1 = new Date(Date.parse(item.starttime));            
@@ -55,10 +55,18 @@
     
     
     <% if(item.editable) { %>
-        <a  style="cursor: pointer;float:right;margin-right:10px;" class="delete_session" onclick="javascript:void(0)">[DELETE]</a>
-        <a  style="cursor: pointer;float:right;margin-right:10px;" class="save_session" onclick="javascript:void(0)">[SAVE]</a>
+        <div class="col-xs-6">
+            <a title="Save" class="save_session " ><span class="glyphicon glyphicon-saved"></span></a>
+        </div>
+        <div class="col-xs-6">
+            <a title="Delete" class="delete_session " ><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
     <% } else { %>
-        <a  style="cursor: pointer;float:right;margin-right:10px;" class="schedule_session" onclick="javascript:void(0)">[SCHEDULE]</a>
-        <a  style="cursor: pointer;float:right;margin-right:10px;" class="edit_session" onclick="javascript:void(0)">[EDIT]</a>
+        <div class="col-xs-6">
+            <a title="Edit" class="edit_session " ><span class="glyphicon glyphicon-pencil"></span></a>
+        </div>
+        <div class="col-xs-6">
+            <a title="Schedule" class="schedule_session " ><span class="glyphicon glyphicon-time"></span></a>
+        </div>
     <% } %>
 </td>

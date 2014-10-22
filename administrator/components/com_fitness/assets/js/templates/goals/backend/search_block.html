@@ -1,25 +1,23 @@
-<div style="display: inline-block; float: right;"  class="right">
-    <div id="toolbar" class="toolbar-list right">
-        <a title="Add New" id="add_item" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-new"> </span>
-        </a>
+<div  class="row-fluid form-inline" role="form">
+    <input id="start_from" size="10" type="text" placeholder="Start From" class="input-medium">
+    <input id="start_to" size="10" type="text" placeholder="Start To" class="input-medium">
+    <input id="end_from" size="10" type="text" placeholder="End From" class="input-medium">
+    <input id="end_to" size="10" type="text" placeholder="End To" class="input-medium">
+
+    <div class="btn-group">
+        <button id="search" type="button" class="btn" title="Search"><i class="icon-search"></i></button>
+        <button id="clear_all" type="button" class="btn" title="Clear All"><i class="icon-remove"></i></button>
+    </div>
+
+    <div style="display: inline-block;" id="status_wrapper"></div>
+
+    <div style="display: inline-block;" id="state_wrapper"></div>
+
+    <div class="pull-right">
+        <button  title="New Primary Goal" id="add_item"  type="button" class="btn btn-success">
+            <span  class="glyphicon glyphicon-plus"> </span>
+        </button>
     </div>
 </div>
 
-<div style="float:left;">
-    <label>Filter Primary Goals:</label>
-    <input id="start_from" size="10" type="text" placeholder="Start From" >
-    <input id="start_to" size="10" type="text" placeholder="Start To" >
-    <input id="end_from" size="10" type="text" placeholder="End From" >
-    <input id="end_to" size="10" type="text" placeholder="End To" >
-    
-    <input id="search" type="button" value="Search">
-    <input id="clear_all" type="button" value="Clear All">
-    
-    <label style="margin-left: 10px;">Status</label>
-    <div style="display: inline-block;" id="status_wrapper"></div>
-    
-    <div style="display: inline-block;" id="state_wrapper"></div>
-    
-</div>
-    
+

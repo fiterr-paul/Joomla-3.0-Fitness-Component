@@ -1,18 +1,23 @@
-<table width="100%">
-    <thead class="table_header">
+<table class="table table-bordered table-hover table-condensed table-stripped table-boxed">
+    <thead>
         <tr>
-            <th width="150">Date</th>
+            <th width="130">Date</th>
             <th width="50">Time</th>
             <th width="200">Appointment</th>
             <th width="200">Type</th>
             <th width="200">Focus</th>
             <th width="200">Location</th>
-            <th width="200">Program Template</th>
-            <th>
-                <a style="cursor: pointer;" class="save_all" onclick="javascript:void(0)">[SAVE ALL]</a>
-                <a style="cursor: pointer;" class="edit_all" onclick="javascript:void(0)">[EDIT ALL]</a>
-                <a style="cursor: pointer;" class="schedule_all" onclick="javascript:void(0)">[SCHEDULE ALL]</a>
-                
+            <th>Program Template</th>
+            <th width="110">
+                <div class="col-xs-4">
+                    <a title="Save All" class="save_all " ><span class="glyphicon glyphicon-saved"></span></a>
+                </div>
+                <div class="col-xs-4">
+                    <a title="Edit All" class="edit_all " ><span class="glyphicon glyphicon-pencil"></span></a>
+                </div>
+                <div class="col-xs-4">
+                    <a title="Schedule All" class="schedule_all " ><span class="glyphicon glyphicon-time"></span></a>
+                </div>
             </th>
         </tr>
     </thead>
@@ -20,6 +25,8 @@
     <tbody class="sessions_container"></tbody>
 </table>
 
-<div style="width:100%;text-align: right;margin-top: 20px;">
-    <a style="cursor: pointer;" class="add_session" onclick="javascript:void(0)">[ADD SESSION]</a>
+<div class="pull-right">
+    <button  title="Add Session" type="button" class="btn btn-success add_session">
+        <span  class="glyphicon glyphicon-plus"> </span>
+    </button>
 </div>

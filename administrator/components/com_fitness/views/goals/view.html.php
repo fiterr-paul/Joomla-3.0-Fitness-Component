@@ -26,17 +26,12 @@ class FitnessViewGoals extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
-            
-		$this->state		= $this->get('State');
-		$this->items		= $this->get('Items');
-		$this->pagination	= $this->get('Pagination');
+            // Check for errors.
+            if (count($errors = $this->get('Errors'))) {
+                    throw new Exception(implode("\n", $errors));
+            }
 
-		// Check for errors.
-		if (count($errors = $this->get('Errors'))) {
-			throw new Exception(implode("\n", $errors));
-		}
-        
-		$this->addToolbar();
+            $this->addToolbar();
         
         $input = JFactory::getApplication()->input;
         $view = $input->getCmd('view', '');

@@ -10,6 +10,7 @@
 
 // No direct access
 defined('_JEXEC') or die;
+
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
 class FitnessController extends JControllerLegacy
 {
@@ -26,8 +27,11 @@ class FitnessController extends JControllerLegacy
 	{
 		require_once JPATH_COMPONENT.'/helpers/fitness.php';
  		$view		= JFactory::getApplication()->input->getCmd('view', 'dashboard');
+                
+                
+                
                 JFactory::getApplication()->input->set('view', $view);
-
+      
 		parent::display($cachable, $urlparams);
 
 		return $this;

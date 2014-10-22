@@ -18,10 +18,6 @@ define([
         
         template : _.template(template),
         
-        tagName : "table",
-        
-        className : "width_100",
-        
         render : function(){
             var data = {item : this.model.toJSON()};
             data.app = app;

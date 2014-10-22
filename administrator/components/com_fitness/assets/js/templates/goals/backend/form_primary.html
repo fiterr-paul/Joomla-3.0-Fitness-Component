@@ -1,127 +1,109 @@
-<div class="fitness_block_wrapper" style="margin-top: 5px;">
-    <table width="100%">
-        <tr>
-            <td>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6">
                 <% if(!item.readonly_allowed) { %>
-                    <h3  style="float:left;">NEW/EDIT PRIMARY GOAL</h3>
+                NEW/EDIT PRIMARY GOAL
                 <% } else { %>
-                    <h3  style="float:left;">PRIMARY GOAL</h3>
+                PRIMARY GOAL
                 <% } %>
-            </td>
-            <td>
-                
-                <% if(!item.readonly_allowed) { %>
-                    <a  style="cursor: pointer;float:right;margin-right:10px;" id="cancel" onclick="javascript:void(0)">[CANCEL]</a>
-                    <a  style="cursor: pointer;float:right;margin-right:10px;" id="save_close" onclick="javascript:void(0)">[SAVE/CLOSE]</a>
-                    <a  style="cursor: pointer;float:right;margin-right:10px;" id="save" onclick="javascript:void(0)">[SAVE]</a>
-                    <% if(item.id && item.status == app.options.statuses.PENDING_GOAL_STATUS.id) { %>
-                        <a  style="cursor: pointer;float:right;margin-right:10px;" id="finalise_primary_goal" onclick="javascript:void(0)">[FINALISE]</a>
-                    <% } %>
-                <% } else { %>
-                    <a  style="cursor: pointer;float:right;margin-right:10px;" id="cancel" onclick="javascript:void(0)">[CLOSE]</a>
-                <% } %>
-            </td>
-        </tr>
-    </table>
+            </div>
+            <div class="col-md-6">
+                <div class="pull-right">
+                    <% if(!item.readonly_allowed) { %>
+                        <button  title="Save" id="save"  type="button" class="btn btn-success">
+                            <span  class="glyphicon glyphicon-saved"> </span>
+                        </button>
 
-    <hr class="orange_line">
-    <div class="internal_wrapper2">
+                        <button  title="Save & Close" id="save_close"  type="button" class="btn btn-success">
+                            <span  class="glyphicon glyphicon-ok"> </span>
+                        </button>
+
+                        <button  title="Cancel" id="cancel"  type="button" class="btn btn-warning">
+                            <span  class="glyphicon glyphicon-remove"> </span>
+                        </button>
+
+                        <% if(item.id && item.status == app.options.statuses.PENDING_GOAL_STATUS.id) { %>
+                            <button  title="Finalize Primary Goal" id="finalise_primary_goal"  type="button" class="btn btn-default">
+                                <span  class="glyphicon glyphicon-thumbs-up"> </span>
+                            </button>
+                        <% }  %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
         <form action="" id="add_goal_form">
-            <table>
-                <tr>
-                    <td style="width:150px;">
-                        Primary Goal 
-                    </td>
-                    <% if(!item.readonly_allowed) { %>
-                    <td>
-                        <div id="primary_goal_wrapper" style="width:250px;"></div>
-                    </td>
-                    <% } else { %>
-                        <td class="grey_title">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label  class="col-xs-2">Primary Goal </label>
+                    <div class="col-xs-3">
+                        <% if(!item.readonly_allowed) { %>
+                              <div id="primary_goal_wrapper"></div>
+                        <% } else { %>
                             <%= item.primary_goal_name  || '-' %>
-                        </td>
-                    <% } %>
-                </tr>
-                
-                <tr>
-                    <td>
-                        Start Date
-                    </td>
-                    <% if(!item.readonly_allowed) { %>
-                    <td>
-                        <input style="width:75px;"  type="text" name="start_date" id="start_date" size="6" class="required" value="<%= item.start_date %>">
-                    </td>
-                    <% } else { %>
-                    <td class="grey_title">
-                        <%
-                        var d1 = new Date(Date.parse(item.start_date));            
-                        var start_date = moment(d1).format("dddd, D MMMM  YYYY");      
-                        %>
-                        <%= start_date %>
-                    </td>
-                    <% } %>
-                    <td id="error_start_date" class="error_message"></td>
-                </tr>
-               
-                <tr>
-                    <td>
-                        Achieve By 
-                    </td>
-                    <% if(!item.readonly_allowed) { %>
-                    <td>
-                        <input style="width:75px;"  type="text" name="deadline" id="deadline" size="6" class="required" value="<%= item.deadline %>">
-                    </td>
-                    <% } else { %>
-                    <td class="grey_title">
-                        <%
-                        var d1 = new Date(Date.parse(item.deadline));            
-                        var deadline = moment(d1).format("dddd, D MMMM  YYYY");      
-                        %>
-                        <%= deadline %>
-                    </td>
-                    <% } %>
-                    <td id="error_deadline" class="error_message"></td>
-                </tr>
-                
-                <% if(parseInt(item.id)) { %>
-                <tr>
-                    <td colspan="3">
-                        &nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Status 
-                    </td>
-                    <td id="status_button_place_<%= item.id %>"  >
-   
-                    </td>
-                </tr>
-                <% } %>
-                
-                <tr>
-                    <td colspan="3">
-                        &nbsp;
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td style="vertical-align: top;">Goal Details</td>
-                    <% if(!item.readonly_allowed) { %>
-                    <td colspan="2">
-                        <label>Please describe in as much detail as possible the results you envision for your client and what it is you wish to achieve...</label>
-                        <textarea  name="details" id="details" rows="4" cols="80" class="required"><%= item.details %></textarea> 
-                    </td>
+                        <% } %>
+                    </div>
+                </div>
 
-                    <% } else { %>
-                    <td class="grey_title">
-                        <%= item.details %>
-                    </td>
-                    <% } %>
-                </tr>
-            </table>
+                <div class="form-group">
+                    <label  class="col-xs-2">Start Date </label>
+                    <div class="col-xs-3">
+                        <% if(!item.readonly_allowed) { %>
+                            <input type="text" name="start_date" id="start_date" class="required input-medium" value="<%= item.start_date %>">
+                        <% } else { %>
+                            <%
+                            var d1 = new Date(Date.parse(item.start_date));            
+                            var start_date = moment(d1).format("dddd, D MMMM  YYYY");      
+                            %>
+                            <%= start_date %>
+                        <% } %>
+                        <div id="error_start_date" class="error_message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label  class="col-xs-2">Achieve By</label>
+                    <div class="col-xs-3">
+                         <% if(!item.readonly_allowed) { %>
+                            <input  type="text" name="deadline" id="deadline" class="required input-medium" value="<%= item.deadline %>">
+                        <% } else { %>
+                            <%
+                            var d1 = new Date(Date.parse(item.deadline));            
+                            var deadline = moment(d1).format("dddd, D MMMM  YYYY");      
+                            %>
+                            <%= deadline %>
+                        <% } %>
+                        <div id="error_deadline" class="error_message"></div>
+                    </div>
+                </div>
+
+                <% if(parseInt(item.id)) { %>
+                    <div class="form-group">
+                        <label  class="col-xs-2">Status</label>
+                        <div class="col-xs-3">
+                            <div id="status_button_place_<%= item.id %>"  ></div>
+                        </div>
+                    </div>
+                <% } %>
+
+                <div class="form-group">
+                    <label  class="col-xs-2">Goal Details</label>
+                    <div class="col-xs-8">
+                        <% if(!item.readonly_allowed) { %>
+                            <label>Please describe in as much detail as possible the results you envision for your client and what it is you wish to achieve...</label>
+                            <textarea style="width:100%;" name="details" id="details" rows="4" cols="80" class="required"><%= item.details %></textarea> 
+                        <% } else { %>
+                            <%= item.details %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
         </form>
-        <br/>
+        
+        <div class="row">&nbsp;</div>
+        
         <div id="comments_block"></div>
     </div>
 </div>

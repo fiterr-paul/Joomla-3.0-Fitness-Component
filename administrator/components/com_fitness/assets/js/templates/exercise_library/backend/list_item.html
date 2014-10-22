@@ -1,6 +1,6 @@
 <tr data-id="<%= id %>" class="item_row">
     <td>
-        <a title="View Details" style="cursor: pointer;" data-id="<%= id %>"  class="view " onclick="javascript:void(0)">
+        <a title="View Details" data-id="<%= id %>"  class="view " >
             <%= exercise_name  %>
         </a>
     </td>
@@ -107,27 +107,27 @@
     
     <% if(app.options.exercise_id) { %>
     <td>
-        <a class="add_exercise" title="Add to Exercise" style="cursor: pointer;"  onclick="javascript:void(0)"><span  data-id="<%= id %>"  class="glyphicon glyphicon-th-list"></span></a>
+        <a class="add_exercise" title="Add to Exercise"   ><span  data-id="<%= id %>"  class="glyphicon glyphicon-th-list"></span></a>
     </td>
     <% } %>  
     
     <td>
         <% if(state == '1') { %>
-            <a title="View Details" style="cursor: pointer;" class="view " onclick="javascript:void(0)"><span  data-id="<%= id %>"  class="glyphicon glyphicon-file"></span></a>
+            <a title="View Details"  class="view " ><span  data-id="<%= id %>"  class="glyphicon glyphicon-file"></span></a>
         <% } else { %>
-            <a title="Restore" style="cursor: pointer;" class="restore " onclick="javascript:void(0)"><span  data-id="<%= id %>"  class="restore_icon"></span></a>
+            <a title="Restore" class="restore " ><span  data-id="<%= id %>"  class="restore_icon"></span></a>
         <% } %>
     </td>
     
     <td>
-         <a title="Copy Exercise" style="cursor: pointer;" class="copy_exercise " onclick="javascript:void(0)"><span  data-id="<%= id %>"  class="glyphicon glyphicon-floppy-disk"></span></a>
+         <a title="Copy Exercise"  class="copy_exercise " ><span  data-id="<%= id %>"  class="glyphicon glyphicon-floppy-disk"></span></a>
     </td>
     
     <td class="center"> 
         <% if(state == '1' && edit_allowed) { %>
-            <a class="trash" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Trash" data-id="<%= id %>" class="glyphicon glyphicon-trash"></span></a>
+            <a class="trash"><span title="Trash" data-id="<%= id %>" class="glyphicon glyphicon-trash"></span></a>
         <% } else if (edit_allowed) { %>
-            <a class="delete" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Delete" data-id="<%= id %>" class="glyphicon glyphicon-trash"></span></a>
+            <a class="delete" ><span title="Delete" data-id="<%= id %>" class="glyphicon glyphicon-trash"></span></a>
         <% } %>
     </td>
     

@@ -80,42 +80,42 @@ var background_image = 'url(' + "'" + image  + "')" ;
     
     <td>
         <% if(item.state != '-2') { %>
-            <a title="View/Edit" style="cursor: pointer;" class="view " onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="glyphicon glyphicon-file"></span></a>
+            <a title="View/Edit"  class="view " ><span  data-id="<%= item.id %>"  class="glyphicon glyphicon-file"></span></a>
         <% } else {
             if(item.edit_allowed) {
                 %>
-                <a title="Restore" style="cursor: pointer;" class="restore " onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="restore_icon"></span></a>
+                <a title="Restore"  class="restore "><span  data-id="<%= item.id %>"  class="restore_icon"></span></a>
                 <%
             }
         } %>
     </td>
     
     <td>
-        <a title="Copy" style="cursor: pointer;" class="copy_item " onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="glyphicon glyphicon-floppy-disk"></span></a>
+        <a title="Copy" class="copy_item " ><span  data-id="<%= item.id %>"  class="glyphicon glyphicon-floppy-disk"></span></a>
     </td>
     
     <td>
         <% if(item.edit_allowed) { %>
             <% if(item.state != '-2') { %>
-                <a class="trash" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Trash" data-id="<%= item.id %>" class="glyphicon glyphicon-trash"></span></a>
+                <a class="trash" ><span title="Trash" data-id="<%= item.id %>" class="glyphicon glyphicon-trash"></span></a>
             <% } else { %>
-                <a class="delete" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Delete" data-id="<%= item.id %>" class="glyphicon glyphicon-trash"></span></a>
+                <a class="delete" ><span title="Delete" data-id="<%= item.id %>" class="glyphicon glyphicon-trash"></span></a>
             <% } %>
         <% } %>
     </td>
     
     <td>
     <%
-        var icon_class = 'unpublish';
+        var icon_class = 'glyphicon glyphicon-remove-circle';
         var publish_title = 'Publish'; 
         if(parseInt(item.state) == '1') {
-            icon_class = 'publish';
+            icon_class = 'glyphicon glyphicon-ok-circle';
             publish_title = 'Unpublish'; 
         }
         %>
         <% if(item.edit_allowed) { %>
             <% if(item.state != '-2') { %>
-            <span title="<%= publish_title %>" class="jgrid"><span style="cursor:pointer;" data-id="<%= item.id %>" data-state="<%= item.state %>" class="publish state <%= icon_class %> " ></span>
+            <a title="<%= publish_title %>"  class="publish"   ><span data-id="<%= item.id %>" data-state="<%= item.state %>" class="<%= icon_class %>"></span></a>
             <% } %>
         <% } %>
     </td>
