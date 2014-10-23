@@ -228,7 +228,7 @@
                     
                     for (var i = start_page; i <= end_page; i++) {
                         var pageClass = '';
-                        if(currentPage == i) pageClass = 'active_link';
+                        if(currentPage == i) pageClass = 'active';
                         var pageItem = new Pagination_page_view({pageIndex: i, pageClass: pageClass, model : this.model});
                         $(this.el).find(".ul-pagination").append(pageItem.render().el);
                     }

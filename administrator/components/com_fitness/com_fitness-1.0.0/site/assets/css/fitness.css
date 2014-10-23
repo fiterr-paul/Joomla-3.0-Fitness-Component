@@ -773,7 +773,7 @@ td.center, th.center, .center {
     font-size: 16px;
 }
 
-#plan_menu ul li a:hover, #plan_menu ul li a:active,  #exercise_mainmenu ul li a:active,.active_link,
+#plan_menu ul li a:hover, #plan_menu ul li a:active,  #exercise_mainmenu ul li a:active,.active,
 #recipe_mainmenu ul li a:hover, #recipe_mainmenu ul li a:active,
 #mainmenu ul li a:hover, #mainmenu ul li a:active
 {

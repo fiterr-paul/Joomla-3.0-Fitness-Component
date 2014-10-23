@@ -24,6 +24,7 @@ $helper = new FitnessHelper();
         <div class="row-fluid">
             <div class="span10 form-horizontal">
                 <fieldset class="adminform">
+          
                     <div class="control-group">
                         <div class="control-label"><?php echo $this->form->getLabel('business_profile_id'); ?></div>
                         <div class="controls"><?php echo $helper->generateSelect($helper->getBusinessProfileList(), 'jform[business_profile_id]', 'business_profile_id', $this->item->business_profile_id, '', true, "required"); ?></div>
@@ -49,13 +50,6 @@ $helper = new FitnessHelper();
     <input type="hidden" name="task" value="" />
     <?php echo JHtml::_('form.token'); ?>
     <div class="clr"></div>
-
-    <style type="text/css">
-        /* Temporary fix for drifting editor fields */
-        .adminformlist li {
-            clear: both;
-        }
-    </style>
 </form>
 
 <script type="text/javascript">

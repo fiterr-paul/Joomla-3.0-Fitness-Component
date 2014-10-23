@@ -42,41 +42,52 @@ $helper = new FitnessHelper();
 
 
 <form action="<?php echo JRoute::_('index.php?option=com_fitness&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="minigoal-form" class="form-validate">
-    <div class="width-60 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_('COM_FITNESS_LEGEND_MINIGOAL'); ?></legend>
-            <ul class="adminformlist">
-                <input id="jform_primary_goal_id" class="inputbox" type="hidden" value="<?php echo $primary_goal_id?>" name="jform[primary_goal_id]">
+    <div class="form-horizontal">
+        <div class="row-fluid">
+            <div class="span10 form-horizontal">
+                <fieldset class="adminform">
+                    
+                    <input id="jform_primary_goal_id" class="inputbox" type="hidden" value="<?php echo $primary_goal_id?>" name="jform[primary_goal_id]">
                         
-                        <li>
-                            <?php echo $this->form->getLabel('mini_goal_category_id'); ?>
-
-                            <?php
-                            echo $helper->generateSelect($helper->getMiniGoalCategory(), 'jform[mini_goal_category_id]', 'jform_mini_goal_category_id', $this->item->mini_goal_category_id, '', true, "required");
-                            ?>
-                        </li>
-                        <li>
-                            <?php echo $this->form->getLabel('training_period_id'); ?>
-
-                            <?php
-                            echo $helper->generateSelect($helper->getTrainingPeriod(), 'jform[training_period_id]', 'jform_training_period_id', $this->item->training_period_id, '', true, "required");
-                            ?>
-                        </li>
-                        <li><?php echo $this->form->getLabel('start_date'); ?>
-                        <?php echo $this->form->getInput('start_date'); ?></li>
-                        <li><?php echo $this->form->getLabel('deadline'); ?>
-                        <?php echo $this->form->getInput('deadline'); ?></li>
-                        <li><?php echo $this->form->getLabel('status'); ?>
-                        <?php echo $this->form->getInput('status'); ?></li>
-                        <li><?php echo $this->form->getLabel('details'); ?>
-                        <?php echo $this->form->getInput('details'); ?></li>
-                        <li><?php echo $this->form->getLabel('comments'); ?>
-                        <?php echo $this->form->getInput('comments'); ?></li>
-                        <li><?php echo $this->form->getLabel('state'); ?>
-                        <?php echo $this->form->getInput('state'); ?></li>
-
-
-            </ul>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('mini_goal_category_id'); ?></div>
+                        <div class="controls"><?php echo $helper->generateSelect($helper->getMiniGoalCategory(), 'jform[mini_goal_category_id]', 'jform_mini_goal_category_id', $this->item->mini_goal_category_id, '', true, "required"); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('training_period_id'); ?></div>
+                        <div class="controls"><?php echo $helper->generateSelect($helper->getTrainingPeriod(), 'jform[training_period_id]', 'jform_training_period_id', $this->item->training_period_id, '', true, "required"); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('start_date'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('start_date'); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('deadline'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('deadline'); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('status'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('status'); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('details'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('details'); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('comments'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('comments'); ?></div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                    </div>
             <br/>
             <?php if($this->item->id) { ?>
                 <br/>
@@ -88,7 +99,10 @@ $helper = new FitnessHelper();
                 <div class="clr"></div>
             <?php } ?>
         </fieldset>
+            </div>
+        </div>
     </div>
+
 
     
 

@@ -39,7 +39,7 @@ define([
         
         notifications : function() {
             this.common_actions();
-            $("#notifications_link").addClass("active_link");
+            $("#notifications_link").addClass("active");
             
             new Notifications_list_view({el : $("#main_container")});
         },
@@ -50,7 +50,7 @@ define([
         
         common_actions : function() {
             $(".block").hide();
-            $(".plan_menu_link").removeClass("active_link");
+            $(".plan_menu_link").removeClass("active");
         },
         
     });

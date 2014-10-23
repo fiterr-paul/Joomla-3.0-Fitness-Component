@@ -120,7 +120,7 @@ define([
                 if(!this.no_active_plan_action(id)) return;
                 
 
-                $("#overview_link").addClass("active_link");
+                $("#overview_link").addClass("active");
                 // connect Graph from Goals frontend logic
                 this.connectGraph();
                 app.models.nutrition_plan.fetch({
@@ -168,7 +168,7 @@ define([
                 this.common_actions(id);
                 if(!this.no_active_plan_action(id)) return;
                 
-                $("#targets_link").addClass("active_link");
+                $("#targets_link").addClass("active");
                 
                 app.models.target = new Target_model({nutrition_plan_id : id});
                 var self = this;
@@ -204,7 +204,7 @@ define([
                 this.common_actions(id);
                 if(!this.no_active_plan_action(id)) return;
                  
-                 $("#macronutrients_link").addClass("active_link");
+                 $("#macronutrients_link").addClass("active");
 
                  app.models.nutrition_plan.fetch({
                     data: {id : id},
@@ -225,7 +225,7 @@ define([
                 this.common_actions(id);
                  if(!this.no_active_plan_action(id)) return;
                  
-                 $("#supplements_link").addClass("active_link");
+                 $("#supplements_link").addClass("active");
 
                  app.collections.protocols = new Protocols_collection(); 
   
@@ -244,7 +244,7 @@ define([
                 this.common_actions(id);
                 if(!this.no_active_plan_action(id)) return;
                 
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
                 
                 if (app.collections.menu_plans
                         && app.collections.menu_plans.models[0]
@@ -298,7 +298,7 @@ define([
             
             load_menu_plan: function (id, nutrition_plan_id) {
                 this.loadMainMenu(nutrition_plan_id);
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
                 $("#main_container").empty();
                 if(parseInt(id)) {
                     this.example_day(1, id, nutrition_plan_id);
@@ -350,7 +350,7 @@ define([
             
             load_example_day : function(example_day_id, menu_id, nutrition_plan_id) {
                 this.loadMainMenu(nutrition_plan_id);
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
 
                 this.load_menu_plan_content(menu_id, nutrition_plan_id);
                 
@@ -369,7 +369,7 @@ define([
             
             shopping_list : function(id, menu_id) {
                 this.loadMainMenu(id);
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
                 
                 app.collections.nutrition_database_categories = new Nutrition_database_categories_collection();
                 app.collections.shopping_list_ingredients = new Shopping_list_ingredients_collection();
@@ -449,7 +449,7 @@ define([
                 this.common_actions(id);
                  if(!this.no_active_plan_action(id)) return;
 
-                 $("#information_link").addClass("active_link");
+                 $("#information_link").addClass("active");
                  app.models.nutrition_plan.fetch({
                     data: {id : id},
                     wait : true,
@@ -466,7 +466,7 @@ define([
                     
             archive: function (id) {
                 this.common_actions(id);
-                 $("#archive_focus_link").addClass("active_link");
+                 $("#archive_focus_link").addClass("active");
 
                  app.collections.nutrition_plans.fetch({
                     data: {id : app.options.item_id, client_id : app.options.client_id},
@@ -492,7 +492,7 @@ define([
                 $("#main_container, #header_wrapper, #nutrition_guide_header, #graph_container").empty();
                 this.loadMainMenu(id);
                 $(".block").hide();
-                $(".plan_menu_link").removeClass("active_link");
+                $(".plan_menu_link").removeClass("active");
                 
                 $("#close_tab").show();
 

@@ -75,8 +75,7 @@
                             <input type="text" name="start_date" id="start_date" class="required input-medium" value="<%= item.start_date %>">
                         <% } else { %>
                             <%
-                            var d1 = new Date(Date.parse(item.start_date));            
-                            var start_date = moment(d1).format("dddd, D MMMM  YYYY");      
+                            var start_date = moment(item.start_date, "YYYY-MM-DD HH:mm:ss").format("dddd, D MMMM  YYYY"); 
                             %>
                             <%= start_date %>
                         <% } %>
@@ -91,8 +90,7 @@
                             <input  type="text" name="deadline" id="deadline" class="required input-medium" value="<%= item.deadline %>">
                         <% } else { %>
                             <%
-                            var d1 = new Date(Date.parse(item.deadline));            
-                            var deadline = moment(d1).format("dddd, D MMMM  YYYY");      
+                            var deadline = moment(item.deadline, "YYYY-MM-DD HH:mm:ss").format("dddd, D MMMM  YYYY");       
                             %>
                             <%= deadline %>
                         <% } %>

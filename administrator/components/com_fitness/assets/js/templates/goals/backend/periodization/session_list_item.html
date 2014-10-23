@@ -10,7 +10,7 @@
     <% } else { %>
         <%
         var d1 = new Date(Date.parse(item.starttime));            
-        var start_date = moment(d1).format("ddd, D MMM  YYYY");      
+        var start_date = moment(item.starttime, "YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YYYY");      
         %>
         <%= start_date %>
     <% } %>
@@ -27,8 +27,7 @@
         <input size="5" type="text" name="start_time"  class="start_time required input-mini"  value="<%= start_time %>">
     <% } else { %>
         <%
-        var d1 = new Date(Date.parse(item.starttime));            
-        var start_time = moment(d1).format("HH:mm");      
+        var start_time = moment(item.starttime, "YYYY-MM-DD HH:mm:ss").format("HH:mm");      
         %>
         <%= start_time %>
     <% } %>

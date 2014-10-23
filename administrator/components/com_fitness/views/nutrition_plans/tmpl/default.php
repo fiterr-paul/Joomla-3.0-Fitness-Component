@@ -13,13 +13,16 @@ $business_profile_id = $helper->getBusinessProfileId($user_id);
 $business_profile_id = $business_profile_id['data'];
 
 ?>
-<div id="graph_container"></div>
+<div class="container pull-left">
+    <div id="graph_container"></div>
 
-<div id="header_wrapper" ></div>
+    <div id="header_wrapper" ></div>
 
-<div id="nutrition_guide_header"></div>
+    <div id="nutrition_guide_header"></div>
 
-<div id="main_container"></div>
+    <div id="main_container"></div>
+</div>
+
 
 
 <script type="text/javascript">

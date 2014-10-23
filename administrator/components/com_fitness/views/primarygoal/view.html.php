@@ -35,6 +35,8 @@ class FitnessViewPrimarygoal extends JViewLegacy
             throw new Exception(implode("\n", $errors));
 		}
                 
+                $document = &JFactory::getDocument();
+                $document->addStyleSheet('components/com_fitness/assets/css/fitness.css');
 
 		$this->addToolbar();
 		parent::display($tpl);

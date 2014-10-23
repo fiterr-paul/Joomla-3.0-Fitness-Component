@@ -155,7 +155,7 @@ define([
         my_favourites : function () {
             this.recipe_pages_actions();
             
-            $("#my_favourites_link").addClass("active_link");
+            $("#my_favourites_link").addClass("active");
 
             app.models.get_recipe_params.set({page : 1, current_page : 'my_favourites', state : 1, uid : app.getUniqueId()});
             localStorage.setItem('recipes_current_page', 'my_favourites');
@@ -170,7 +170,7 @@ define([
             
             localStorage.setItem('recipes_current_page', 'my_recipes');
             
-            $("#my_recipes_link").addClass("active_link");
+            $("#my_recipes_link").addClass("active");
         },
         
         recipe_database : function () {
@@ -180,7 +180,7 @@ define([
             
             localStorage.setItem('recipes_current_page', 'recipe_database');
             
-            $("#recipe_database_link").addClass("active_link");
+            $("#recipe_database_link").addClass("active");
         },
         
         trash_list : function() {
@@ -192,7 +192,7 @@ define([
             
             localStorage.setItem('recipes_current_page', 'recipe_database');
             
-            $("#my_recipes_link").addClass("active_link");
+            $("#my_recipes_link").addClass("active");
         },
         
         recipe_pages_actions : function () {
@@ -274,7 +274,7 @@ define([
             app.views.main_menu.show();
             $("#recipe_submenu").empty();
             $(".block").hide();
-            $(".plan_menu_link").removeClass("active_link");
+            $(".plan_menu_link").removeClass("active");
         },
         
         edit_recipe : function(id) {
@@ -313,7 +313,7 @@ define([
 
             $("#recipe_submenu").html(new Submenu_nutrition_database_list_view().render().el);
    
-            $("#nutrition_database_link").addClass("active_link");
+            $("#nutrition_database_link").addClass("active");
             
             $("#recipe_main_container").html(new Nutrition_database_list_view({collection : app.collections.ingredients}).render().el);
             

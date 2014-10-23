@@ -107,7 +107,7 @@ define([
             
             this.list_actions();
             
-            $("#exercise_database_link").addClass("active_link");
+            $("#exercise_database_link").addClass("active");
         },
         
         my_exercises : function() {
@@ -115,7 +115,7 @@ define([
             
             this.list_actions();
             
-            $("#my_exercises_link").addClass("active_link");
+            $("#my_exercises_link").addClass("active");
         },
         
         my_favourites : function () {
@@ -123,7 +123,7 @@ define([
             
             this.list_actions();
             
-            $("#my_favourites_link").addClass("active_link");
+            $("#my_favourites_link").addClass("active");
         },
         
         trash_list : function() {
@@ -131,13 +131,13 @@ define([
             
             this.list_actions();
             
-            $("#my_exercises_link").addClass("active_link");
+            $("#my_exercises_link").addClass("active");
         },
         
         list_actions : function () {
             $("#submenu_container").html(new Submenu_exercise_database_view({model : app.models.request_params}).render().el);
             
-            $(".plan_menu_link").removeClass("active_link");
+            $(".plan_menu_link").removeClass("active");
             
             this.connectSelectFilter();
             

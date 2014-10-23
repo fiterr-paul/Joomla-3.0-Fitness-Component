@@ -11,8 +11,7 @@
             <label  class="col-xs-4">Start Date</label>
             <div class="col-xs-8">
                 <%
-                var d1 = new Date(Date.parse(item.start_date));            
-                var start_date = moment(d1).format("dddd, D MMMM  YYYY");      
+                var start_date = moment(item.start_date, "YYYY-MM-DD HH:mm:ss").format("dddd, D MMMM  YYYY");      
                 %>
                 <%= start_date %>
             </div>
@@ -22,8 +21,7 @@
             <label  class="col-xs-4">Achieve By</label>
             <div class="col-xs-8">
                 <%
-                    var d2 = new Date(Date.parse(item.deadline));            
-                    var deadline = moment(d2).format("dddd, D MMMM  YYYY");      
+                var deadline = moment(item.deadline, "YYYY-MM-DD HH:mm:ss").format("dddd, D MMMM  YYYY");      
                 %>
                 <%= deadline %>
             </div>

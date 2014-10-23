@@ -114,9 +114,9 @@ define([
         },
         
         my_progress : function() {
-            $(".menu_link").removeClass("active_link");
+            $(".menu_link").removeClass("active");
             $("#submenu_container, #main_container").empty();        
-            $("#my_progress_link").addClass("active_link");
+            $("#my_progress_link").addClass("active");
             this.removeGraph();
             
             this.search_header();
@@ -139,7 +139,7 @@ define([
             
             this.list_actions();
             
-            $("#self_assessments_link").addClass("active_link");
+            $("#self_assessments_link").addClass("active");
         },
         
         trash_list : function() {
@@ -147,7 +147,7 @@ define([
             
             this.list_actions();
             
-            $("#my_workouts_link").addClass("active_link");
+            $("#my_workouts_link").addClass("active");
         },
         
         assessments : function () {
@@ -155,7 +155,7 @@ define([
             
             this.list_actions();
             
-            $("#assessments_link").addClass("active_link");
+            $("#assessments_link").addClass("active");
         },
         
         
@@ -183,7 +183,7 @@ define([
                 style : 'dark'
             });
             
-            $(".menu_link").removeClass("active_link");
+            $(".menu_link").removeClass("active");
             
             $("#main_container").html(new List_view({model : app.models.request_params, collection : app.collections.items}).render().el);
             

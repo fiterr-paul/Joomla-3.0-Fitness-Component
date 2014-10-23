@@ -41,7 +41,7 @@ define([
         
         notifications : function() {
             this.common_actions();
-            $("#notifications_link").addClass("active_link");
+            $("#notifications_link").addClass("active");
             
             new Clients_filter_view({el : $("#header_wrapper")});
             
@@ -54,7 +54,7 @@ define([
         
         common_actions : function() {
             $(".block").hide();
-            $(".plan_menu_link").removeClass("active_link");
+            $(".plan_menu_link").removeClass("active");
         },
         
     });

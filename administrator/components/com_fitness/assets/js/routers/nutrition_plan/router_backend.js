@@ -169,7 +169,7 @@ define([
             
             overview : function(id) {
                 this.common_actions();
-                $(".plan_menu_link").removeClass("active_link");
+                $(".plan_menu_link").removeClass("active");
                 
                 var model = app.collections.items.get(id);
                 
@@ -207,7 +207,7 @@ define([
                 $("#header_wrapper").empty();
                 this.common_actions();
                 this.loadMainMenu(id);
-                $("#supplements_link").addClass("active_link");
+                $("#supplements_link").addClass("active");
 
                 app.collections.protocols = new Protocols_collection();
                 var self = this;
@@ -230,7 +230,7 @@ define([
             nutrition_guide: function (id) {
                 this.common_actions();
                 this.loadMainMenu(id);
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
                 
                 if (app.collections.menu_plans
                         && app.collections.menu_plans.models[0]
@@ -284,7 +284,7 @@ define([
             
             load_menu_plan: function (id, nutrition_plan_id) {
                 this.loadMainMenu(nutrition_plan_id);
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
                 $("#main_container").empty();
                 if(parseInt(id)) {
                     this.example_day(1, id, nutrition_plan_id);
@@ -337,7 +337,7 @@ define([
             load_example_day : function(example_day_id, menu_id, nutrition_plan_id) {
                 
                 this.loadMainMenu(nutrition_plan_id);
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
 
                 this.load_menu_plan_content(menu_id, nutrition_plan_id);
                 
@@ -385,7 +385,7 @@ define([
             load_macronutrients : function(model) {
                 this.loadMainMenu(model.get('id'));
                 
-                $("#macronutrients_link").addClass("active_link");
+                $("#macronutrients_link").addClass("active");
                 
                 var macronutrients_view = new Macronutrients_view({model : model});
                      
@@ -416,7 +416,7 @@ define([
             load_information: function(model) {
                 this.loadMainMenu(model.get('id'));
                 
-                $("#information_link").addClass("active_link");
+                $("#information_link").addClass("active");
                 
                 var information_view = new Information_view({model : model});
                         
@@ -425,7 +425,7 @@ define([
 
             shopping_list : function(id, menu_id) {
                 this.loadMainMenu(id);
-                $("#nutrition_guide_link").addClass("active_link");
+                $("#nutrition_guide_link").addClass("active");
                 
                 app.collections.nutrition_database_categories = new Nutrition_database_categories_collection();
                 app.collections.shopping_list_ingredients = new Shopping_list_ingredients_collection();
@@ -535,7 +535,7 @@ define([
             },
             
             loadTragers : function() {
-                $("#targets_link").addClass("active_link");
+                $("#targets_link").addClass("active");
                 
                 $("#main_container").html(new Targets_container_view({model : app.models.target, item_model : app.models.item}).render().el);
             },
@@ -543,7 +543,7 @@ define([
             common_actions : function() {
                 $("#header_wrapper, #nutrition_guide_header, #graph_container").empty();
                 $(".block").hide();
-                $(".plan_menu_link").removeClass("active_link");
+                $(".plan_menu_link").removeClass("active");
             },
             
             

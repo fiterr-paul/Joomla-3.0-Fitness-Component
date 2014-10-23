@@ -1811,7 +1811,7 @@ defined('_JEXEC') or die;
             my_recipes : function () {
                 window.app.recipe_items_model.set({state : '1'});
                 this.common_actions();
-                $("#my_recipes_link").addClass("active_link");
+                $("#my_recipes_link").addClass("active");
                 
                 this.load_submenu();
                 // populate submenu
@@ -1825,7 +1825,7 @@ defined('_JEXEC') or die;
             recipe_database : function () {
                 window.app.recipe_items_model.set({state : '1'});
                 this.common_actions();
-                $("#recipe_database_link").addClass("active_link");
+                $("#recipe_database_link").addClass("active");
                 
                 this.hide_submenu();
                 
@@ -1860,7 +1860,7 @@ defined('_JEXEC') or die;
             my_favourites : function () {
                 window.app.recipe_items_model.set({state : '1'});
                 this.common_actions();
-                $("#my_favourites_link").addClass("active_link");
+                $("#my_favourites_link").addClass("active");
                 
                 this.hide_submenu();
                 
@@ -1875,7 +1875,7 @@ defined('_JEXEC') or die;
                 new window.app.Submenu_nutrition_database_list_view({ el: $("#submenu_container")});
                 
                 this.common_actions();
-                $("#nutrition_database_link").addClass("active_link");
+                $("#nutrition_database_link").addClass("active");
                 
                 window.app.Views.nutrition_database_container.render();
                 
@@ -1894,7 +1894,7 @@ defined('_JEXEC') or die;
 
             common_actions : function() {
                 $(".block").hide();
-                $(".plan_menu_link").removeClass("active_link");
+                $(".plan_menu_link").removeClass("active");
                 
                 this.load_mainmenu();
                 

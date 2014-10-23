@@ -47,7 +47,7 @@ define([
         
         loadFormMenu : function() {
             $(this.el).find("#form_menu").html(new Form_menu_view({model : this.model}).render().el);
-            $("#overview_link").addClass("active_link");
+            $("#overview_link").addClass("active");
         },
         
         loadClientTrainersBlock : function() {

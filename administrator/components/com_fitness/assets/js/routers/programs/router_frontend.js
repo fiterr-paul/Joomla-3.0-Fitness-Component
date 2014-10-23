@@ -102,7 +102,7 @@ define([
             
             this.list_actions();
             
-            $("#my_workouts_link").addClass("active_link");
+            $("#my_workouts_link").addClass("active");
         },
         
         workout_programs : function() {
@@ -110,7 +110,7 @@ define([
             
             this.list_actions();
             
-            $("#workout_programs_link").addClass("active_link");
+            $("#workout_programs_link").addClass("active");
         },
         
         trash_list : function() {
@@ -118,7 +118,7 @@ define([
             
             this.list_actions();
             
-            $("#my_workouts_link").addClass("active_link");
+            $("#my_workouts_link").addClass("active");
         },
         
         my_favourites : function () {
@@ -126,7 +126,7 @@ define([
             
             this.list_actions();
             
-            $("#my_favourites_link").addClass("active_link");
+            $("#my_favourites_link").addClass("active");
         },
         
         
@@ -135,7 +135,7 @@ define([
             
             this.connectSelectFilter();
             
-            $(".menu_link").removeClass("active_link");
+            $(".menu_link").removeClass("active");
             
             $("#main_container").html(new List_view({model : app.models.request_params, collection : app.collections.items}).render().el);
             

@@ -30,8 +30,8 @@ define([
         },
         
         onClickNutritionMenuItem : function(event) {
-            $(".plan_menu_link").removeClass("active_link");
-            $(event.target).addClass("active_link");
+            $(".plan_menu_link").removeClass("active");
+            $(event.target).addClass("active");
         },
 
         onClickOverview : function() {

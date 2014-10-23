@@ -682,7 +682,7 @@ class FitnessModelnutrition_plans extends JModelList {
                 $active_plan_id = $this->getUserActivePlanId($item->client_id);
                 $data[$i]->active_plan_id = $active_plan_id;
                 
-                $client_trainers = $helper->get_client_trainers_names($item->client_id);
+                $client_trainers = $helper->get_client_trainers_names($item->client_id, 'secondary');
 
                 $data[$i]->secondary_trainers = $client_trainers;
             
@@ -692,7 +692,7 @@ class FitnessModelnutrition_plans extends JModelList {
             $active_plan_id = $this->getUserActivePlanId($data->client_id);
             $data->active_plan_id = $active_plan_id;
             
-            $client_trainers = $helper->get_client_trainers_names($data->client_id);
+            $client_trainers = $helper->get_client_trainers_names($data->client_id, 'secondary');
 
             $data->secondary_trainers = $client_trainers;
         }

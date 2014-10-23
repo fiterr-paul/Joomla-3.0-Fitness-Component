@@ -819,8 +819,8 @@
     
 }
 
-#plan_menu ul li a:hover, #plan_menu ul li a:active, .active_link,
-#recipe_mainmenu ul li a:hover, #recipe_mainmenu ul li a:active, .active_link {
+#plan_menu ul li a:hover, #plan_menu ul li a:active, .active,
+#recipe_mainmenu ul li a:hover, #recipe_mainmenu ul li a:active, .active {
     color:#BC4A26 !important;
     border-bottom: 2px solid #BC4A26;
     font-weight:bold;

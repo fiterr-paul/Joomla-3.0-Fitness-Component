@@ -48,12 +48,6 @@ $helper = new FitnessHelper();
     <?php echo JHtml::_('form.token'); ?>
     <div class="clr"></div>
 
-    <style type="text/css">
-        /* Temporary fix for drifting editor fields */
-        .adminformlist li {
-            clear: both;
-        }
-    </style>
 </form>
 
 <script type="text/javascript">
