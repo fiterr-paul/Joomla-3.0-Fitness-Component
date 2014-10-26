@@ -1,76 +1,69 @@
-<div class="fitness_block_wrapper">
-    <table width="100%">
-        <tr> 
-            <td style="vertical-align: top;">
-                <b>CALORIES</b>
-                <div class="clr"></div>
-                <input readonly type="text" maxlength="8" size="8" id="step4_calories" value="<%= item.step4_calories %>"> 
-            </td>
-            <td style="vertical-align: top;">
-                <b>PROTEIN</b>
-                <div class="clr"></div>
-                <input readonly type="text" maxlength="8" size="8" id="step4_protein_grams" > 
-                <div class="clr"></div>
-                grams per day 
+<div class="row-fluid">
+    <div class="col-md-2">
+        <b>CALORIES</b>
+        <br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_calories" value="<%= item.step4_calories %>"> 
+    </div>
+    <div class="col-md-2">
+        <b>PROTEIN</b>
+        <br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_protein_grams" > 
+        <br/>
+        grams per day 
 
-                <div class="clr"></div><br/>
-                <input readonly type="text" maxlength="8" size="8" id="step4_protein_calories" > 
-                <div class="clr"></div>
-                calories per day
-                
-                <div class="clr"></div><br/>
-                <input readonly type="text" maxlength="8" size="8" id="step4_protein_percent" > 
-                <div class="clr"></div>
-                % per day
-            </td>
-            
-            <td style="vertical-align: top;">
-                <b>FAT</b>
-                <div class="clr"></div>
-                <input readonly type="text" maxlength="8" size="8" id="step4_fat_grams" > 
-                <div class="clr"></div>
-                grams per day 
+        <br/><br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_protein_calories" > 
+        <br/>
+        calories per day
 
-                <div class="clr"></div><br/>
-                <input readonly type="text" maxlength="8" size="8" id="step4_fat_calories" > 
-                <div class="clr"></div>
-                calories per day
-                
-                <div class="clr"></div><br/>
-                <input readonly type="text" maxlength="8" size="8" id="step4_fat_percent" > 
-                <div class="clr"></div>
-                % per day
-            </td>
-            
-            <td style="vertical-align: top;">
-                <b>CARBS</b>
-                <div class="clr"></div>
-                <input readonly type="text" maxlength="8" size="8" id="step4_carbs_grams" > 
-                <div class="clr"></div>
-                grams per day 
+        <br/><br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_protein_percent" > 
+        <br/>
+        % per day
+    </div>
+    <div class="col-md-2">
+        <b>FAT</b>
+        <br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_fat_grams" > 
+        <br/>
+        grams per day 
 
-                <div class="clr"></div><br/>
-                <input readonly type="text" maxlength="8" size="8" id="step4_carbs_calories" > 
-                <div class="clr"></div>
-                calories per day
-                
-                <div class="clr"></div><br/>
-                <input readonly type="text" maxlength="8" size="8" id="step4_carbs_percent" > 
-                <div class="clr"></div>
-                % per day
-            </td>
-            
-            <td style="vertical-align: top;">
-                <b>WATER</b>
-                <div class="clr"></div>
-                <input readonly type="text" maxlength="8" size="8" id="step4_water" > 
-                <div class="clr"></div>
-                millilitres per day
-            </td>
-            
-            <td style="vertical-align: bottom;">
-                <input style="float: right;" id="step4_reset" type="button" value="DELETE & RESTART">
-            </td>
-        </tr>
-    </table>
+        <br/><br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_fat_calories" > 
+        <br/>
+        calories per day
+
+        <br/><br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_fat_percent" > 
+        <br/>
+        % per day
+    </div>
+    <div class="col-md-2">
+        <b>CARBS</b>
+        <br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_carbs_grams" > 
+        <br/>
+        grams per day 
+
+        <br/><br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_carbs_calories" > 
+        <br/>
+        calories per day
+
+        <br/><br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_carbs_percent" > 
+        <br/>
+        % per day
+    </div>
+    <div class="col-md-3">
+        <b>WATER</b>
+        <br/>
+        <input class="input-mini" readonly type="text" maxlength="8" size="8" id="step4_water" > 
+        <br/>
+        millilitres per day
+    </div>
+</div>
+
+<div class="pull-right">
+    <input class="btn btn-primary" id="step4_reset" type="button" value="DELETE & RESTART">
 </div>
