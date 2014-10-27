@@ -1,9 +1,22 @@
-<div  class="recipe_database_item_wrapper">
-    <div style="width:100%;background: none repeat scroll 0 0 #4f4f4f !important; text-align: right;">
-        <label style="font-weight:bold;color:#fff;"># OF SERVES</label>
-        <input maxlength="3" style="width:30px"  class="number_serves" type="text" value="1" >
-        <a style="cursor: pointer;float:right;margin-left:10px;margin-right:10px;margin-top:2px;" class="enter_number_serves" onclick="javascript:void(0)">[ADD TO MENU PLAN]</a>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="pull-right form-inline">
+                <label># OF SERVES</label>
+                <input maxlength="3"  class="number_serves input-mini" type="text" value="1" >
+                
+                <button  title="Add To Menu Plan" class="btn btn-success btn-small enter_number_serves" >
+                    Add
+                </button>
+            </div>
+        </div>
     </div>
+    <div class="panel-body">
+        
+    </div>
+</div>
+
+<div  class="recipe_database_item_wrapper">
     <table width="100%">
         <tr>
             <td style="vertical-align: top;">
@@ -51,7 +64,10 @@
                     <tr>
                         <td colspan="2">
                             <br/>
-                            <a style="float:left;" class="view_add_recipe" href="javascript:void(0)" title="">[VIEW RECIPE]</a>
+                          
+                            <button  title="View recipe" class="btn btn-default btn-small view_add_recipe" >
+                                <span class="glyphicon glyphicon-file">
+                            </button>
                         </td>
                     </tr>
                 </table>

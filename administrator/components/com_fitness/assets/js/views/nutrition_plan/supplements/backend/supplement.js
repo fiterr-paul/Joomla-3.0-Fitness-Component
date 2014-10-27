@@ -55,7 +55,11 @@ define([
             event.preventDefault();
             var data = Backbone.Syphon.serialize(this);
             
-            data.nutrition_plan_id = this.options.nutrition_plan_id;
+            if(!this.model.get('nutrition_plan_id')) {
+                data.nutrition_plan_id = this.options.nutrition_plan_id;
+            }
+            
+            //console.log(data);
 
             this.model.set(data);
 
@@ -201,9 +205,11 @@ define([
         },
 
         onGetRemoteImages : function(image_urls) {
+            //console.log(image_urls);
             var images = [];
             var self = this;
             _.each(image_urls, function(image_url) {
+                console.log(image_url);
                 var img = new Image();
                 img.src = image_url;
 

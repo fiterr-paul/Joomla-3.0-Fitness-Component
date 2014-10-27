@@ -4,8 +4,17 @@ define([
 	'backbone',
         'app',
         'views/nutrition_plan/nutrition_guide/shopping_list_item',
+        'views/comments/index',
 	'text!templates/nutrition_plan/nutrition_guide/shopping_list.html'
-], function ( $, _, Backbone, app, Shopping_list_item_view, template ) {
+], function ( 
+        $,
+        _, 
+        Backbone,
+        app,
+        Shopping_list_item_view,
+        Comments_view,
+        template 
+    ) {
 
     var view = Backbone.View.extend({
         
@@ -63,22 +72,21 @@ define([
             data.method = 'email_pdf_shopping_list';
             $.fitness_helper.sendEmail(data);
         },
-        
-        connectComments : function() {
+
+        connectComments :function() {
             var comment_options = {
                 'item_id' :  this.model.get('nutrition_plan_id'),
-                'fitness_administration_url' : app.options.ajax_call_url,
-                'comment_obj' : {'user_name' : app.options.user_name, 'created' : "", 'comment' : ""},
-                'db_table' : '#__fitness_nutrition_plan_shopping_list_comments',
+                'item_model' :  this.model,
+                'sub_item_id' : this.model.get('id'),
+                'db_table' : 'fitness_nutrition_plan_shopping_list_comments',
                 'read_only' : true,
-                'anable_comment_email' : false
+                'anable_comment_email' : false,
+                'comment_method' : ''
             }
-            var comments = $.comments(comment_options, comment_options.item_id, this.model.get('id'));
-            
-            var comments_html = comments.run();
 
-            this.$el.find("#shopping_list_comments_wrapper").html(comments_html);
-        }
+            var comments_html = new Comments_view(comment_options).render().el;
+            $(this.el).find("#shopping_list_comments_wrapper").html(comments_html);
+        },
     });
             
     return view;

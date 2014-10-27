@@ -1,77 +1,70 @@
-<div class="fitness_block_wrapper page_container_width"  style="margin-top:5px;border:1px solid #ccc">
-    <div class="internal_wrapper">
-        <form>
-            <table width="100%">
-                <tr>
-                    <td width="100">
-                        <span class="orange_text">MENU NAME:</span>
-                    </td>
-                    <td>
-                        <%
-                          if(is_submitted == false) {
-                        %>
-                            <input class="required dark_input_style" type="text"  name="name"  id="menu_name" value="<%= name %>" style="width:250px;">
-                        <% } else { %>
-                        <b><%= name.toUpperCase() %></b>
-                        <% } %>
-                    </td>
-                    
-                    <!--
-                    <% if(parseInt(id)) { %>
-                        <td width="50">
-                            <span class="orange_text">STATUS:</span>
-                        </td>
-
-                        <td class="status_container"></td>
+<div class="page-header">
+    <form>
+        <div class="row-fluid">
+            <div class="col-md-5">
+                <div class="form-inline">
+                    <label>MENU NAME</label>
+                    <%
+                      if(is_submitted == false) {
+                    %>
+                        <input class="required input-large" type="text"  name="name"  id="menu_name" value="<%= name %>" style="width:250px;">
+                    <% } else { %>
+                    <b><%= name.toUpperCase() %></b>
                     <% } %>
-                    -->
-                    
-                    <td>
-                        <span class="orange_text">MENU DATE:</span>
-                    </td>
-                    <td>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-inline">
+                    <label>MENU DATE</label>
+                    <%
+                      if(is_submitted == false) {
+                    %>
+                        <input  type="text" name="start_date" id="start_date" value="<%= start_date %>"  class="required input-medium"/>
+                    <% } else { %>
+                        <%= moment(start_date, "YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YY")  %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="pull-right">
+                    <%
+                      if(parseInt(id) && is_submitted == false) {
+                    %>
+                        <button  title="Submit" id="submit_menu_plan"  type="button" class="btn btn-default">
+                            <span  class="glyphicon glyphicon-thumbs-up"> </span>
+                        </button>
+                    <% } %>
+
+                    <%
+                      if((app.options.is_backend && status == '5') || is_submitted == false) {
+                    %>
                         <%
-                          if(is_submitted == false) {
+                        if(parseInt(id)) {
                         %>
-                            <input style="width:80px;" readonly type="text" name="start_date" id="start_date" value="<%= start_date %>"  class="required dark_input_style"/>
+                            <button  title="Save" id="save_menu_plan"  type="button" class="btn btn-success">
+                                <span  class="glyphicon glyphicon-saved"> </span>
+                            </button>
                         <% } else { %>
-                            <%= moment(new Date(Date.parse(start_date))).format("ddd, D MMM  YY")  %>
+                            <button  title="Next" id="save_menu_plan"  type="button" class="btn btn-success">
+                                <span  class="glyphicon glyphicon-circle-arrow-right"> </span>
+                            </button>
                         <% } %>
-                        
-                    </td>
-                    <td style="text-align: right;">
-                        
-                        <a style="cursor: pointer;float:right;margin-right:10px;" id="close_menu_plan" onclick="javascript:void(0)">[CLOSE]</a>
-                        
-                        <%
-                          if((app.options.is_backend && status == '5') || (parseInt(id) && is_submitted == false)) {
-                        %>
-                            <a style="cursor: pointer;float:right;margin-right:10px;" id="delete_menu_plan" onclick="javascript:void(0)">[DELETE]</a>
-                        <% } %>
-                        
-                        <%
-                          if((app.options.is_backend && status == '5') || is_submitted == false) {
-                        %>
-                        
-                            <%
-                            if(parseInt(id)) {
-                            %>
-                                <a style="cursor: pointer;float:right;margin-right:10px;" id="save_menu_plan" onclick="javascript:void(0)">[SAVE]</a>
-                            <% } else { %>
-                                <a style="cursor: pointer;float:right;margin-right:10px;" id="save_menu_plan" onclick="javascript:void(0)">[CONTINUE]</a>
-                            <% } %>
-                            
-                        <% } %>
-                            
-                            
-                        <%
-                          if(parseInt(id) && is_submitted == false) {
-                        %>
-                            <a style="cursor: pointer;float:right;margin-right:10px;" id="submit_menu_plan" onclick="javascript:void(0)">[SUBMIT]</a>
-                        <% } %>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+                    <% } %>
+
+                    <button  title="Close" id="close_menu_plan"  type="button" class="btn btn-warning">
+                        <span  class="glyphicon glyphicon-remove"> </span>
+                    </button>
+
+                    <%
+                      if((app.options.is_backend && status == '5') || (parseInt(id) && is_submitted == false)) {
+                    %>
+                        <button  title="Delete" id="delete_menu_plan"  type="button" class="btn btn-danger">
+                            <span  class="glyphicon glyphicon-trash"> </span>
+                        </button>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

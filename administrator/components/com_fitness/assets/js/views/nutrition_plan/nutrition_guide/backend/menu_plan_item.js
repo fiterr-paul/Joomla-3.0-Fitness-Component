@@ -30,7 +30,7 @@ define([
         },
 
         events: {
-            "click .preview" : "onClickPreview",
+            "click .view" : "onClickPreview",
             "click .delete" : "onClickDelete",
             "click .copy_menu_plan" : "onClickCopy",
         },
@@ -39,10 +39,12 @@ define([
             var id = this.model.get('id');
             app.controller.navigate("!/menu_plan/" + id + "/" + this.options.nutrition_plan_id, true);
         },
+        
         onClickDelete : function(event) {
+            var self = this;
             this.model.destroy({
                 success : function() {
-                    $(event.target).parent().parent().fadeOut();
+                    self.close();
                 },
                 error : function(response) {
                     alert(response.responseText);
@@ -91,6 +93,10 @@ define([
                 }
             })
          },
+         
+         close : function() {
+             $(this.el).remove();
+         }
     });
             
     return view;

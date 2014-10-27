@@ -1,30 +1,60 @@
 <div id="daily_targets_wrapper">
-    
+
 </div>
 
 <% if(menu_plan_model.status != '2' && menu_plan_model.status != '3') { %>
-<div id="edit_bar" class="example_day_edit_bar" style="border:1px solid #ccc;padding: 10px">
-    <a style="margin-left: 5px;" id="edit_all" href="javascript:void(0)" >[EDIT ALL]</a>
-    <a style="margin-left: 5px;" id="save_all" href="javascript:void(0)" >[SAVE ALL]</a>
-    <a style="margin-left: 5px;" id="delete_all" href="javascript:void(0)" >[DELETE ALL]</a>
-    
-    <a style="float:right" id="open_recipes" href="javascript:void(0)" >[OPEN RECIPES]</a>
-    
-    <a style="float:right;margin-right:20px;" id="copy_all_button" href="javascript:void(0)" >[COPY]</a>
-    
-    <select id="copy_all_to" style="margin-right:15px;float:right;">
-        <option value="">-Copy All To-</option>
-        <option value="1">MENU DAY 1</option>
-        <option value="2">MENU DAY 2</option>
-        <option value="3">MENU DAY 3</option>
-        <option value="4">MENU DAY 4</option>
-        <option value="5">MENU DAY 5</option>
-        <option value="6">MENU DAY 6</option>
-        <option value="7">MENU DAY 7</option>
-    </select>
+<div id="edit_bar" class="well">
+    <div class="row">
+        <div class="col-xs-2">
+            <button  title="Save All" id="save_all " class="btn btn-success btn-small" >
+                <span class="glyphicon glyphicon-saved"></span>
+                <span class="glyphicon glyphicon-list-alt"></span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button  title="Edit All" id="edit_all " class="btn btn-warning btn-small" >
+                <span class="glyphicon glyphicon-pencil">
+                <span class="glyphicon glyphicon-list-alt"></span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button  title="Delete All" id="delete_all " class="btn btn-danger btn-small" >
+                <span class="glyphicon glyphicon-trash">
+                <span class="glyphicon glyphicon-list-alt"></span>
+            </button>
+        </div>
+        <div class="col-xs-4">
+            <div class="form-inline">
+                <select id="copy_all_to" class="input-medium">
+                    <option value="">-Copy All To-</option>
+                    <option value="1">MENU DAY 1</option>
+                    <option value="2">MENU DAY 2</option>
+                    <option value="3">MENU DAY 3</option>
+                    <option value="4">MENU DAY 4</option>
+                    <option value="5">MENU DAY 5</option>
+                    <option value="6">MENU DAY 6</option>
+                    <option value="7">MENU DAY 7</option>
+                </select>
+                <button  title="Copy All" id="copy_all_button" class="btn btn-default btn-small" >
+                    <span class="glyphicon glyphicon-floppy-disk">
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                </button>
+            </div>
+            
+        </div>
+        <div class="col-xs-1">
+
+        </div>
+        <div class="col-xs-1">
+            <button  title="Open Recipes" id="copy_all_button " class="btn btn-default btn-small" >
+                <span class="glyphicon glyphicon-file">
+            </button>
+        </div>
+    </div>
+
 </div>
 
-<div class="clr"></div>
+
 </br>
 <% } %>
 
@@ -36,10 +66,11 @@
 <% } %>
 
 
-<div class="clr"></div>
+
 <div style="width:auto;" id="recipes_list_container"></div>
 
-<div class="clr"></div>
+<div class="row">&nbsp;</div>
+
 <div id="comments_wrapper"></div>
 
 

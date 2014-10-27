@@ -1,5 +1,5 @@
 <td width="">
-    <%= moment(new Date(Date.parse(item.start_date))).format("ddd, D MMM  YY")  %>
+    <%= moment(item.start_date,"YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YY")  %>
 </td>
 <td>
     <%= item.name %>
@@ -11,8 +11,8 @@
 <td class="status_container"></td>
 
 <td>
-    <% if(typeof item.submit_date !== "undefined"  && item.submit_date != '0000-00-00') { %>
-            <%= moment(new Date(Date.parse(item.submit_date))).format("ddd, D MMM  YY") %>
+    <% if(typeof item.submit_date !== "undefined"  && item.submit_date != '0000-00-00' && item.submit_date != null) { %>
+            <%= moment(item.submit_date,"YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YY")  %>
     <% } else { %>
             <%= '-' %>
     <% } %>
@@ -21,21 +21,15 @@
     <%= item.assessed_by_name || '-' %>
 </td>
 <td class="center">
-    <a class="preview " data-id="<%= item.id %>" onclick="javascript:void(0)" style="cursor: pointer;">
-
-    </a>    
+    <a title="View/Edit" class="view " ><span data-id="<%= item.id %>"  class="glyphicon glyphicon-file"></span></a>
 </td>
 
-
 <td class="center">
-     
-     <a title="Copy Menu Plan" style="cursor: pointer;display: inline-block" class="copy_menu_plan" onclick="javascript:void(0)"><span  data-id="<%= item.id %>"  class="copy_icon"></span></a>
-     
+    <a title="Copy" class="copy_menu_plan " ><span  data-id="<%= item.id %>"  class="glyphicon glyphicon-floppy-disk"></span></a>
+       
 </td>
 
 
 <td style="text-align: center;">
-    <a class="delete " data-id="<%= item.id %>" onclick="javascript:void(0)" style="cursor: pointer;">
-        [X]
-    </a>    
+    <a class="delete" data-id="<%= item.id %>" ><span title="Delete" class="glyphicon glyphicon-trash"></span></a>
 </td>

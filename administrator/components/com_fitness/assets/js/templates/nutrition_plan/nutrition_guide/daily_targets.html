@@ -1,16 +1,14 @@
-<div id="daily_targets_container" style="border:1px solid #ccc;padding: 10px">
+<div id="daily_targets_container" class="well">
     <b>DAILY TARGETS & TOTALS</b>
-    <hr class="orange_line">
-    <div class="clr"></div>
-    
-    <table width="100%">
-        <thead class="table_header">
+   
+    <table class="table table-bordered">
+        <thead>
             <th></th>
-            <th>CALORIES</th>
-            <th>PROTEIN(grams)</th>
-            <th>FAT(grams)</th>
-            <th>CARBS(grams)</th>
-            <th>SUGAR(grams)</th>
+            <th class="center">CALORIES</th>
+            <th class="center">PROTEIN(grams)</th>
+            <th class="center">FAT(grams)</th>
+            <th class="center">CARBS(grams)</th>
+            <th class="center">SUGAR(grams)</th>
         </thead>
         <tbody>
             <tr style="color:blue;">
@@ -49,7 +47,7 @@
                 <td class="center">
                     <%= item.carbs_amount %>
                 </td>
-                <td>
+                <td class="center">
                     <%= item.total_sugars_amount %>
                 </td>
             </tr>
@@ -57,5 +55,3 @@
     </table>
 </div>
 
-<div class="clr"></div>
-</br>

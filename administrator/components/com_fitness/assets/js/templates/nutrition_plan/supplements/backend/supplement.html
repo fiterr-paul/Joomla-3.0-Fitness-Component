@@ -1,4 +1,4 @@
-<div id="supplement_wrapper_<%= id %>" style="padding:5px; margin-top:10px;border: 1px solid #000;background-color: #f4f4f4" class="supplement_wrapper">
+<div id="supplement_wrapper_<%= id %>" style="" class="supplement_wrapper well">
     <form class="supplement_form">
         <table width="100%">
             <tr>
@@ -47,9 +47,13 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input style="float:right;"  data-id="<%= id %>"  class="delete_supplement" type="button" value="Delete" >
-                    <input style="float:right;"  data-id="<%= id %>"  class="save_supplement" type="submit" value="Save" >
-                </td>
+                    <button data-id="<%= id %>" title="Save" class="btn btn-success btn-small save_supplement" >
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+
+                    <button data-id="<%= id %>" title="Delete" class="btn btn-danger btn-small delete_supplement" >
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
             </tr>
         </table>
         <input type="hidden"  name="protocol_id"  value="<%= protocol_id %>">

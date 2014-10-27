@@ -54,7 +54,10 @@ define([
             event.preventDefault();
             var data = Backbone.Syphon.serialize(this);
             data.created_by = app.options.client_id;
-            data.nutrition_plan_id = this.options.nutrition_plan_id;
+            
+            if(!this.model.get('nutrition_plan_id')) {
+                data.nutrition_plan_id = this.options.nutrition_plan_id;
+            }
             
             if(typeof app.options.is_backend !== 'undefined' && app.options.is_backend == true) {
                 data.status = 1;
