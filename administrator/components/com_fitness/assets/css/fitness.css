@@ -974,10 +974,6 @@
     padding: 5px;
 }
 
-.recipe_database_item_wrapper{
-    margin-bottom: 10px;
-}
-
 #jform_allowed_proteins-lbl, #jform_allowed_fats-lbl, #jform_allowed_carbs-lbl, #jform_allowed_liquids-lbl, #jform_other_recommendations-lbl, #jform_trainer_comments-lbl, #jform_information-lbl{
     float: none;
 }
