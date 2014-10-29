@@ -160,6 +160,7 @@ define([
                 el : $(this.el).find("#graph_business_name_select"),
                 collection : business_name_collection,
                 first_option_title : '- Business profile-',
+                class_name : 'input-large',
                 id_name : 'graph_business_profile_id',
                 model_field : 'business_profile_id',
                 element_disabled : element_disabled
@@ -204,7 +205,7 @@ define([
                 el : $(this.el).find("#graph_trainer_select"),
                 collection : trainers_collection,
                 first_option_title : '-Select-',
-                class_name : '',
+                class_name : 'input-large',
                 id_name : 'graph_trainer_id',
                 model_field : 'trainer_id',
                 element_disabled : element_disabled
@@ -233,7 +234,7 @@ define([
                         collection : collection,
                         value_field : 'client_id',
                         first_option_title : '-Select-',
-                        class_name : '',
+                        class_name : 'input-large',
                         model_field : 'client_id',
                         id_name : 'graph_client_id',
                     }).render();

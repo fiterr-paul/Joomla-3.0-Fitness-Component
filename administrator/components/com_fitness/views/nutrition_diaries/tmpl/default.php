@@ -20,18 +20,16 @@ $business_profile_id = $helper->getBusinessProfileId($user_id);
 $business_profile_id = $business_profile_id['data'];
 ?>
 
-   
-<div id="progress_graph_container" class="fitness_wrapper" style="background:none;"></div>
-
-<div class="clr"></div>
-<div id="header_wrapper"></div>
-<div class="clr"></div>
-
-<div style="" id="submenu_container" class="page_container_width "></div>
-<div class="clr"></div>
-
-<div id="main_container" class="fitness_wrapper" style="background:none;padding:0px;margin:0px;"></div>
-
+<div class="container pull-left">
+    <div id="progress_graph_container"></div>
+    
+    <div id="header_wrapper"></div>
+    
+    <div id="submenu_container" ></div>
+    
+    <div id="main_container"></div>
+    
+</div>   
 
 
 <script type="text/javascript">

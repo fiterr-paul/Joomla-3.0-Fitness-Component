@@ -169,7 +169,7 @@ define([
                 el : $(this.el).find("#status_wrapper"),
                 collection : collection,
                 first_option_title : '-Status-',
-                class_name : 'filter_select',
+                class_name : 'input-medium',
                 id_name : 'status_select',
                 model_field : 'status'
             }).render();
@@ -189,7 +189,7 @@ define([
                 el : $(this.el).find("#state_wrapper"),
                 collection : collection,
                 first_option_title : '-Published-',
-                class_name : 'filter_select',
+                class_name : 'input-medium',
                 id_name : 'state_select',
                 model_field : 'state'
             }).render();
@@ -215,6 +215,7 @@ define([
                 el : $(this.el).find("#business_name_select_wrapper"),
                 collection : business_name_collection,
                 first_option_title : '- Business profile-',
+                class_name : 'input-large',
                 id_name : 'business_profile_select',
                 model_field : 'business_profile_id',
                 element_disabled : element_disabled
@@ -259,7 +260,7 @@ define([
                 el : $(this.el).find("#trainer_select_wrapper"),
                 collection : trainers_collection,
                 first_option_title : '-Select-',
-                class_name : '',
+                class_name : 'input-large',
                 id_name : 'trainer_select',
                 model_field : 'trainer_id',
                 element_disabled : element_disabled
@@ -288,7 +289,7 @@ define([
                         collection : collection,
                         value_field : 'client_id',
                         first_option_title : '-Select-',
-                        class_name : '',
+                        class_name : 'input-large',
                         model_field : 'client_id',
                         id_name : 'client_id',
                     }).render();

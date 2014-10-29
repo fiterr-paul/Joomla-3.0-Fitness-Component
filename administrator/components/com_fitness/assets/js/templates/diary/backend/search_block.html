@@ -1,51 +1,50 @@
-<div style="width:200px;float:left;" id="business_name_select_wrapper"></div>
-<div style="width:200px;float:left;" id="trainer_select_wrapper"></div>
-<div style="width:200px;float:left;" id="client_select_wrapper"></div>
+<div class="row-fluid">
+    <div class="col-md-3" id="business_name_select_wrapper"></div>
+    <div class="col-md-3" id="trainer_select_wrapper"></div>
+    <div class="col-md-3" id="client_select_wrapper"></div>
+</div>
 
-<div  class="clr"></div>
-<br/>
 
-<input id="client_name" size="10" type="text" placeholder="Client Name" >
-<input id="trainer_name" size="10" type="text" placeholder="Trainer Name" >
-<input id="assessed_by_name" size="10" type="text" placeholder="Assessed By" >
-<input id="final_score_from" size="18" type="text" placeholder="Final Score % (from)" >
-<input id="final_score_to" size="18" type="text" placeholder="Final Score % (to)" >
-<input id="entry_date_from" size="18" type="text" placeholder="Entry Date (from)" >
-<input id="entry_date_to" size="18" type="text" placeholder="Entry Date (to)" >
-<input id="submit_date_from" size="18" type="text" placeholder="Submit Date (from)" >
-<input id="submit_date_to" size="18" type="text" placeholder="Submit Date (to)" >
+<div  class="row">&nbsp;</div>
 
-<input id="search" type="button" value="Search">
-<input id="clear_all" type="button" value="Clear All">
+<div  class="row-fluid form-inline" role="form">
+    <input class="input-medium" id="client_name" size="10" type="text" placeholder="Client Name" >
+    <input class="input-medium" id="trainer_name" size="10" type="text" placeholder="Trainer Name" >
+    <input class="input-medium" id="assessed_by_name" size="10" type="text" placeholder="Assessed By" >
+    <input class="input-medium" id="final_score_from" size="18" type="text" placeholder="Final Score % (from)" >
+    <input class="input-medium" id="final_score_to" size="18" type="text" placeholder="Final Score % (to)" >
+    <input class="input-medium" id="entry_date_from" size="18" type="text" placeholder="Entry Date (from)" >
+    <input class="input-medium" id="entry_date_to" size="18" type="text" placeholder="Entry Date (to)" >
+    <input class="input-medium" id="submit_date_from" size="18" type="text" placeholder="Submit Date (from)" >
+    <input class="input-medium" id="submit_date_to" size="18" type="text" placeholder="Submit Date (to)" >
+    
+    <div class="btn-group">
+        <button id="search" type="button" class="btn" title="Search"><i class="icon-search"></i></button>
+        <button id="clear_all" type="button" class="btn" title="Clear All"><i class="icon-remove"></i></button>
+    </div>
+    
+    <div style="display:inline-block;" id="status_wrapper"></div>
+    
+    <div style="display:inline-block;"  id="state_wrapper"></div>
+</div>
 
-<div  class="clr"></div>
 
-<table style="float:right;">
-    <tr>
-        <td>
-            <div id="status_wrapper"></div>
-        </td>
-        <td>
-            <div id="state_wrapper"></div>
-        </td>
-        <td>
-            <div id="toolbar" class="toolbar-list right">
-                <a title="Publish" id="publish_selected" class="toolbar" onclick="javascript:void(0)">
-                    <span  class="icon-32-publish"> </span>
-                </a>
+<div  class="row-fluid form-inline" role="form">
+    <div class="pull-right">
+        <button  title="Publish" id="publish_selected"  type="button" class="btn btn-info">
+            <span  class="glyphicon glyphicon-ok-circle"> </span>
+        </button>
 
-                <a title="Unpublish" id="unpublish_selected" class="toolbar" onclick="javascript:void(0)">
-                    <span  class="icon-32-unpublish"> </span>
-                </a>
+        <button  title="Unpublish" id="unpublish_selected"  type="button" class="btn btn-warning">
+            <span  class="glyphicon glyphicon-remove-circle"> </span>
+        </button>
 
-                <a title="Trash/Delete" id="trash_delete_selected" class="toolbar" onclick="javascript:void(0)">
-                    <span  class="icon-32-trash"> </span>
-                </a>
-            </div>
-        </td>
-    </tr>
-</table>
-
+        <button  title="Trash/Delete" id="trash_delete_selected"  type="button" class="btn btn-danger">
+            <span  class="glyphicon glyphicon-trash"> </span>
+        </button>
+    </div>
+    
+</div>
 
 
 

@@ -1,17 +1,18 @@
-<div id="toolbar" class="toolbar-list fitness_block_wrapper" style="height:55px;border:none;">
+ <div class="row-fluid">
+     <div class="col-md-12">
+         <div class=" pull-right">
+            <button  data-id="<%= id %>" title="Close" id="close"  type="button" class="btn btn-warning">
+                <span  class="glyphicon glyphicon-remove"> </span>
+            </button>
 
-    <a style="cursor: pointer;margin-right:10px; float:right;" data-id="<%= id %>" id="close"  class="toolbar" onclick="javascript:void(0)">
-        <span class="icon-32-cancel"> </span>
-        Close
-    </a>
-
-
-    <a style="cursor: pointer;margin-right:10px; float:right;" data-id="<%= id %>" id="trash"  class="toolbar" onclick="javascript:void(0)">
-        <span class="icon-32-trash"> </span>
-        Trash
-    </a>
-
-    <div class="clr"></div>
+            <button   data-id="<%= id %>" title="Trash" id="trash"  type="button" class="btn btn-danger">
+                <span  class="glyphicon glyphicon-trash"> </span>
+            </button>
+        </div>
+     </div>
 </div>
+
+<div class="row">&nbsp;</div>
+
 
 

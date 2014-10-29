@@ -74,9 +74,9 @@
                 <td style="vertical-align: top;" rowspan="2">
                     <%
                     if(!item.image || item.image == 'images/Recipe_Images/'){
-                        image = $.fitness_helper.get('default_recipe_image');
+                        item.image = $.fitness_helper.get('default_recipe_image');
                     }
-                    image = $.fitness_helper.get('base_url') + image;
+                    image = $.fitness_helper.get('base_url') + item.image;
                     %>
                     <div class="recipe_database_image" style="display: inline-block;background-image: url('<%= image %>')"></div>
 
