@@ -10,9 +10,13 @@
 defined('_JEXEC') or die;
 include JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'dashboard' . DS .'tmpl' . DS . 'main_menu.php'; 
 ?>
+
+
 <div id="header_wrapper"></div>
-<div class="clr"></div>
+
 <div id="main_container"></div>
+
+
 
 <?php
 

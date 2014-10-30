@@ -1,8 +1,8 @@
 <tr data-id="<%= id %>" class="item_row">
     <td >
         <a title="View Details" style="cursor: pointer;" data-id="<%= id %>"  class="view " onclick="javascript:void(0)">
-            <div data-id="<%= id %>" style="float:left; width:120px;"><%= moment(new Date(Date.parse(starttime))).format("ddd, D MMM  YYYY") %></div>
-            <div data-id="<%= id %>" style="float:left;width:20px;"><%= moment(new Date(Date.parse(starttime))).format("HH:mm")  %></div>
+            <div data-id="<%= id %>" style="float:left; width:120px;"><%= moment(starttime, "YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YYYY") %></div>
+            <div data-id="<%= id %>" style="float:left;width:20px;"><%= moment(starttime, "YYYY-MM-DD HH:mm:ss").format("HH:mm")  %></div>
         </a>
         
     </td>
@@ -20,12 +20,12 @@
         <%
         if(group_clients_data) {
             _.each(group_clients_data, function(item){ 
-                var icon_class = 'unpublish';
+                var icon_class_active = 'glyphicon glyphicon-ban-circle';
                 if(parseInt(item.sent)) {
-                    icon_class = 'publish';
+                    icon_class_active = 'glyphicon glyphicon-ok-sign text-success';
                 }
                 %>
-                <span class="jgrid"><span class="state <%= icon_class %> " ></span></span> <br/>
+                <span class="<%= icon_class_active %>"></span><br/>
                 
             <% })
         } %>
@@ -35,12 +35,12 @@
         <%
         if(group_clients_data) {
             _.each(group_clients_data, function(item){ 
-                var icon_class_confirmed = 'unpublish';
+                var icon_class_active = 'glyphicon glyphicon-ban-circle';
                 if(parseInt(item.confirmed)) {
-                    icon_class_confirmed= 'publish';
+                    icon_class_active = 'glyphicon glyphicon-ok-sign text-success';
                 }
                 %>
-                <span class="jgrid"><span class="state <%= icon_class_confirmed %> " ></span></span> <br/>
+                <span class="<%= icon_class_active %>"></span><br/>
                 
             <% })
         } 
@@ -87,52 +87,55 @@
     
     <td>
         <% if(published == '1' || published == '0') { %>
-            <a title="View/Edit" style="cursor: pointer;" class="view " onclick="javascript:void(0)"><span  data-id="<%= id %>"  class="preview"></span></a>
-        <% } else { %>
-            <a title="Restore" style="cursor: pointer;" class="restore " onclick="javascript:void(0)"><span  data-id="<%= id %>"  class="restore_icon"></span></a>
-        <% } %>
+            <a title="View/Edit"  class="view " ><span  data-id="<%= id %>"  class="glyphicon glyphicon-file"></span></a>
+        <% } else {
+            %>
+            <a title="Restore"  class="restore "><span  data-id="<%= id %>"  class="restore_icon"></span></a>
+            <%
+        } %>
     </td>
     
     <td>
-         <a title="Copy" style="cursor: pointer;" class="copy_item" onclick="javascript:void(0)"><span  data-id="<%= id %>"  class="copy_icon"></span></a>
+        <a title="Copy" class="copy_item " ><span  data-id="<%= id %>"  class="glyphicon glyphicon-floppy-disk"></span></a>
     </td>
     
     <td class="center"> 
+        
         <% if(published == '1' || published == '0') { %>
-            <a class="trash" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Trash" data-id="<%= id %>" class="trash_icon"></span></a>
+            <a class="trash" ><span title="Trash" data-id="<%= id %>" class="glyphicon glyphicon-trash"></span></a>
         <% } else { %>
-            <a class="delete" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Delete" data-id="<%= id %>" class="delete_icon"></span></a>
+            <a class="delete" ><span title="Delete" data-id="<%= id %>" class="glyphicon glyphicon-trash"></span></a>
         <% } %>
     </td>
     
     <td class="center">
-        <a data-id="<%= id %>" class="appointment_email" href="javascript:void(0)" title="Send Appointment Email"></a>
+        <a data-id="<%= id %>" class="appointment_email "  title="Send Appointment Email">
+            <span class="glyphicon glyphicon-envelope"></span>
+        </a>
     </td>
    
     <td class="center">
         <%
-        var icon_class = 'unpublish';
         var publish_workout_title = 'Publish Workout';
+        var icon_class_publish_workout = 'glyphicon glyphicon-ban-circle';
         if(parseInt(frontend_published) == '1') {
-            icon_class = 'publish';
+            icon_class_publish_workout = 'glyphicon glyphicon-ok-sign text-success';
             publish_workout_title = 'Unpublish Workout';
         }
         %>
-        <span title="<%= publish_workout_title %>"   class="jgrid"><span style="cursor:pointer;"  data-id="<%= id %>"  data-frontend_published="<%= frontend_published %>"  class="publish_workout state <%= icon_class %> " ></span></span> <br/>
-
+        <span title="<%= publish_workout_title %>" data-id="<%= id %>"  data-frontend_published="<%= frontend_published %>"  class="publish_workout <%= icon_class_publish_workout %> " ></span>
     </td>
     
     <td class="center">
         <%
-        var icon_class = 'unpublish';
-        var publish_title = 'Publish Event'; 
+        var publish_title = 'Publish Event';
+        var icon_class_publish = 'glyphicon glyphicon-ban-circle';
         if(parseInt(published) == '1') {
-            icon_class = 'publish';
-            publish_title = 'Unpublish Event'; 
+            icon_class_publish = 'glyphicon glyphicon-ok-sign text-success';
+            publish_title = 'Unpublish Event';
         }
         %>
-        <span title="<%= publish_title %>" class="jgrid"><span style="cursor:pointer;" data-id="<%= id %>" data-published="<%= published %>" class="publish_event state <%= icon_class %> " ></span></span> <br/>
-
+        <span title="<%= publish_title %>" data-id="<%= id %>"  data-published="<%= published %>"  class="publish_event <%= icon_class_publish %> " ></span>
     </td>
     
 

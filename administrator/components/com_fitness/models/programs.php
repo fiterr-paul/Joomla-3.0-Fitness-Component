@@ -26,7 +26,6 @@ class FitnessModelprograms extends JModelList {
      * @since    1.6
      */
     public function __construct($config = array()) {
-
         parent::__construct($config);
     }
 

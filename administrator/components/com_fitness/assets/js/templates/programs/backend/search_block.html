@@ -1,62 +1,60 @@
-<div style="display: inline-block; float: right;"  class="right">
-    <div id="toolbar" class="toolbar-list right">
+<div class="row-fluid">
+    <div class=" pull-right">
         <% if(app.options.pr_temp_id) { %>
-            <a title="Add Program To Multiple Appointments" id="add_pr_tepm_multiple" class="toolbar" onclick="javascript:void(0)">
-                <span  class="search_program_icon_32"> </span>
-            </a>
-            <a id="go_back" tilte="Go Back" class="toolbar" onclick="javascript:void(0)">
-                <span  class="icon-32-back"> </span>
-            </a>
+            <button  title="Add Program To Multiple Appointments" id="add_pr_tepm_multiple"  type="button" class="btn btn-default">
+                <span  class="glyphicon glyphicon-plus"> </span>
+                <span  class="glyphicon glyphicon-th"> </span>
+            </button>
+   
+            <button  title="Go Back" id="go_back"  type="button" class="btn btn-default">
+                <span  class="glyphicon glyphicon-arrow-left"> </span>
+            </button>
+
         <% } %>
         
-        <a title="Add New" id="add_item" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-new"> </span>
-        </a>
+        <button  title="Add New" id="add_item"  type="button" class="btn btn-success">
+            <span  class="glyphicon glyphicon-plus"> </span>
+        </button>
         
-        <a  title="Copy Selected" id="copy_selected"  class="toolbar" onclick="javascript:void(0)">
-            <span class="icon-32-save-new"> </span>
-        </a>
+        <button  title="Copy Selected" id="copy_selected"  type="button" class="btn btn-default">
+            <span  class="glyphicon glyphicon-floppy-disk"> </span>
+        </button>
         
-        <a title="Publish Workout" id="publish_workout_selected" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-publish"> </span>
-        </a>
+        <button  title="Publish Workout" id="publish_workout_selected"  type="button" class="btn btn-info">
+            <span  class="glyphicon glyphicon-ok-circle"> </span>
+        </button>
         
-        <a title="Unpublish Workout" id="unpublish_workout_selected" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-unpublish"> </span>
-        </a>
+        <button  title="Unpublish Workout" id="unpublish_workout_selected"  type="button" class="btn btn-warning">
+            <span  class="glyphicon glyphicon-remove-circle"> </span>
+        </button>
         
-        <a title="Trash/Delete" id="trash_delete_selected" class="toolbar" onclick="javascript:void(0)">
-            <span  class="icon-32-trash"> </span>
-        </a>
+        <button  title="Trash/Delete" id="trash_delete_selected"  type="button" class="btn btn-danger">
+            <span  class="glyphicon glyphicon-trash"> </span>
+        </button>
     </div>
 </div>
 
+<div class="row">&nbsp;</div>
 
-<div class="clr"></div>
-
-<div style="width:100%">
-    <label>Date From:</label>
-    <input id="date_from" size="10" type="text" >
+<div  class="row-fluid form-inline" role="form">
+    <input placeholder="Date From" id="date_from" size="10" type="text" class="input-medium" >
     
+    <input placeholder="Date To" id="date_to" size="10" type="text" class="input-medium" >
     
-    <label>Date To:</label>
-    <input id="date_to" size="10" type="text" >
+    <input placeholder="Trainer Name" id="trainer_name" size="10" type="text" class="input-medium" >
     
-    <label>Client Name:</label>
-    <input id="client_name" size="20" type="text" >
+    <input placeholder="Author Name" id="created_by_name" size="10" type="text" class="input-medium" >
     
-    <label>Trainer Name:</label>
-    <input id="trainer_name" size="20" type="text" >
+    <input placeholder="Author Name" id="created_by_name" size="10" type="text" class="input-medium" >
     
-    <label>Author Name:</label>
-    <input id="created_by_name" size="20" type="text" >
+    <div class="btn-group">
+        <button id="search" type="button" class="btn" title="Search"><i class="icon-search"></i></button>
+        <button id="clear_all" type="button" class="btn" title="Clear All"><i class="icon-remove"></i></button>
+    </div>
     
-    <input id="search" type="button" value="Search">
-    <input id="clear_all" type="button" value="Clear All">
+    <div style="display: inline-block;" id="business_profile_filter"></div>
     
-    <div style="width:200px;display: inline-block;" id="business_profile_filter"></div>
-    
-    <select id="workout_filter" class="inputbox" size="1" name="workout">
+    <select id="workout_filter" class="input-medium" size="1" name="workout">
         <%
         var selected_published = '';
         var selected_unpublished = '';
@@ -80,7 +78,7 @@
         <option <%= selected_all %>   value="2">All Workouts</option>
     </select>
     
-    <select id="state_filter" class="inputbox" size="1" name="state">
+    <select id="state_filter" class="input-medium" size="1" name="state">
         <%
         var selected_published = '';
         var selected_unpublished = '';
@@ -109,7 +107,6 @@
         <option <%= selected_trashed %>   value="-2">Trashed Events</option>
         <option <%= selected_all %>   value="*">All Events</option>
     </select>
-    
 </div>
-    
-    
+
+<div class="row">&nbsp;</div>

@@ -82,8 +82,8 @@ define([
                 model : this.model,
                 el : $("#business_profile_filter"),
                 collection : app.collections.business_profiles,
-                first_option_title : '-Global Business Permission-',
-                class_name : 'filter_select',
+                first_option_title : '-Business Profile-',
+                class_name : 'input-medium',
                 id_name : 'business_profile_select',
                 model_field : 'business_profile_id'
             }).render();
