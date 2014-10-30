@@ -7,12 +7,14 @@
 </td>
 
 <td style="width:220px;">
-    <% if(item.edit_mode) { %>
-    <input data-id="<%= item.id %>" data-ingredient_id="<%= item.ingredient_id %>"   size="5" type="text"  class="ingredient_quantity_input number_input input-mini"  value="<%= item.quantity %>">
-    <% } else { %>
-        <%= item.quantity %>
-    <% } %>
-    <span class="grams_mil"><%= item.measurement %></span>
+    <div class="input-group">
+        <% if(item.edit_mode) { %>
+        <input data-id="<%= item.id %>" data-ingredient_id="<%= item.ingredient_id %>"   size="5" type="text"  class="ingredient_quantity_input number_input input-mini"  value="<%= item.quantity %>">
+        <% } else { %>
+            <%= item.quantity %>
+        <% } %>
+        <span><%= item.measurement %></span>
+    </div>
 </td>
 
 <td>

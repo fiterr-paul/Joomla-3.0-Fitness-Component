@@ -7,46 +7,62 @@
             <div style="width:50px;height:50px;background-size: 50px 50px;" class="description_image"></div>
             <% } %>
         </td>
-        <td width="300" class="description_select" style="text-transform:uppercase;font-weight:bold;">
+        <td width="250" class="description_select" style="text-transform:uppercase;font-weight:bold;">
 
         </td>
-        <%  if(diary_model.edit_allowed) { %>
+        <%  //if(diary_model.edit_allowed) { %>
             <td>
-                <% if(item.edit_mode) { %>
-                <a onclick="javascript:void(0)" class="cancel_diary_meal" style="cursor: pointer;float:right;margin-right:10px;"> [DELETE]</a>
-                    <% if(parseInt(item.description)) { %>
-                        <a onclick="javascript:void(0)" class="copy_diary_meal" style="cursor: pointer;float:right;margin-right:10px;">[COPY]</a>
+                <div class="pull-right">
+                    <% if(item.edit_mode) { %>
+                        <button title="Save & Enter" class="btn btn-success btn-small save_diary_meal">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        <% if(parseInt(item.description)) { %>
+                            <button title="Copy" class="btn btn-default btn-small  copy_diary_meal">
+                                <span class="glyphicon glyphicon-floppy-disk"></span>
+                            </button>
+                        <% } %>
+                        <button title="Delete" class="btn btn-danger btn-small  delete_diary_meal">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    <% } else { %>
+                        <button title="Edit" class="btn btn-info btn-small  edit_diary_meal">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                        
+                        <% if(parseInt(item.description)) { %>
+                            <button title="Copy" class="btn btn-default btn-small  copy_diary_meal">
+                                <span class="glyphicon glyphicon-floppy-disk"></span>
+                            </button>
+                        <% } %>
+                        
+                        <button title="Delete" class="btn btn-danger btn-small  delete_diary_meal">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
                     <% } %>
-                <a onclick="javascript:void(0)" class="save_diary_meal" style="cursor: pointer;float:right;margin-right:10px;">[SAVE & ENTER]</a>
-                <% } else { %>
-                <a onclick="javascript:void(0)" class="delete_diary_meal" style="cursor: pointer;float:right;margin-right:10px;">[DELETE]</a>
-                <% if(parseInt(item.description)) { %>
-                    <a onclick="javascript:void(0)" class="copy_diary_meal" style="cursor: pointer;float:right;margin-right:10px;">[COPY]</a>
-                <% } %>
-                <a onclick="javascript:void(0)" class="edit_diary_meal" style="cursor: pointer;float:right;margin-right:10px;">[EDIT]</a>
-                <% } %>
+                </div>
             </td>
-        <% } %>
+        <% //} %>
     </tr>
 </table>
 
 <br/>
 <div class="ingredients_wrapper">
-    <table class="meal_table" width="100%">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th class="ingredient_title">MEAL ITEMS</th>
+                <th>MEAL ITEMS</th>
                 <th>QUANTITY</th>
-                <th class="ingredient_cell">PRO</th>
-                <th class="ingredient_cell">FAT</th>
-                <th class="ingredient_cell">CARB</th>
-                <th class="ingredient_cell">CALS</th>
-                <th class="ingredient_cell">ENRG (kJ)</th>
-                <th class="ingredient_cell">FAT, SAT</th>
-                <th class="ingredient_cell">SUG</th>
-                <th class="ingredient_cell">SOD (mg)</th>
+                <th>PRO</th>
+                <th>FAT</th>
+                <th>CARB</th>
+                <th>CALS</th>
+                <th>ENRG (kJ)</th>
+                <th>FAT, SAT</th>
+                <th>SUG</th>
+                <th>SOD (mg)</th>
 
-                <th class="ingredient_cell_delete"></th>
+                <th></th>
 
             </tr>
         </thead>
@@ -57,9 +73,13 @@
             <tr>
                 <td>
                     <% if(item.edit_mode) { %>
-                        <a onclick="javascript:void(0)" class="add_meal_ingredient" style="cursor: pointer;">[ADD ITEM]</a>
-                        
-                        <a onclick="javascript:void(0)" class="save_as_recipe" style="cursor: pointer;margin-left:10px;">[SAVE AS RECIPE]</a>
+                        <button title="Add Item" class="btn btn-success btn-small add_meal_ingredient">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    
+                        <button  class="btn btn-default btn-small save_as_recipe">
+                            Save as Recipe
+                        </button>
                     <% } %>
                 </td>
                 <td class="table_border_top table_border_bottom">
@@ -102,8 +122,13 @@
         <div class="clr"></div>
         <br/>
         <b>TRAINER COMMENTS</b>
-        <a onclick="javascript:void(0)" class="save_comment" style="cursor: pointer;float:right;margin-right:10px;">[SAVE]</a>
-        <textarea  style="width:99%;" rows="4" class="trainer_comments"><%= item.trainer_comments %></textarea>
+        <div class="pull-right">
+            <button title="Save Comment" class="btn btn-success btn-small save_comment">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+        </div>
+        
+        <textarea  style="width:100%;" rows="4" class="trainer_comments"><%= item.trainer_comments %></textarea>
     <% } else if(!app.options.is_backend && !diary_model.edit_allowed) {%>
         <div class="clr"></div>
         <br/>
@@ -116,3 +141,5 @@
     <br/>
 <% } %>
 <div class="save_as_recipe_container"></div>
+
+<hr>

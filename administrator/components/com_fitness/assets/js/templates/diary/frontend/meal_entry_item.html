@@ -6,7 +6,7 @@
 <div class="row">&nbsp;</div>
 <div class="well">
 <% } %>
-    <div style="background-color:#1a1a1a;color:#fff;width:99%;padding:2px;cursor:default;margin-top:10px;"  id="meal_entry_time_<%= unix_meal_time %>" >
+    <div id="meal_entry_time_<%= unix_meal_time %>" >
         <table width="100%">
             <tr>
                 <td></td>
@@ -70,20 +70,20 @@
                 <%  if(diary_model.edit_allowed) { %>
 
                     <% if(item.id) { %>
-                        <a title="Save" class="save_meal_entry">
+                        <button title="Save" class="btn btn-success btn-small save_meal_entry">
                             <span class="glyphicon glyphicon-ok"></span>
-                        </a>
-                        <a title="Copy" class="copy_meal_entry">
+                        </button>
+                        <button title="Copy" class="btn btn-default btn-small  copy_meal_entry">
                             <span class="glyphicon glyphicon-floppy-disk"></span>
-                        </a>
+                        </button>
                         <% } else { %>
-                        <a title="Continue" class="save_meal_entry">
+                        <button title="Continue" class="btn btn-success btn-small save_meal_entry">
                             <span class="glyphicon glyphicon-circle-arrow-right"></span>
-                        </a>
+                        </button>
                     <% } %>
-                    <a title="Delete" class="delete_meal_entry">
+                    <button title="Delete" class="btn btn-danger btn-small  delete_meal_entry">
                         <span class="glyphicon glyphicon-trash"></span>
-                    </a>
+                    </button>
                 <% } %>
             </div>
         </div>

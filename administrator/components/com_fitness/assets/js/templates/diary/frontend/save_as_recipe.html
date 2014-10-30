@@ -1,46 +1,36 @@
-<div style="margin: 5px;padding:5px;border: 1px solid #FFFFFF !important;">
-    <table style="width:100%;">
-        <tr>
-            <td style="vertical-align: top;">
-                <table style="width:100%;">
-                    <tr>
-                        <td>
-                            RECIPE NAME
-                        </td>
-                        <td>
-                            <input maxlength="100" style="width:250px;" type="text" class="recipe_name dark_input_style"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            # OF SERVES
-                        </td>
-                        <td>
-                            <input maxlength="3" style="width:20px;" type="text" class="number_serves dark_input_style"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            &nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <a style="cursor: pointer;margin-right:20px;" class="save_as_recipe_save" onclick="javascript:void(0)">[SAVE]</a>
-                            <a style="cursor: pointer;" class="save_as_recipe_cancel" onclick="javascript:void(0)">[CANCEL]</a>
-                        </td>
-                    </tr>
-                </table>
-            </td>
+<div class="row-fluid">
+    <div class="col-md-4">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-4">Recipe Name</label>
+                <div class="col-xs-8">
+                    <input maxlength="100" type="text" class="recipe_name input-medium"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-xs-4"># Of Serves</label>
+                <div class="col-xs-8">
+                    <input maxlength="3" type="text" class="number_serves input-mini"/>
+                </div>
+            </div>
+            
+            <button title="Save" class="btn btn-success btn-small save_as_recipe_save">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
 
-            <td>
-                <div style="width:200px;" class="recipe_type_wrapper"></div>
-            </td>
+            <button title="Cancel" class="btn btn-danger btn-small  save_as_recipe_cancel">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
 
-            <td>
-                <div style="width:200px;" class="recipe_variations_wrapper"></div>
-            </td>
-        </tr>
-    </table>
- 
+    </div>
+    
+    <div class="col-md-4">
+        <div style="width:200px;" class="recipe_type_wrapper"></div>
+    </div>
+    
+    <div class="col-md-4">
+        <div style="width:200px;" class="recipe_variations_wrapper"></div>
+    </div>
 </div>

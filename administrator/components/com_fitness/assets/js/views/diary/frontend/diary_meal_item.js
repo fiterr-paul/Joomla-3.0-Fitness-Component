@@ -197,7 +197,7 @@ define([
                         el : this.$el.find(".description_select"),
                         collection : collection,
                         first_option_title : '-Select-',
-                        class_name : 'diary_item_description dark_input_style',
+                        class_name : 'diary_item_description input-medium',
                         id_name : 'description',
                         model_field : 'description',
                         element_disabled :  ""

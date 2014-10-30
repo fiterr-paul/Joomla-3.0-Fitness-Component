@@ -269,7 +269,7 @@ define([
         },
         
         setTooltipHtml : function(html, model) {
-            html +=  "Entry Date: " +  moment(new Date(Date.parse(model.get('entry_date')))).format("ddd, D MMM  YYYY") + "</br>";
+            html +=  "Entry Date: " +  moment(model.get('entry_date'), "YYYY-MM-DD HH:mm:ss").format("ddd, D MMM  YYYY") + "</br>";
             html +=  "Final Score: " +  model.get('score') + '%';
             return html;
         },

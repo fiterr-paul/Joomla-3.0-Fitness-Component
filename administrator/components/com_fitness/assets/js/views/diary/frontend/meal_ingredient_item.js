@@ -6,7 +6,8 @@ define([
         'collections/diary/nutrition_database_ingredients',
         'collections/diary/meal_ingredients',
         'views/diary/frontend/ingredients_search_results',
-	'text!templates/diary/frontend/meal_ingredient_item.html'
+        'text!templates/ingredients/ingredient_item.html'
+	//'text!templates/diary/frontend/meal_ingredient_item.html'
 ], function (
         $,
         _,
