@@ -3,20 +3,29 @@
         <td width="200" class="event_client_select"></td>
         <td width="120" class="center event_client_status" id="status_button_place_<%= id %>" data-appointment_id="<%= appointment_id %>"></td>
         <td width="30" class="event_client_delete">
-            <a class="delete delete_event_client" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Delete" data-id="<%= id %>" class="delete_icon"></span></a>
+            <button data-id="<%= id %>"  title="Delete" class="btn btn-danger btn-small delete_event_client">
+                <span  class="glyphicon glyphicon-trash"></span>
+            </button>
         </td>
         <td width="30" >
-            <a class="send_workout_email" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Send  Details to Trainers" data-id="<%= event_id %>" class="email_button"></span></a>
+            
+            <button data-id="<%= event_id %>" title="Send  Details to Trainers" class="btn btn-default btn-small send_workout_email">
+                <span  class="glyphicon glyphicon-envelope"></span>
+                <span  class="glyphicon glyphicon-globe"></span>
+            </button>
         </td>
         
         <td width="30" >
-            <a  data-id="<%= event_id %>" style="float:right; margin-left: 10px;" title="Save Workout Details in PDF" href="javascript:void(0)" class="pdf_button pdf_button_20"></a>
+            <button data-id="<%= event_id %>"  title="Save Workout Details in PDF" class="btn btn-default btn-small pdf_button">
+                <span  class="glyphicon glyphicon-print"></span>
+            </button>
         </td>
         
         <td width="30" >
-            <a class="send_to_client" style="cursor: pointer;" onclick="javascript:void(0)"><span title="Send Details to Client" data-client_id="<%= client_id %>" data-id="<%= event_id %>" class="email_button"></span></a>
+            <button data-client_id="<%= client_id %>" data-id="<%= event_id %>"  title="Send Details to Client" class="btn btn-default btn-small send_to_client">
+                <span  class="glyphicon glyphicon-envelope"></span>
+                <span  class="glyphicon glyphicon-user"></span>
+            </button>
         </td>
-
-        
     </tr>
 </table>

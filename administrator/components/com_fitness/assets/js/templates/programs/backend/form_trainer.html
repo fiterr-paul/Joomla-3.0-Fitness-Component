@@ -1,32 +1,23 @@
-<table width="400">
-    <tr>
-        <td width="100">
-            <label>Business Name</label>
-        </td>
-        <td id="business_name_select">
-            
-        </td>
-    </tr>
+<div class="form-horizontal">
+    <div class="form-group">
+        <label  class="col-xs-4">Business Name</label>
+        <div class="col-xs-8" id="business_name_select">
+        </div>
+    </div>
     
     <% if(id) { %>
-    <tr>
-        <td>
-            <label>Author</label> 
-        </td>
-        <td>
-            <%= created_by_name %>
-        </td>
-    </tr>
+        <div class="form-group">
+            <label  class="col-xs-4">Author</label>
+            <div class="col-xs-8">
+                <%= created_by_name %>
+            </div>
+        </div>
     <% } %>
     
-    <tr>
-        <td>
-            <label>Trainer Name</label> 
-        </td>
-        <td id="trainer_select">
-            
-        </td>
-    </tr>
-    
-</table>
+    <div class="form-group">
+        <label  class="col-xs-4">Trainer Name</label>
+        <div class="col-xs-8" id="trainer_select">
+        </div>
+    </div>
+</div>
 

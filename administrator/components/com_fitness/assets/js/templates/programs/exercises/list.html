@@ -1,66 +1,75 @@
-<div class="internal_wrapper">
-    
-    <table width="100%">
-        <tr>
-            <td>
-                <h5 class="orange_text"><%= title %></h5>
-            </td>
-            <td>
-                <a id="show_hide_comments"  style="cursor:pointer;float:right;margin-left: 10px;" href="javascript:void(0)">[SHOW COMMENTS]</a>  
-                <% if(choose_template) {%>
-                <a id="choose_template"  style="cursor:pointer;float:right;margin-left: 10px;" href="javascript:void(0)">[CHOOSE TEMPLATE]</a>  
-                <% } %>
-                
-                <% if(search_videos) {%>
-                <a id="search_videos"  style="cursor:pointer;float:right;margin-left: 10px;" href="javascript:void(0)">[SEARCH VIDEOS]</a>  
-                <% } %>
-                
-                <% if(!readonly) {%>
-                <a id="add_exercise"  style="cursor:pointer;float:right;margin-left: 10px;" href="javascript:void(0)">[ADD EXERCISE]</a>  
-                <% } %>
-            </td>
-        </tr>
-    </table>
-
-    <hr class="orange_line">
-
-    <div id="exercise_table_wrapper">
-        <table id="exercise_table" width="100%">
-            <thead class="table_header">
-                <tr>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row-fluid">
+            <div class="col-md-6">
+                <%= title %>
+            </div>
+            <div class="col-md-6">
+                <div class="pull-right">
                     <% if(!readonly) {%>
-                    <th width="25">
-
-                    </th>
+                        <button id="add_exercise"  class="btn btn-success btn-small">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
                     <% } %>
-                    <th width="50">VIDEO</th>
-                    <th class="center">SEQUENCE</th>
-                    <th>EXERCISE NAME</th>
-                    <th class="center">SPEED</th>
-                    <th class="center">WEIGHT</th>
-                    <th class="center">REPS</th>
-                    <th class="center">TIME</th>
-                    <th class="center">SETS</th>
-                    <th class="center">REST</th>
-                    <th class="comments">COMMENTS</th>
-                    <% if(!readonly) {%>
-                    <th width="25" class="center">
-                        <a id="copy_selected" title="Copy Selected" style="cursor: pointer;" onclick="javascript:void(0)"><span class="copy_icon"></span></a>
-                    </th>
-                    <th width="25" class="center">
-                        <a id="delete_selected" title="Delete Selected" style="cursor: pointer;" onclick="javascript:void(0)"><span  class="delete_icon"></span></a>
-                    </th>
-                    <th width="25" class="center">
-                        <input id="select_all" type="checkbox"/>
-                    </th>
+                     
+                    <button id="show_hide_comments"  class="btn btn-default btn-small">
+                        Show Comments
+                    </button>
+                     
+                    <% if(choose_template) {%>
+                        <button id="choose_template"  class="btn btn-default btn-small">
+                            Choose template
+                        </button>
                     <% } %>
-                </tr>
-            </thead>
-            <tbody id="items_container" class="table-list">
 
-            </tbody>
-        </table>
+                    <% if(search_videos) {%>
+                        <button id="search_videos" title="Search Videos"  class="btn btn-default btn-small">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="panel-body">
+        <div id="exercise_table_wrapper">
+            <table id="exercise_table"  class="table table-bordered" >
+                <thead class="active">
+                    <tr>
+                        <% if(!readonly) {%>
+                        <th width="25">
+
+                        </th>
+                        <% } %>
+                        <th width="50">VIDEO</th>
+                        <th class="center">SEQUENCE</th>
+                        <th>EXERCISE NAME</th>
+                        <th class="center">SPEED</th>
+                        <th class="center">WEIGHT</th>
+                        <th class="center">REPS</th>
+                        <th class="center">TIME</th>
+                        <th class="center">SETS</th>
+                        <th class="center">REST</th>
+                        <th class="comments">COMMENTS</th>
+                        <% if(!readonly) {%>
+                        <th width="25" class="center">
+                            <a title="Copy Selected" id="copy_selected"><span  class="glyphicon glyphicon-floppy-disk"></span></a>
+                        </th>
+                        <th width="25" class="center">
+                            <a id="delete_selected" ><span title="Delete Selected"class="glyphicon glyphicon-trash"></span></a>
+                        </th>
+                        <th width="25" class="center">
+                            <input id="select_all" type="checkbox"/>
+                        </th>
+                        <% } %>
+                    </tr>
+                </thead>
+                <tbody id="items_container" class="table-list">
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
-

@@ -93,8 +93,8 @@ define([
                 model : this.model,
                 el : $("#business_name_select"),
                 collection : business_name_collection,
-                first_option_title : '-Global Business Permission-',
-                class_name : '',
+                first_option_title : '-Business Profile-',
+                class_name : 'medium-input',
                 id_name : 'business_profile_select',
                 model_field : 'business_profile_id',
                 element_disabled : element_disabled

@@ -168,6 +168,7 @@ define([
         
         onClickCopy : function(event) {
             var id = $(event.target).attr('data-id');
+
             this.copyExercise(id);
         },
         
@@ -293,10 +294,10 @@ define([
 
             if(parseInt(exercise_comment_show)) {
                 this.$el.find(".comments").show();
-                this.$el.find("#show_hide_comments").html('[HIDE COMMENTS]');
+                this.$el.find("#show_hide_comments").html('Hide Comments');
             } else {
                 this.$el.find(".comments").hide();
-                this.$el.find("#show_hide_comments").html('[SHOW COMMENTS]');
+                this.$el.find("#show_hide_comments").html('Show Comments');
             }
        },
        
